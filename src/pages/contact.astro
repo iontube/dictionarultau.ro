@@ -1,0 +1,62 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CookieBanner from '../components/CookieBanner.astro';
+---
+
+<Layout
+  title="Contact"
+  description="Contacteaza echipa DictionarulTau.ro pentru intrebari, sugestii sau colaborari."
+>
+  <Header />
+
+  <main class="container">
+    <article class="legal-page">
+      <h1>Contact</h1>
+      <p>Ai intrebari, sugestii sau doresti sa colaborezi cu noi? Ne poti contacta folosind informatiile de mai jos.</p>
+
+      <div class="contact-info" style="margin-top: var(--space-xl);">
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+          </div>
+          <div>
+            <h3>Email</h3>
+            <p><a href="mailto:contact@dictionarultau.ro">contact@dictionarultau.ro</a></p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+          </div>
+          <div>
+            <h3>Program raspuns</h3>
+            <p>Raspundem in maxim 48 de ore</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: var(--space-2xl);">
+        <h2>Despre ce ne poti scrie</h2>
+        <ul>
+          <li>Intrebari despre continutul articolelor noastre</li>
+          <li>Sugestii pentru articole noi</li>
+          <li>Propuneri de colaborare sau parteneriate</li>
+          <li>Raportarea erorilor sau problemelor tehnice</li>
+          <li>Solicitari conform GDPR (acces, stergere date)</li>
+        </ul>
+      </div>
+    </article>
+  </main>
+
+  <Footer />
+  <CookieBanner />
+</Layout>

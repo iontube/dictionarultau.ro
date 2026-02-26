@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/sitemap.xsl"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+	<url>
+		<loc>https://dictionarultau.ro/cele-mai-bune-jocuri-scrabble-in-romana/</loc>
+		<lastmod>2026-01-24T14:10:46+00:00</lastmod>
+		<image:image>
+			<image:loc>https://dictionarultau.ro/images/articles/cele-mai-bune-jocuri-scrabble-in-romana.webp</image:loc>
+		</image:image>
+	</url>
+	<url>
+		<loc>https://dictionarultau.ro/kindle-sau-tableta-pentru-citit-carti/</loc>
+		<lastmod>2026-01-24T14:10:46+00:00</lastmod>
+		<image:image>
+			<image:loc>https://dictionarultau.ro/images/articles/kindle-sau-tableta-pentru-citit-carti.webp</image:loc>
+		</image:image>
+	</url>
+	<url>
+		<loc>https://dictionarultau.ro/cum-sa-inveti-engleza-singur-acasa/</loc>
+		<lastmod>2026-01-24T14:10:46+00:00</lastmod>
+		<image:image>
+			<image:loc>https://dictionarultau.ro/images/articles/cum-sa-inveti-engleza-singur-acasa.webp</image:loc>
+		</image:image>
+	</url>
+	<url>
+		<loc>https://dictionarultau.ro/cel-mai-bun-dictionar-englez-roman/</loc>
+		<lastmod>2026-01-24T14:10:46+00:00</lastmod>
+		<image:image>
+			<image:loc>https://dictionarultau.ro/images/articles/cel-mai-bun-dictionar-englez-roman.webp</image:loc>
+		</image:image>
+	</url>
+</urlset>

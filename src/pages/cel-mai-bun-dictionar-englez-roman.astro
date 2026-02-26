@@ -1,0 +1,262 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import SimilarArticles from '../components/SimilarArticles.astro';
+import CookieBanner from '../components/CookieBanner.astro';
+import keywordsData from '../../keywords.json';
+
+const title = "Cel mai bun dictionar englez roman";
+const excerpt = "Am tot cautat prin dictionare de-a lungul timpului, de la cele vechi si groase de carti, la cele online, ca sa inteleg mai bine ce citesc sau ce aud in engleza. E o lupta continua sa gasesti cuvintele potrivite si sa intelegi nuantele. Un bun dictionar englez roman e ca un prieten de incredere in aventura asta lingvistica.";
+const image = "/images/articles/cel-mai-bun-dictionar-englez-roman.webp";
+const category = "Carti si Dictionare";
+const categorySlug = "carti-si-dictionare";
+const date = "2026-01-11T09:17:31.076Z";
+const modifiedDate = "2026-01-28T09:17:31.923Z";
+const author = "Maria Popescu";
+const authorRole = "Specialist in Lingvistica";
+const authorBio = "Cu peste 10 ani de experienta in domeniul lingvisticii si al editarii de dictionare, Maria te ajuta sa alegi cele mai bune resurse pentru invatare.";
+const slug = "cel-mai-bun-dictionar-englez-roman";
+
+const faq = [
+  { question: "Ce inseamna cel mai bun dictionar englez roman?", answer: "Cel mai bun dictionar e cel care se potriveste nevoilor tale specifice. Cauta unul cu multe intrari, definitii clare, exemple concrete de utilizare si, daca e posibil, pronuntie audio." },
+  { question: "Sunt dictionarele online gratuite la fel de bune ca cele fizice?", answer: "Dictionarele online gratuite pot fi excelente pentru rapiditate si context (ex. Reverso Context). Dictionarele fizice ofera profunzime si o experienta de studiu diferita. Ideal e sa le combini." },
+  { question: "Cat de importante sunt exemplele in dictionar?", answer: "Extrem de importante. Exemplele concrete iti arata cum se foloseste un cuvant in context, te ajuta sa intelegi nuantele si sa il folosesti corect in conversatii sau scris." },
+  { question: "Pot folosi Google Translate pentru tot?", answer: "Google Translate e util pentru traduceri rapide, dar nu te baza pe el pentru precizie sau nuante. Nu ofera explicatii detaliate sau exemple de utilizare in context." },
+  { question: "Ce fac daca nu gasesc un cuvant in dictionar?", answer: "Incearca sa cauti cuvantul in engleza, daca ai un dictionar explicativ in engleza. Sau cauta pe forumuri lingvistice, unde alti utilizatori pot oferi lamuriri." },
+  { question: "Exista dictionare specializate pe anumite domenii?", answer: "Da, exista dictionare specializate pe domenii precum IT, medical, juridic, economic. Acestea contin terminologie specifica si sunt utile pentru profesionistii din acele domenii." }
+];
+
+const toc = [
+  { title: "De ce ai nevoie de un dictionar englez roman bun", id: "de-ce-ai-nevoie-de-un-dictionar-englez-roman-bun" },
+  { title: "Variante la indemana ta – de la clasic la modern", id: "variante-la-indemana-ta--de-la-clasic-la-modern" },
+  { title: "Ce conteaza cu adevarat cand alegi un dictionar", id: "ce-conteaza-cu-adevarat-cand-alegi-un-dictionar" },
+  { title: "Ce functioneaza de fapt si ce e doar marketing", id: "ce-functioneaza-de-fapt-si-ce-e-doar-marketing" },
+  { title: "Sfaturi ca sa nu dai cu bata-n baltă", id: "sfaturi-ca-sa-nu-dai-cu-bata-n-balta" },
+  { title: "Ce as alege eu – recomandarea mea personală", id: "ce-as-alege-eu--recomandarea-mea-personala" }
+];
+
+// Get all articles for similar articles component
+const allArticles = (keywordsData.completed || []).map(item => ({
+  title: item.title,
+  slug: item.slug,
+  excerpt: item.excerpt || '',
+  image: item.image,
+  category: item.category,
+  categorySlug: item.categorySlug,
+  date: item.date || new Date().toISOString()
+}));
+---
+
+<Layout
+  title={title}
+  description={excerpt}
+  image={image}
+  article={true}
+  publishedTime={date}
+  modifiedTime={modifiedDate}
+  author={author}
+  faq={faq}
+>
+  <Header />
+
+  <header class="article-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Acasa</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href={`/${categorySlug}/`}>{category}</a>
+        <span class="breadcrumb-separator">/</span>
+        <span class="breadcrumb-current">{title}</span>
+      </nav>
+
+      <h1>{title}</h1>
+
+      <div class="article-header-meta">
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
+          {new Date(date).toLocaleDateString('ro-RO', { year: 'numeric', month: 'long', day: 'numeric' })}
+        </span>
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          {author}
+        </span>
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+          </svg>
+          {category}
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <article class="article-body">
+    <div class="article-featured-image">
+      <img src={image} alt={title} width="800" height="600" loading="eager" />
+    </div>
+
+    <nav class="toc">
+      <h2 class="toc-title">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="8" y1="6" x2="21" y2="6"></line>
+          <line x1="8" y1="12" x2="21" y2="12"></line>
+          <line x1="8" y1="18" x2="21" y2="18"></line>
+          <line x1="3" y1="6" x2="3.01" y2="6"></line>
+          <line x1="3" y1="12" x2="3.01" y2="12"></line>
+          <line x1="3" y1="18" x2="3.01" y2="18"></line>
+        </svg>
+        Cuprins
+      </h2>
+      <ol class="toc-list">
+        {toc.map(item => (
+          <li class="toc-item"><a href={`#${item.id}`}>{item.title}</a></li>
+        ))}
+        <li class="toc-item"><a href="#faq">Intrebari Frecvente</a></li>
+      </ol>
+    </nav>
+
+    <div class="article-content-body">
+      
+      <section id="de-ce-ai-nevoie-de-un-dictionar-englez-roman-bun">
+        <h2>De ce ai nevoie de un dictionar englez roman bun</h2>
+        <p>Stai sa te gandesti. Cati dintre noi nu se lovesc zilnic de cuvinte noi cand citesc un articol, o carte, sau chiar cand se uita la un serial fara subtitrare in romana? E frustrant sa te opresti din ce faci pentru ca nu intelegi un termen. Sau, mai rau, sa intelegi partial si sa tragi concluzii gresite.</p><p>Un dictionar bun, fie el fizic sau digital, e ca o unealta esentiala in trusa oricui vrea sa stapaneasca limba engleza. Nu e vorba doar de traducerea cuvant cu cuvant. E vorba de a intelege contextul, de a gasi sinonime, de a vedea cum se folosesc cuvintele in propozitii.</p><p>Pentru studenti, e clar. Materia e plina de termeni specifici. Dar si pentru profesionistii din domenii diverse, de la IT la marketing, engleza e limba internationala a comunicarii. Un proiect, un email, o prezentare – toate pot necesita verificarea unui termen.</p><p>Chiar si pentru cei care vorbesc engleza la un nivel conversational, un dictionar e util. Poate vrei sa iti imbogatesti vocabularul, sa folosesti cuvinte mai precise, mai elegante. Sau poate te intalnesti cu o expresie idiomatica pe care nu o prinzi din prima.</p><p>Gresesc cei care cred ca Google Translate rezolva totul. Da, e rapid, dar nu ofera nuantele, nu iti arata exemple concrete de utilizare, nu te invata cum sa folosesti cuvantul corect in context. Un dictionar te invata sa intelegi limba, nu doar sa traduci fraze.</p><p>Asadar, daca vrei sa progresezi, fie ca esti la inceput sau deja avansat, un dictionar englez roman de calitate e un partener de nadejde. Te ajuta sa te simti mai sigur pe tine, sa comunici mai eficient si sa te bucuri mai mult de procesul de invatare.</p>
+      </section>
+
+      <section id="variante-la-indemana-ta--de-la-clasic-la-modern">
+        <h2>Variante la indemana ta – de la clasic la modern</h2>
+        <p>Cand vine vorba de dictionare, optiunile sunt destul de variate. Fiecare are farmecul lui si se potriveste unor nevoi specifice. Hai sa vedem cateva pe care le-am tot rasfoit.</p><p><strong>Dictionare fizice, clasice.</strong> Aici vorbim de cartile alea groase, pe care le puneai pe raft si le consultai cu sfintenie. Un exemplu bun e<strong> Dictionarul Oxford Englez-Roman</strong>. E o referinta, are multe intrari, explicatii clare.</p>
+        <p>Pretul poate varia, dar sa zicem undeva intre 80 si 150 RON, in functie de editie si unde il gasesti. Avantajul? Nu depinzi de baterie sau conexiune la internet. Dezavantajul? E greu de transportat si nu se actualizeaza la fel de rapid ca cele online.</p><p>Apoi avem si dictionare romanesti, precum <strong>Dictionarul Explicativ al Limbii Romane (DEX)</strong>, dar aici vorbim de traducere invers. Totusi, exista si dictionare roman-englez realizate de autori romani, cum ar fi cele de la <strong>Editura Niculescu</strong> sau <strong>Univers Enciclopedic</strong>. Acestea sunt adesea mai accesibile, poate undeva intre 50 si 100 RON. Sunt bune pentru inceput, dar uneori pot fi mai limitate in numarul de expresii si nuante.</p><p><strong>Dictionare online gratuite.</strong> Aici, campionul e clar <strong>Google Translate</strong>. E rapid, accesibil de pe orice dispozitiv. Perfect pentru o traducere rapida a unui cuvant sau a unei propozitii scurte. Dar, cum ziceam, nu te baza pe el pentru nuante. Altul popular e <strong>Reverso Context</strong>. Aici gasesti traduceri si exemple reale din filme, carti, site-uri. E fantastic pentru a vedea cum se foloseste un cuvant in diverse contexte. E gratuit, un mare plus.</p><p><strong>Dictionare online cu abonament sau platite.</strong> Aici intră nume mari ca <strong>Collins Dictionary</strong> sau <strong>Cambridge Dictionary</strong>. Multe dintre functiile lor de baza sunt gratuite, dar versiunile premium sau aplicatiile dedicate pot oferi mai multe exemple, exercitii, pronuntie audio detaliata. Un abonament anual la o platforma serioasa poate fi undeva intre 50 si 150 USD (aprox 250-750 RON), dar ofera o experienta mult mai bogata.</p><p><strong>Aplicatii mobile.</strong> Multe dintre dictionarele online au si aplicatii mobile. <strong>WordReference</strong> e un exemplu excelent. E gratuit, are forumuri unde utilizatorii discuta nuante lingvistice, pronuntie audio buna si nu necesita conexiune la internet pentru functiile de baza. <strong>Linguee</strong> e o alta optiune buna, focusata pe cautarea de traduceri in contexte profesionale, prin compararea unor baze de date multilingve.</p><p>Alegerea depinde mult de ce cauti. Pentru o baza solida, un dictionar fizic de la o editura cunoscuta e o investitie buna. Pentru rapiditate si context, cele online si aplicatiile sunt de nelipsit. Si, bineinteles, o combinatie a celor doua e adesea cea mai buna solutie.</p>
+      </section>
+
+      <section id="ce-conteaza-cu-adevarat-cand-alegi-un-dictionar">
+        <h2>Ce conteaza cu adevarat cand alegi un dictionar</h2>
+        <p>Nu te arunca la primul dictionar pe care il vezi. Sunt cateva lucruri cheie pe care ar trebui sa le verifici inainte sa te decizi. Altfel, risti sa cumperi ceva ce nu te ajuta prea mult.</p><p><strong>Numarul de intrari si complexitatea lor.</strong> Un dictionar bun are multe cuvinte, nu doar cele de baza. Cauta unul care include si termeni tehnici, argotici, expresii idiomatice. Daca esti student la drept, ai nevoie de altceva decat daca esti pasionat de gatit. Verifica daca sunt incluse si sensuri multiple ale aceluiasi cuvant. Engleza e plina de cuvinte cu multe fata.</p><p><strong>Calitatea definitiilor si a exemplelor.</strong> Definitiile trebuie sa fie clare, concise si scrise intr-o romana corecta. Dar cel mai important sunt exemplele. Un dictionar care iti arata cum se foloseste cuvantul intr-o propozitie reala, naturala, e mult mai util decat unul care iti da doar traducerea. Cu cat sunt mai multe exemple, cu atat mai bine.</p><p><strong>Pronuntia.</strong> Asta e crucial, mai ales daca esti la inceput sau vrei sa iti imbunatatesti pronuntia. Un dictionar bun ar trebui sa ofere si transcriere fonetica (folosind simboluri IPA) si, ideal, fisier audio pentru pronuntia corecta. Multe dictionare online si aplicatii mobile exceleaza aici. Daca alegi un dictionar fizic, verifica daca exista o sectiune explicativa despre cum se citesc simbolurile fonetice.</p><p><strong>Interfata si usurinta in utilizare.</strong> Daca vorbim de dictionare online sau aplicatii, cat de usor e sa cauti? Cat de repede gasesti ce cauti? Sunt reclame deranjante? Daca alegi un dictionar fizic, e usor de rasfoit? Indexul e bine facut? Un proces de cautare lent si anevoios te va descuraja repede.</p><p><strong>Actualizare si acoperire.</strong> Engleza e o limba vie, cuvinte noi apar constant, sensuri se schimba. Un dictionar fizic e greu de actualizat. Cele online au avantajul ca pot fi modificate si imbunatatite. Daca vrei sa fii la curent cu limbajul modern, cauta o resursa digitala care se actualizeaza periodic.</p><p><strong>Pretul si valoarea.</strong> Nu intotdeauna cel mai scump e si cel mai bun. Stabileste-ti bugetul, dar gandeste-te la valoarea pe termen lung. Un dictionar bun, fie el fizic sau digital, e o investitie in tine si in abilitatile tale. Uneori, merita sa platesti un pic mai mult pentru o calitate superioara.</p><p><strong>Opinii si recenzii.</strong> Nu te baza doar pe ce scrie pe coperta. Cauta pareri de la alti utilizatori. Forumurile, review-urile pe site-uri de specialitate sau chiar comentariile de pe magazinele online pot oferi informatii valoroase despre punctele forte si slabe ale unui dictionar.</p>
+      </section>
+
+      <section id="ce-functioneaza-de-fapt-si-ce-e-doar-marketing">
+        <h2>Ce functioneaza de fapt si ce e doar marketing</h2>
+        <p>Am vazut multe dictionare de-a lungul timpului, si am invatat ca nu tot ce straluceste e aur. Unele promisiuni sunt greu de atins in practica.</p><p><strong>Ce functioneaza:</strong></p><ul><li><strong>Exemplele concrete de utilizare.</strong> Asta e aur curat. Cand vezi cuvantul intr-o fraza, intelegi nu doar sensul, ci si cum se imbina cu alte cuvinte, ce prepozitii i se potrivesc, in ce ton e folosit. Dictionare precum <strong>Collins</strong> sau <strong>Cambridge</strong> online exceleaza la asta. Si platforme ca <strong>Reverso Context</strong> sunt construite in jurul acestui principiu.</li><li><strong>Pronuntia audio de calitate.</strong> Nu un sunet robotic si greu de inteles, ci o pronuntie clara, naturala, ca a unui vorbitor nativ. Aplicatiile mobile bune, cum ar fi <strong>WordReference</strong>, ofera asta gratuit.</li><li><strong>Acoperirea nuantelor si a sensurilor multiple.</strong> Un cuvant poate avea 5, 10 sau chiar mai multe sensuri. Un dictionar bun le prezinta pe toate, cu exemple distincte pentru fiecare. Asta te ajuta sa intelegi subtilitatile limbii.</li><li><strong>Filtre si categorii.</strong> Mai ales in dictionarele online sau aplicatii, daca poti filtra dupa nivel de dificultate, domeniu (medical, tehnic, legal) sau tip de limbaj (formal, informal), e un mare plus.</li><li><strong>Corelarea cu alte resurse.</strong> Unele dictionare online te duc spre articole similare, sinonime, antonime sau chiar spre exercitii. Asta transforma dictionarul dintr-o unealta simpla intr-un centru de invatare.</li></ul><p><strong>Ce nu functioneaza (sau functioneaza mai putin):</strong></p><ul><li><strong>Traducerea instantanee fara context.</strong> Google Translate e rapid, dar deseori traduce cuvant cu cuvant, ignorand contextul. Rezultatul poate fi amuzant, dar adesea incorect. Nu te baza pe el pentru texte importante.</li><li><strong>Definitii prea tehnice sau prea vagi.</strong> Un dictionar trebuie sa fie clar. Daca definitiile sunt scrise intr-un limbaj academic greu de inteles pentru un non-specialist, nu prea te ajuta. La fel, daca sunt prea generale, nu ofera precizie.</li><li><strong>Numarul mare de cuvinte, dar fara exemple.</strong> Un dictionar cu 200.000 de cuvinte e impresionant, dar daca nu iti arata cum sa le folosesti, ramane doar o lista.</li><li><strong>Interfete complicate si pline de reclame.</strong> Daca petreci mai mult timp inchizand pop-up-uri decat cautand cuvinte, nu e un dictionar eficient. La fel, daca navigarea e greoaie, te vei frustra.</li><li><strong>Dictionarele vechi, neactualizate.</strong> Engleza evolueaza. Daca dictionarul tau e din anii '90, probabil nu contine termeni precum 'selfie', 'unfriend' sau 'cryptocurrency'.</li></ul><p>E important sa ai asteptari realiste. Niciun dictionar nu e perfect. Dar cautand dictionarul cu cele mai multe puncte forte pentru tine, vei face o alegere mult mai buna.</p>
+      </section>
+
+      <section id="sfaturi-ca-sa-nu-dai-cu-bata-n-balta">
+        <h2>Sfaturi ca sa nu dai cu bata-n baltă</h2>
+        <p>Am invatat din greseli, si vreau sa te scutesc si pe tine de ele. Alegerea unui dictionar pare simpla, dar sunt cateva capcane in care poti cadea.</p><p><strong>Nu te lasa pacalit de grosimea cartii.</strong> Un dictionar fizic imens nu inseamna neaparat ca e mai bun. Poate contine multe cuvinte rare, arhaice, sau poate are definitii prea lungi si complicate. Conteaza mai mult calitatea intrariilor decat numarul lor brut.</p><p><strong>Verifica daca se potriveste nivelului tau.</strong> Daca esti la inceput, un dictionar academic, plin de termeni ultra-specifici, te va descuraja. Cauta unul care explica clar, cu exemple simple. Pe masura ce avansezi, poti trece la dictionare mai complexe.</p><p><strong>Nu folosi un singur instrument.</strong> Nu te baza doar pe Google Translate. Nici doar pe un dictionar fizic. Combina resursele. Foloseste un dictionar fizic pentru o baza solida, un dictionar online pentru rapiditate si context, si poate o aplicatie pentru pronuntie si invatare zilnica.</p><p><strong>Fii atent la edituri.</strong> Nu toate editurile sunt la fel. Cauta dictionare de la edituri cu renume in domeniul lingvistic sau educational. Cele straine, precum Oxford, Cambridge, Collins, sunt de obicei o garantie a calitatii. In Romania, cauta si editurile cu traditie in publicarea de carte straina.</p><p><strong>Nu uita de dictionarele explicative in limba engleza.</strong> Pe masura ce avansezi, vei gasi mai util sa cauti definitia unui cuvant englezesc in engleza. Asta te ajuta sa gandesti direct in limba respectiva si sa intelegi mai bine nuantele. Dictionare precum <strong>Merriam-Webster</strong> sau <strong>Oxford Learner's Dictionaries</strong> sunt excelente pentru asta.</p><p><strong>Verifica data publicarii.</strong> Pentru dictionarele fizice, o data cat mai recenta e un avantaj. Daca vorbim de cele online, verifica daca exista o politica de actualizare. Engleza e in continua schimbare.</p><p><strong>Nu ignora forumurile si comunitatile lingvistice.</strong> Daca ai o dilema legata de sensul unui cuvant sau de utilizarea lui, cauta pe forumuri dedicate invatarii limbilor straine. Adesea, vei gasi raspunsuri la intrebari pe care nu ti le-ai fi pus singur.</p><p><strong>Fii sceptic la promisiuni exagerate.</strong> 'Invata engleza in 7 zile cu acest dictionar!' Dictionarul e o unealta, nu o formula magica. Succesul depinde de tine, de efortul depus si de cum folosesti resursele.</p>
+      </section>
+
+      <section id="ce-as-alege-eu--recomandarea-mea-personala">
+        <h2>Ce as alege eu – recomandarea mea personală</h2>
+        <p>Daca ar fi sa aleg un singur tip de dictionar englez roman pentru mine, as merge pe o combinatie. Dar daca ar fi sa recomand ceva concret, as zice asa:</p><p>Pentru baza, pentru acasa, as opta pentru un <strong>dictionar fizic de la Oxford sau Collins</strong>, o editie recenta, probabil cea mai cuprinzatoare pe care o gasesc. Caut un volum care sa fie destul de gros cat sa includa multe intrari, dar nu atat de mare incat sa fie greu de manevrat. Pretul ar fi undeva intre 100 si 200 RON, in functie de oferta. Avantajul e ca il am la indemana, nu depinde de internet, si il pot rasfoi pur si simplu cand caut ceva.</p><p>Dar, cel mai important, l-as folosi impreuna cu o <strong>aplicatie mobila de incredere, cum ar fi WordReference</strong>. E gratuita, are pronuntie audio excelenta, nu necesita internet pentru cautari de baza, si are acele forumuri unde poti cauta explicatii pentru cele mai complicate expresii. Asta e genial pentru zilele in care sunt pe drumuri sau am nevoie de o verificare rapida.</p><p>De ce aceasta combinatie? Dictionarul fizic imi da o senzatie de profunzime, de studiu serios. Pot sa notez in el, sa subliniez. Aplicatia imi ofera flexibilitate, rapiditate si acces la comunitate. Nu ma limitez la o singura sursa.</p><p>Pentru cine e asta? Pentru oricine ia invatarea limbii engleze in serios. Fie ca esti student, profesionist, sau pur si simplu vrei sa te descurci mai bine in conversatii sau sa intelegi mai mult din ce citesti. Daca esti la inceput, dictionarul fizic te poate ajuta sa te obisnuiesti cu structura, iar aplicatia cu pronuntia.</p><p>Daca bugetul e foarte limitat, as recomanda sa incepi cu aplicatii gratuite de calitate, cum ar fi <strong>WordReference</strong> si <strong>Reverso Context</strong>. Sunt incredibil de puternice si te pot ajuta enorm. Pe masura ce avansezi, poti investi intr-un dictionar fizic mai bun sau intr-un abonament la o platforma premium de dictionare online.</p><p>Important e sa il folosesti constant. Un dictionar, oricat de bun ar fi, ramane o unealta. Daca nu il folosesti, nu te va ajuta. Fa-ti un obicei din a verifica cuvintele noi, din a cauta sinonime, din a te uita la exemple. Asta e cheia progresului.</p>
+      </section>
+
+      <section class="faq-section" id="faq">
+        <h2 class="faq-title">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+          </svg>
+          Intrebari Frecvente
+        </h2>
+        
+            <div class="faq-item" id="faq-0">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                Ce inseamna cel mai bun dictionar englez roman?
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                Cel mai bun dictionar e cel care se potriveste nevoilor tale specifice. Cauta unul cu multe intrari, definitii clare, exemple concrete de utilizare si, daca e posibil, pronuntie audio.
+              </div>
+            </div>
+
+            <div class="faq-item" id="faq-1">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                Sunt dictionarele online gratuite la fel de bune ca cele fizice?
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                Dictionarele online gratuite pot fi excelente pentru rapiditate si context (ex. Reverso Context). Dictionarele fizice ofera profunzime si o experienta de studiu diferita. Ideal e sa le combini.
+              </div>
+            </div>
+
+            <div class="faq-item" id="faq-2">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                Cat de importante sunt exemplele in dictionar?
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                Extrem de importante. Exemplele concrete iti arata cum se foloseste un cuvant in context, te ajuta sa intelegi nuantele si sa il folosesti corect in conversatii sau scris.
+              </div>
+            </div>
+
+            <div class="faq-item" id="faq-3">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                Pot folosi Google Translate pentru tot?
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                Google Translate e util pentru traduceri rapide, dar nu te baza pe el pentru precizie sau nuante. Nu ofera explicatii detaliate sau exemple de utilizare in context.
+              </div>
+            </div>
+
+            <div class="faq-item" id="faq-4">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                Ce fac daca nu gasesc un cuvant in dictionar?
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                Incearca sa cauti cuvantul in engleza, daca ai un dictionar explicativ in engleza. Sau cauta pe forumuri lingvistice, unde alti utilizatori pot oferi lamuriri.
+              </div>
+            </div>
+
+            <div class="faq-item" id="faq-5">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                Exista dictionare specializate pe anumite domenii?
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                Da, exista dictionare specializate pe domenii precum IT, medical, juridic, economic. Acestea contin terminologie specifica si sunt utile pentru profesionistii din acele domenii.
+              </div>
+            </div>
+      </section>
+    </div>
+
+    <div class="author-box">
+      <div class="author-avatar">{author.charAt(0)}</div>
+      <div class="author-info">
+        <h4>{author}</h4>
+        <p class="author-role">{authorRole}</p>
+        <p class="author-bio">{authorBio}</p>
+      </div>
+    </div>
+
+    <SimilarArticles
+      articles={allArticles}
+      currentSlug={slug}
+      currentCategory={category}
+    />
+  </article>
+
+  <Footer />
+  <CookieBanner />
+</Layout>

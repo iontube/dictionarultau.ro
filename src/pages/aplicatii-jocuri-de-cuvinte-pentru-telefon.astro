@@ -1,0 +1,262 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import SimilarArticles from '../components/SimilarArticles.astro';
+import CookieBanner from '../components/CookieBanner.astro';
+import keywordsData from '../../keywords.json';
+
+const title = "Aplicatii jocuri de cuvinte pentru telefon";
+const excerpt = "Am descoperit recent o lume fascinantă a jocurilor de cuvinte pe telefon. Sunt un fan înfocat al învățării limbilor străine și mereu caut metode noi și distractive să-mi exersez vocabularul. Aceste aplicații mi-au devenit rapid nelipsite.";
+const image = "/images/articles/aplicatii-jocuri-de-cuvinte-pentru-telefon.webp";
+const category = "Jocuri de Cuvinte";
+const categorySlug = "jocuri-de-cuvinte";
+const date = "2026-02-04T14:41:05.969Z";
+const modifiedDate = "2026-02-04T14:41:05.969Z";
+const author = "Elena Dumitrescu";
+const authorRole = "Specialist in Jocuri Educative";
+const authorBio = "Elena crede ca invatarea trebuie sa fie distractiva. Te ajuta sa descoperi cele mai captivante jocuri care iti dezvolta vocabularul.";
+const slug = "aplicatii-jocuri-de-cuvinte-pentru-telefon";
+
+const faq = [
+  { question: "Ce joc de cuvinte e cel mai bun pentru a invata limba engleza?", answer: "Pentru invatarea limbii engleze, jocurile de tip \"crossword\" sau \"Scrabble\" sunt excelente. Acestea te forteaza sa intelegi definitiile si sa folosesti vocabularul in mod strategic. Wordscapes si Word Connect sunt bune pentru familiarizarea cu cuvinte comune si structuri de baza." },
+  { question: "Exista jocuri de cuvinte bune si pentru limba romana?", answer: "Da, exista. Cauta aplicatii care specifica \"Romanian\" in descriere. Cele de tip \"crossword\" sau \"word search\" pot fi adaptate. Unele aplicatii internationale pot avea si optiunea de limba romana, dar verifica calitatea dictionarului." },
+  { question: "Pot folosi aceste jocuri pentru a-mi imbunatati memoria?", answer: "Absolut. Jocurile de cuvinte stimuleaza activitatea cerebrala, imbunatatesc memoria de lucru, concentrarea si capacitatea de rezolvare a problemelor. Repetitia si recunoasterea modelelor in cuvinte sunt benefice." },
+  { question: "Cat de des ar trebui sa joc pentru a vedea rezultate?", answer: "Constant, dar fara presiune. Chiar si 15-20 de minute pe zi, jucate constant, pot face o diferenta. Cheia este regularitatea, nu durata sesiunilor individuale." },
+  { question: "Aplicatiile gratuite sunt suficiente sau trebuie sa cumpar?", answer: "Majoritatea aplicatiilor gratuite sunt foarte bune si ofera mult continut. Cumpararea variantelor premium este utila daca vrei sa elimini reclamele sau sa accesezi functii suplimentare. Nu e obligatoriu, dar poate imbunatati experienta." },
+  { question: "Ce inseamna \"pay-to-win\" in jocurile de cuvinte?", answer: "In jocurile de cuvinte, \"pay-to-win\" se refera la situatiile in care jucatorii trebuie sa plateasca pentru a obtine avantaje semnificative, cum ar fi indicii nelimitate, vieti suplimentare sau posibilitatea de a sari peste nivele dificile, ceea ce poate strica echilibrul si placerea jocului." }
+];
+
+const toc = [
+  { title: "De ce merita atentia ta", id: "de-ce-merita-atentia-ta" },
+  { title: "Variante pe care le poti alege", id: "variante-pe-care-le-poti-alege" },
+  { title: "La ce sa te uiti cand alegi", id: "la-ce-sa-te-uiti-cand-alegi" },
+  { title: "Ce functioneaza si ce nu", id: "ce-functioneaza-si-ce-nu" },
+  { title: "Trucuri utile", id: "trucuri-utile" },
+  { title: "Ce as alege eu", id: "ce-as-alege-eu" }
+];
+
+// Get all articles for similar articles component
+const allArticles = (keywordsData.completed || []).map(item => ({
+  title: item.title,
+  slug: item.slug,
+  excerpt: item.excerpt || '',
+  image: item.image,
+  category: item.category,
+  categorySlug: item.categorySlug,
+  date: item.date || new Date().toISOString()
+}));
+---
+
+<Layout
+  title={title}
+  description={excerpt}
+  image={image}
+  article={true}
+  publishedTime={date}
+  modifiedTime={modifiedDate}
+  author={author}
+  faq={faq}
+>
+  <Header />
+
+  <header class="article-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Acasa</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href={`/${categorySlug}/`}>{category}</a>
+        <span class="breadcrumb-separator">/</span>
+        <span class="breadcrumb-current">{title}</span>
+      </nav>
+
+      <h1>{title}</h1>
+
+      <div class="article-header-meta">
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
+          {new Date(date).toLocaleDateString('ro-RO', { year: 'numeric', month: 'long', day: 'numeric' })}
+        </span>
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          {author}
+        </span>
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+          </svg>
+          {category}
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <article class="article-body">
+    <div class="article-featured-image">
+      <img src={image} alt={title} width="800" height="600" loading="eager" />
+    </div>
+
+    <nav class="toc">
+      <h2 class="toc-title">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="8" y1="6" x2="21" y2="6"></line>
+          <line x1="8" y1="12" x2="21" y2="12"></line>
+          <line x1="8" y1="18" x2="21" y2="18"></line>
+          <line x1="3" y1="6" x2="3.01" y2="6"></line>
+          <line x1="3" y1="12" x2="3.01" y2="12"></line>
+          <line x1="3" y1="18" x2="3.01" y2="18"></line>
+        </svg>
+        Cuprins
+      </h2>
+      <ol class="toc-list">
+        {toc.map(item => (
+          <li class="toc-item"><a href={`#${item.id}`}>{item.title}</a></li>
+        ))}
+        <li class="toc-item"><a href="#faq">Intrebari Frecvente</a></li>
+      </ol>
+    </nav>
+
+    <div class="article-content-body">
+      
+      <section id="de-ce-merita-atentia-ta">
+        <h2>De ce merita atentia ta</h2>
+        <p>Suntem mereu pe fuga, nu? Cu telefoanele in buzunar, avem o gramada de timp mort. In autobuz, la coada, asteptand pe cineva. Ce facem in timpul asta? De obicei scrollam pe social media. Dar daca am putea folosi acest timp pentru ceva mai productiv? Ceva care sa ne si distreze?</p><p>Jocurile de cuvinte pe telefon sunt exact asta. Sunt o modalitate super simpla sa iti antrenezi creierul, sa inveti cuvinte noi si sa-ti imbunatatesti limba materna sau o limba straina. Nu trebuie sa te apuci de cursuri complicate sau sa citesti dictionare uriase. Totul e acolo, la o atingere distanta.</p><p>Daca esti genul care uita repede cuvinte noi sau daca pur si simplu vrei sa-ti mentii mintea agera, aceste jocuri sunt pentru tine. Nu e vorba doar de distracție, ci si de beneficii reale pentru cogniție. Ajuta la concentrare, la memorie si chiar la rezolvarea de probleme.</p><p>Personal, le folosesc constant. Fie ca vreau sa-mi reamintesc cuvinte din italiana, fie ca vreau sa gasesc sinonime mai bune in romana, am mereu o aplicatie la indemana. E ca si cum ai avea un mic antrenor personal pentru vocabular, care nu te preseaza, ci te provoaca.</p><p>Si nu vorbim de jocuri pentru copii. Sunt o gramada de optiuni serioase, adaptate pentru adulti, cu niveluri de dificultate variate. Poti incepe de la un nivel usor, sa te familiarizezi, si sa avansezi pe masura ce te simti mai confortabil. Procesul e gradual si motivant.</p><p>Cred ca fiecare ar trebui sa incerce macar o data. Nu ai nimic de pierdut. Poate descoperi ca iti place mai mult decat credeai. Si cine stie, poate chiar vei deveni expert in cuvinte, fara sa-ti dai seama.</p>
+      </section>
+
+      <section id="variante-pe-care-le-poti-alege">
+        <h2>Variante pe care le poti alege</h2>
+        <p>Piata e plina de optiuni, de la simple la complexe. Am incercat destule ca sa stiu la ce sa ma astept. Hai sa vedem cateva exemple concrete.</p><p><strong>Wordscapes</strong> e probabil cel mai popular. E simplu: iti da litere si trebuie sa formezi cuvinte. Pe masura ce avansezi, nivelurile devin mai grele, cuvintele mai lungi si mai putin evidente. E gratuit, cu reclame, dar poti plati o suma modica, gen 10-20 RON pe luna, sa scapi de ele. E bun pentru vocabular general si pentru a gasi conexiuni intre litere. Dezavantajul e ca uneori poate deveni repetitiv.</p><p>Apoi, avem <strong>Word Connect</strong>, similar cu Wordscapes, dar cu o interfața putin diferita. Si el e gratuit, cu optiunea de a plati pentru a elimina reclamele sau a primi indicii. E bun pentru cei care cauta o experienta fluida si fara prea multe batai de cap. Poate nu te invata cuvinte extrem de rare, dar te ajuta sa iti consolidezi baza.</p><p>Pentru cei care vor ceva mai mult decat simpla formare de cuvinte, exista <strong>Crossword Puzzles</strong>. Sunt multe aplicatii dedicate, unele chiar cu integrari de dictionare. Ideea e clasica: completezi un tabel cu cuvinte, bazat pe definitii.</p>
+        <p>Aplicatiile bune, cu multe nivele si teme variate, pot costa intre 10 si 30 RON pe viata, o investitie buna daca esti pasionat de acest tip de joc. Un mare plus e ca te forteaza sa gandesti logic si sa intelegi sensul cuvintelor, nu doar sa le formezi.</p><p>Nu pot sa nu mentionez si jocurile tip <strong>Scrabble</strong>. Exista versiuni oficiale sau similare. Aici, logica jocului e mai complexa, implicand pozitionarea cuvintelor pe tabla pentru a maximiza scorul. E excelent pentru cei care vor sa-si dezvolte strategia si sa invete cuvinte mai putin comune. Unele pot fi gratuite cu cumparaturi in aplicatie, altele au un cost unic de 20-50 RON. E o provocare continua.</p><p>Exista si aplicatii dedicate invatarii limbilor straine care incorporeaza jocuri de cuvinte. De exemplu, <strong>Duolingo</strong> are mini-jocuri de cuvinte integrate in cursuri. E gratuit, dar abonamentul costa cam 30-50 RON pe luna pentru functii premium. Avantajul e ca inveti vocabular specific unei limbi pe care o studiezi. E o abordare integrata, nu doar joc de cuvinte de sine statator.</p><p>Fiecare are farmecul lui. Depinde mult de ce cauti: simplitate, provocare intelectuala, invatare specifica a unei limbi.</p>
+      </section>
+
+      <section id="la-ce-sa-te-uiti-cand-alegi">
+        <h2>La ce sa te uiti cand alegi</h2>
+        <p>Cand te uiti la o aplicatie de jocuri de cuvinte, nu te lasa pacalit doar de grafica draguta. Sunt cateva aspecte cheie pe care eu le urmaresc mereu.</p><p><strong>Calitatea dictionarului</strong> e cruciala. Nu vrei sa te trezesti ca aplicatia accepta cuvinte inventate sau ca exclude cuvinte comune. Verifica daca dictionarul este actualizat si daca include atat cuvinte standard, cat si cele mai noi aparitii. Unele aplicatii te lasa sa vezi ce cuvinte au fost gasite, ceea ce e un plus.</p><p><strong>Varietatea si complexitatea nivelurilor</strong>. Daca joci acelasi tip de puzzle la nesfarsit, te plictisesti. Cauta jocuri care ofera provocari noi pe masura ce avansezi. Poate introduc cuvinte mai lungi, te obliga sa folosesti litere specifice sau au un numar limitat de incercari. Asta te tine motivat.</p><p><strong>Interfata si usurinta in utilizare</strong>. Pare un detaliu, dar daca aplicatia e greoaie, plina de butoane ascunse sau cu reclame enervante care apar fix cand esti in mijlocul unei actiuni, o vei lasa repede. Navigarea trebuie sa fie intuitiva, iar controalele responsive.</p><p><strong>Modul de monetizare</strong>. Aplicatiile gratuite cu reclame pot fi ok, dar daca reclamele sunt prea invazive, poate merita sa platesti o suma mica pentru varianta premium. Verifica cat costa si ce beneficii aduce: eliminarea reclamelor, indicii nelimitate, acces la nivele suplimentare. Unele ofera cumparaturi unice, altele abonamente lunare/anuale.</p><p><strong>Posibilitatea de a juca offline</strong>. Daca calatoresti mult sau ai acces limitat la internet, un joc care functioneaza si offline e o salvare. Nu toate permit asta, deci verifica acest aspect.</p><p><strong>Elementele de gamification</strong>. Unele aplicatii au sisteme de punctaj, clasamente, provocari zilnice sau saptamanale, sau chiar o poveste. Acestea pot creste engagement-ul si te pot face sa revii cu placere.</p><p><strong>Suport pentru limbi straine</strong>. Daca scopul tau principal e sa inveti o limba straina, asigura-te ca aplicatia suporta limba respectiva si ca dictionarul e relevant pentru ea. Unele jocuri sunt mai bune pentru limba engleza, altele au si optiuni pentru romana, spaniola, franceza etc.</p><p>Nu te grăbi. Citeste cateva recenzii, vezi ce spun alti utilizatori. De multe ori, parerile altora te pot scuti de dezamagiri.</p>
+      </section>
+
+      <section id="ce-functioneaza-si-ce-nu">
+        <h2>Ce functioneaza si ce nu</h2>
+        <p>Am experimentat destul de mult cu jocurile astea si am invatat ce prinde si ce nu. Nu tot ce e la moda e si bun.</p><p><strong>Ce functioneaza excelent</strong>:</p><p>Jocurile care te provoaca subtil. Nu cele care te bombardeaza cu informatii sau te pun in situatii imposibile. Vorbesc despre cele care iti ofera un set de litere si te lasa pe tine sa descoperi cuvintele, crescand treptat dificultatea. Asta iti da o satisfactie reala cand gasesti cuvantul corect.</p><p>Varietatea. Daca poti alterna intre un joc de tip "word swipe" si unul de tip "crossword", mintea ta ramane antrenata in moduri diferite. E ca si cum ai face "exercitii" variate pentru creier.</p><p>Jocurile cu un sistem de feedback bun. Cand gresesti, sa intelegi de ce sau sa ai posibilitatea sa vezi cuvantul corect. Sau cand reusesti, sa fii recompensat, chiar si cu o animatie mica.</p><p>Optiunile de personalizare. Sa poti alege tema vizuala, nivelul de dificultate sau limba, face experienta mult mai placuta.</p><p><strong>Ce nu functioneaza (sau functioneaza mai slab)</strong>:</p><p>Aplicatiile cu o curba de invatare abrupta. Daca trebuie sa petreci jumatate de ora ca sa intelegi cum functioneaza jocul, probabil nu vei mai reveni. Totul trebuie sa fie intuitiv.</p><p>Jocurile prea "jucause", care pun accent pe grafica "cartoony" si ignoră calitatea jocului în sine. Uneori, prea mult "flash" poate ascunde lipsa de substanță.</p><p>Cele cu "pay-to-win" agresiv. Daca esti obligat sa cumperi indicii sau sa platesti constant ca sa avansezi, jocul pierde farmecul. Este frustrant sa te simti blocat.</p><p>Lipsa de continut nou. Daca dupa cateva zile ai terminat toate nivelele sau te intorci mereu la aceleasi tipuri de puzzle-uri, jocul devine plictisitor.</p><p>Aplicatiile care consuma enorm din bateria telefonului sau ocupa foarte mult spatiu. Suntem pe mobil, portabilitatea e cheia.</p><p>Jocurile care te obligă să te conectezi la internet constant, chiar și pentru funcționalități de bază. Nu e practic.</p><p>E o linie fină între a fi distractiv și a fi eficient. Cele mai bune jocuri reușesc să echilibreze cele două.</p>
+      </section>
+
+      <section id="trucuri-utile">
+        <h2>Trucuri utile</h2>
+        <p>Am adunat cateva sfaturi care mi-au facut experienta cu jocurile de cuvinte mult mai placuta si mai productiva. Sper sa va fie de ajutor si voua.</p><p><strong>Nu va grabiti sa cumparati premium</strong>. Majoritatea jocurilor gratuite sunt decente. Incercati-le o saptamana, vedeti daca va plac cu adevarat. Daca reclamele devin insuportabile sau daca simtiti ca vreti mai mult, abia atunci luati in calcul o achizitie. Uneori, o simpla vizionare a unei reclame de 30 de secunde va ofera indicii sau vieti.</p><p><strong>Folositi jocurile ca pe un dictionar interactiv</strong>. Cand gasiti un cuvant nou, mai ales intr-un joc de tip "crossword" sau unul care va arata lista de cuvinte gasite, notati-va-l undeva. Sau, si mai bine, cautati-l in dictionar sa vedeti definitia. Asa nu doar il recunoasteti, ci si il intelegeti.</p><p><strong>Setati-va obiective mici</strong>. Nu va propuneti sa terminati 100 de nivele intr-o zi. Poate doar 5-10 nivele, sau 15 minute de joc pe zi. Constant, dar fara presiune. E mai sustenabil pe termen lung.</p><p><strong>Nu va fie frica sa luati o pauza</strong>. Daca simtiti ca va blocați pe un nivel sau ca incepeti sa va enervati, lasati jocul. Reveniti peste cateva ore sau a doua zi. Uneori, o perspectiva proaspata rezolva totul.</p><p><strong>Experimentati cu diferite tipuri de jocuri</strong>. Daca va plictisiti de "word swipe", incercati un "crossword" sau un joc de "word search". Fiecare stimuleaza creierul diferit.</p><p><strong>Atentie la "cheats" si "generators"</strong>. Exista site-uri care va dau cuvintele pentru anumite nivele. Folosirea lor distruge placerea jocului si scopul educativ. E ca si cum ati copia la un test.</p><p><strong>Folositi jocurile pentru limba pe care o invatati</strong>. Daca invatati spaniola, cautati aplicatii care au dictionar spaniol. E o modalitate excelenta de a va exersa vocabularul specific.</p><p><strong>Nu uitati de jocurile "clasice"</strong>. Chiar si un "word search" bine facut poate fi o provocare placuta. Nu va limitati doar la cele mai noi si stralucitoare.</p><p><strong>Fiti atenti la permisiunile pe care le cere aplicatia</strong>. Unele cer acces la contacte sau la istoricul de navigare, ceea ce e suspect. Pentru un joc de cuvinte, nu ar trebui sa fie necesar.</p><p><strong>Distrati-va!</strong> Asta e cel mai important. Daca nu va face placere, nu are rost.</p>
+      </section>
+
+      <section id="ce-as-alege-eu">
+        <h2>Ce as alege eu</h2>
+        <p>Daca ar fi sa aleg o singura aplicatie sau un tip de joc, as merge pe varianta care ofera cea mai mare flexibilitate si potential de invatare. Pentru mine, asta inseamna un joc de tip <strong>crossword puzzle</strong> bine realizat, cu optiunea de a alege limba.</p><p>De ce? Pentru ca un "crossword" te obliga sa gandesti in profunzime. Nu e doar despre a potrivi litere, ci despre a intelege definitii, a cauta sinonime, a folosi cunostinte generale. E un antrenament mental complet.</p><p>Imi place sa vad cum cuvintele se intrepatrund, cum o definitie mica poate dezvalui un cuvant lung si complex. E un sentiment de "aha!" constant.</p><p>Daca jocul respectiv are si o baza de date mare de cuvinte si o intelegere buna a limbii romane (sau a limbii pe care o studiez), devine o unealta educationala de nepretuit. Poti invata cuvinte noi, isi consolida cele existente si chiar sa-ti imbunatatesti abilitatile de scriere.</p><p>Pentru cine recomand asta? Pentru oricine nu se multumeste cu simpla distractie. Pentru cei care cauta o provocare intelectuala, care vor sa invete cuvinte noi intr-un mod activ si care apreciaza complexitatea limbajului.</p><p>Daca scopul e doar relaxarea, atunci un "word swipe" simplu ca Wordscapes e perfect. Dar daca vrei mai mult, daca vrei sa-ti dezvolti vocabularul activ si pasiv, un "crossword" e, in opinia mea, superior.</p><p>Un alt tip pe care il recomand, mai ales pentru cei care invata limbi straine, sunt aplicatiile care integreaza jocurile de cuvinte in procesul de invatare a limbii. Duolingo, de exemplu, face asta bine, desi nu e exclusiv un joc de cuvinte. Dar combinatia de cursuri si mini-jocuri e eficienta.</p><p>In final, alegerea depinde de stilul tau de invatare si de obiectivele tale. Dar nu subestima puterea unui "crossword" bun pe telefon. E o mica biblioteca portabila, gata sa-ti testeze si sa-ti extinda cunostintele.</p><p>Daca ar fi sa dau un nume concret, as cauta aplicatii gen "New York Times Crossword" (desi e mai mult pe engleza) sau "Wordfeud" (care e un fel de Scrabble online, dar cu o comunitate mare si un vocabular bogat). Sunt concepute sa fie provocatoare si educative.</p><p>Pentru limba romana, cautarea devine putin mai grea, dar exista optiuni decente. Totul e sa sapi putin.</p>
+      </section>
+
+      <section class="faq-section" id="faq">
+        <h2 class="faq-title">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+          </svg>
+          Intrebari Frecvente
+        </h2>
+        
+            <div class="faq-item" id="faq-0">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                Ce joc de cuvinte e cel mai bun pentru a invata limba engleza?
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                Pentru invatarea limbii engleze, jocurile de tip "crossword" sau "Scrabble" sunt excelente. Acestea te forteaza sa intelegi definitiile si sa folosesti vocabularul in mod strategic. Wordscapes si Word Connect sunt bune pentru familiarizarea cu cuvinte comune si structuri de baza.
+              </div>
+            </div>
+
+            <div class="faq-item" id="faq-1">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                Exista jocuri de cuvinte bune si pentru limba romana?
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                Da, exista. Cauta aplicatii care specifica "Romanian" in descriere. Cele de tip "crossword" sau "word search" pot fi adaptate. Unele aplicatii internationale pot avea si optiunea de limba romana, dar verifica calitatea dictionarului.
+              </div>
+            </div>
+
+            <div class="faq-item" id="faq-2">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                Pot folosi aceste jocuri pentru a-mi imbunatati memoria?
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                Absolut. Jocurile de cuvinte stimuleaza activitatea cerebrala, imbunatatesc memoria de lucru, concentrarea si capacitatea de rezolvare a problemelor. Repetitia si recunoasterea modelelor in cuvinte sunt benefice.
+              </div>
+            </div>
+
+            <div class="faq-item" id="faq-3">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                Cat de des ar trebui sa joc pentru a vedea rezultate?
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                Constant, dar fara presiune. Chiar si 15-20 de minute pe zi, jucate constant, pot face o diferenta. Cheia este regularitatea, nu durata sesiunilor individuale.
+              </div>
+            </div>
+
+            <div class="faq-item" id="faq-4">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                Aplicatiile gratuite sunt suficiente sau trebuie sa cumpar?
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                Majoritatea aplicatiilor gratuite sunt foarte bune si ofera mult continut. Cumpararea variantelor premium este utila daca vrei sa elimini reclamele sau sa accesezi functii suplimentare. Nu e obligatoriu, dar poate imbunatati experienta.
+              </div>
+            </div>
+
+            <div class="faq-item" id="faq-5">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                Ce inseamna "pay-to-win" in jocurile de cuvinte?
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                In jocurile de cuvinte, "pay-to-win" se refera la situatiile in care jucatorii trebuie sa plateasca pentru a obtine avantaje semnificative, cum ar fi indicii nelimitate, vieti suplimentare sau posibilitatea de a sari peste nivele dificile, ceea ce poate strica echilibrul si placerea jocului.
+              </div>
+            </div>
+      </section>
+    </div>
+
+    <div class="author-box">
+      <div class="author-avatar">{author.charAt(0)}</div>
+      <div class="author-info">
+        <h4>{author}</h4>
+        <p class="author-role">{authorRole}</p>
+        <p class="author-bio">{authorBio}</p>
+      </div>
+    </div>
+
+    <SimilarArticles
+      articles={allArticles}
+      currentSlug={slug}
+      currentCategory={category}
+    />
+  </article>
+
+  <Footer />
+  <CookieBanner />
+</Layout>

@@ -1,0 +1,136 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import CookieBanner from '../../components/CookieBanner.astro';
+
+import keywordsData from '../../../keywords.json';
+
+export async function getStaticPaths() {
+  const categories = [
+    { name: 'Carti si Dictionare', slug: 'carti-si-dictionare' },
+    { name: 'Invatare Limbi Straine', slug: 'invatare-limbi-straine' },
+    { name: 'Electronice Educative', slug: 'electronice-educative' },
+    { name: 'Jocuri de Cuvinte', slug: 'jocuri-de-cuvinte' }
+  ];
+
+  const ARTICLES_PER_PAGE = 12;
+  const paths = [];
+
+  for (const category of categories) {
+    const categoryArticles = keywordsData.completed
+      .filter(item => item.categorySlug === category.slug)
+      .map(item => ({
+        title: item.title,
+        slug: item.slug,
+        excerpt: item.excerpt || '',
+        image: item.image,
+        category: item.category,
+        categorySlug: item.categorySlug,
+        date: item.date || new Date().toISOString()
+      }))
+      .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
+    const totalPages = Math.max(1, Math.ceil(categoryArticles.length / ARTICLES_PER_PAGE));
+
+    for (let i = 1; i <= totalPages; i++) {
+      const start = (i - 1) * ARTICLES_PER_PAGE;
+      const end = start + ARTICLES_PER_PAGE;
+      const pageArticles = categoryArticles.slice(start, end);
+
+      paths.push({
+        params: {
+          category: category.slug,
+          page: i === 1 ? undefined : String(i)
+        },
+        props: {
+          categoryName: category.name,
+          categorySlug: category.slug,
+          articles: pageArticles,
+          currentPage: i,
+          totalPages: totalPages
+        }
+      });
+    }
+  }
+
+  return paths;
+}
+
+const { categoryName, categorySlug, articles, currentPage, totalPages } = Astro.props;
+---
+
+<Layout
+  title={`${categoryName} - DictionarulTau`}
+  description={`Articole despre ${categoryName.toLowerCase()}. Recenzii detaliate si recomandari practice.`}
+>
+  <Header />
+
+  <section class="article-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Acasa</a>
+        <span class="breadcrumb-separator">/</span>
+        <span class="breadcrumb-current">{categoryName}</span>
+      </nav>
+      <h1>{categoryName}</h1>
+      <p class="hero-subtitle" style="color: var(--color-primary-200); max-width: 600px;">
+        {articles.length > 0
+          ? `${articles.length} articole in aceasta categorie`
+          : 'Nu exista inca articole in aceasta categorie'}
+      </p>
+    </div>
+  </section>
+
+  <main class="container">
+    <section class="section">
+      {articles.length > 0 ? (
+        <>
+          <div class="articles-grid">
+            {articles.map(article => (
+              <ArticleCard {...article} />
+            ))}
+          </div>
+
+          {totalPages > 1 && (
+            <nav class="pagination">
+              {currentPage > 1 && (
+                <a href={currentPage === 2 ? `/${categorySlug}/` : `/${categorySlug}/${currentPage - 1}/`}>
+                  &larr; Inapoi
+                </a>
+              )}
+
+              {Array.from({ length: totalPages }, (_, i) => i + 1).map(page => (
+                <a
+                  href={page === 1 ? `/${categorySlug}/` : `/${categorySlug}/${page}/`}
+                  class={page === currentPage ? 'active' : ''}
+                >
+                  {page}
+                </a>
+              ))}
+
+              {currentPage < totalPages && (
+                <a href={`/${categorySlug}/${currentPage + 1}/`}>
+                  Inainte &rarr;
+                </a>
+              )}
+            </nav>
+          )}
+        </>
+      ) : (
+        <div class="text-center" style="padding: var(--space-3xl) 0;">
+          <p style="color: var(--color-neutral-500); font-size: 1.125rem;">
+            Momentan nu exista articole in aceasta categorie.
+          </p>
+          <p style="color: var(--color-neutral-400);">
+            Revin curand cu continut nou!
+          </p>
+        </div>
+      )}
+    </section>
+  </main>
+
+  <Footer />
+  <CookieBanner />
+</Layout>

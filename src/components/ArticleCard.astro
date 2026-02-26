@@ -1,0 +1,40 @@
+---
+interface Props {
+  title: string;
+  excerpt: string;
+  image: string;
+  category: string;
+  categorySlug: string;
+  date: string;
+  slug: string;
+}
+
+const { title, excerpt, image, category, categorySlug, date, slug } = Astro.props;
+const cleanExcerpt = excerpt?.replace(/<[^>]*>/g, '') || '';
+
+const formattedDate = new Date(date).toLocaleDateString('ro-RO', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+});
+---
+
+<article class="article-card">
+  <div class="article-image">
+    <a href={`/${categorySlug}/`} class="article-category">{category}</a>
+    <img src={image} alt={title} loading="lazy" width="400" height="300" />
+  </div>
+  <div class="article-content">
+    <span class="article-date">{formattedDate}</span>
+    <h3>
+      <a href={`/${slug}/`}>{title}</a>
+    </h3>
+    <p class="article-excerpt">{cleanExcerpt}</p>
+    <a href={`/${slug}/`} class="read-more">
+      Citeste articolul
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </a>
+  </div>
+</article>

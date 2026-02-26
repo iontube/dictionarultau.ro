@@ -1,0 +1,261 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import SimilarArticles from '../components/SimilarArticles.astro';
+import CookieBanner from '../components/CookieBanner.astro';
+import keywordsData from '../../keywords.json';
+
+const title = "PocketBook e-reader pareri Romania";
+const excerpt = "Am tot amanat momentul sa vorbesc despre asta, dar acum simt ca e momentul potrivit. Daca esti ca mine, pasionat de carti, de invatat lucruri noi si de a tine totul la indemana, atunci stii cat de greu e sa jonglezi cu atatea volume fizice. Si daca te gandesti la un e-reader, dar nu stii de unde sa incepi, hai sa povestim despre PocketBook.";
+const image = "/images/articles/pocketbook-e-reader-pareri-romania.webp";
+const category = "Electronice Educative";
+const categorySlug = "electronice-educative";
+const date = "2026-02-03T13:22:33.731Z";
+const modifiedDate = "2026-02-03T13:22:33.731Z";
+const author = "Cristian Mihai";
+const authorRole = "Expert EdTech";
+const authorBio = "Pasionat de tehnologie si educatie, Cristian testeaza si recenzeaza dispozitive electronice care faciliteaza invatarea si lectura digitala.";
+const slug = "pocketbook-e-reader-pareri-romania";
+
+const faq = [
+  { question: "Pot folosi un e-reader PocketBook pentru a citi carti in limba romana?", answer: "Absolut! PocketBook suporta o multitudine de formate de ebook-uri, inclusiv cele mai comune pentru cartile in limba romana. Nu vei intampina probleme la deschiderea fisierelor cumparate din librarii online sau obtinute din alte surse." },
+  { question: "Este ecranul E Ink la fel de obositor pentru ochi ca ecranul unui telefon?", answer: "Nu, deloc. Tehnologia E Ink imita hartia si nu emite lumina directa catre ochi. Poti citi ore in sir fara oboseala vizuala, spre deosebire de telefoane sau tablete care au lumina de fundal." },
+  { question: "Cat dureaza bateria unui e-reader PocketBook?", answer: "Autonomia bateriei este un punct forte major. O singura incarcare poate dura saptamani intregi, in functie de cat de mult citesti si daca folosesti functii precum iluminarea ecranului sau Wi-Fi." },
+  { question: "Pot instala dictionare pe un PocketBook?", answer: "Da, si asta este o functie excelenta, mai ales pentru pasionatii de limbi straine. Poti instala dictionare in diverse limbi, inclusiv pentru limba romana, si le poti accesa rapid cand dai de un cuvant necunoscut." },
+  { question: "Ce format de fisier e cel mai bun pentru cartile de pe PocketBook?", answer: "PocketBook suporta o gama foarte larga de formate. EPUB si FB2 sunt printre cele mai comune si recomandate pentru carti, oferind flexibilitate in setarile de font si aspect. PDF-urile sunt, de asemenea, suportate, dar pe ecrane mai mici pot fi mai greu de citit." },
+  { question: "Merita sa cumpar un model mai scump cu ecran mare sau raman la unul mai simplu?", answer: "Depinde de obiceiurile tale de citit. Daca citesti preponderent romane si nu te deranjeaza un ecran mai mic, un model de 6 inch e perfect. Daca citesti multe PDF-uri, documente tehnice sau materiale cu grafice, un ecran mai mare (7-8 inch) va face o diferenta semnificativa in confortul tau." }
+];
+
+const toc = [
+  { title: "De ce merita atentia ta un e-reader PocketBook", id: "de-ce-merita-atentia-ta-un-e-reader-pocketbook" },
+  { title: "Variante de PocketBook pe care le poti alege", id: "variante-de-pocketbook-pe-care-le-poti-alege" },
+  { title: "La ce sa te uiti cand alegi un e-reader PocketBook", id: "la-ce-sa-te-uiti-cand-alegi-un-e-reader-pocketbook" },
+  { title: "Ce functioneaza si ce nu la e-readerele PocketBook", id: "ce-functioneaza-si-ce-nu-la-e-readerele-pocketbook" },
+  { title: "Trucuri utile pentru utilizarea PocketBook", id: "trucuri-utile-pentru-utilizarea-pocketbook" },
+  { title: "Ce as alege eu si de ce", id: "ce-as-alege-eu-si-de-ce" }
+];
+
+// Get all articles for similar articles component
+const allArticles = (keywordsData.completed || []).map(item => ({
+  title: item.title,
+  slug: item.slug,
+  excerpt: item.excerpt || '',
+  image: item.image,
+  category: item.category,
+  categorySlug: item.categorySlug,
+  date: item.date || new Date().toISOString()
+}));
+---
+
+<Layout
+  title={title}
+  description={excerpt}
+  image={image}
+  article={true}
+  publishedTime={date}
+  modifiedTime={modifiedDate}
+  author={author}
+  faq={faq}
+>
+  <Header />
+
+  <header class="article-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Acasa</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href={`/${categorySlug}/`}>{category}</a>
+        <span class="breadcrumb-separator">/</span>
+        <span class="breadcrumb-current">{title}</span>
+      </nav>
+
+      <h1>{title}</h1>
+
+      <div class="article-header-meta">
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
+          {new Date(date).toLocaleDateString('ro-RO', { year: 'numeric', month: 'long', day: 'numeric' })}
+        </span>
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          {author}
+        </span>
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+          </svg>
+          {category}
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <article class="article-body">
+    <div class="article-featured-image">
+      <img src={image} alt={title} width="800" height="600" loading="eager" />
+    </div>
+
+    <nav class="toc">
+      <h2 class="toc-title">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="8" y1="6" x2="21" y2="6"></line>
+          <line x1="8" y1="12" x2="21" y2="12"></line>
+          <line x1="8" y1="18" x2="21" y2="18"></line>
+          <line x1="3" y1="6" x2="3.01" y2="6"></line>
+          <line x1="3" y1="12" x2="3.01" y2="12"></line>
+          <line x1="3" y1="18" x2="3.01" y2="18"></line>
+        </svg>
+        Cuprins
+      </h2>
+      <ol class="toc-list">
+        {toc.map(item => (
+          <li class="toc-item"><a href={`#${item.id}`}>{item.title}</a></li>
+        ))}
+        <li class="toc-item"><a href="#faq">Intrebari Frecvente</a></li>
+      </ol>
+    </nav>
+
+    <div class="article-content-body">
+      
+      <section id="de-ce-merita-atentia-ta-un-e-reader-pocketbook">
+        <h2>De ce merita atentia ta un e-reader PocketBook</h2>
+        <p>Suntem multi dintre noi care iubim cartile. Mirosul paginilor, placerea de a rasfoi, senzatia de greutate in mana. Dar, sa fim sinceri, viata moderna ne pune in fata altor provocari. Incepem sa calatorim mai mult, fie in interes de serviciu, fie pentru vacanta. Si atunci, cum duci cu tine biblioteca intreaga? Sau, poate esti student si ai nevoie de tone de manuale. Sau pur si simplu, vrei sa ai acces la o gramada de informatii fara sa te ingreunezi.</p><p>Aici intra in scena e-readerele. Si daca ma intrebi pe mine, PocketBook e o optiune foarte serioasa. De ce? Pentru ca rezolva o problema reala: portabilitatea si accesul rapid la informatie. Nu mai trebuie sa alegi o singura carte pentru concediu. Nu mai cari dictionare grele dupa tine. Totul sta intr-un dispozitiv micut, usor, pe care il poti lua oriunde.</p><p>Pentru cine e util? Pentru oricine iubeste sa citeasca, sa invete, sa se documenteze. Pentru studenti, pentru ca pot avea toate cursurile si cartile de referinta intr-un singur loc. Pentru profesionisti, care au nevoie de acces rapid la documente, studii, articole. Pentru calatori, care vor sa se bucure de lectura fara sa se incarce cu bagaje inutile. Si, bineinteles, pentru pasionatii de limbi straine, cum sunt eu, care pot avea dictionarele si materialele de studiu mereu la indemana.</p><p>Gata cu spatele incovoiat de la biblioteci portabile. Gata cu cautatul prin sertare dupa cartea pe care o vrei. Un e-reader PocketBook iti aduce universul de cunostinte intr-o forma compacta si prietenoasa. E un instrument educativ in adevaratul sens al cuvantului, un companion pentru minte.</p><p>Imagineaza-ti ca esti intr-un tren, pe drum spre munte. In loc sa te uiti pe geam toata durata, poti citi acel roman pe care il tot amani. Sau, daca esti la facultate si ai o pauza scurta, poti revizui rapid notitele sau poti citi un capitol din cartea de curs. Nu mai e nevoie sa te intorci acasa pentru a accesa informatia. Totul e acolo, in buzunarul tau.</p><p>Mai mult, e-readerele sunt prietenoase cu ochii. Ecranul de tip e-ink imita hartia, asa ca poti citi ore in sir fara oboseala. E o diferenta uriasa fata de un telefon sau o tableta, unde lumina de fundal poate fi obositoare.</p>
+      </section>
+
+      <section id="variante-de-pocketbook-pe-care-le-poti-alege">
+        <h2>Variante de PocketBook pe care le poti alege</h2>
+        <p>Piata de e-readere e destul de variata, si PocketBook nu face exceptie. Au modele pentru diferite bugete si nevoi. Hai sa ne uitam la cateva exemple concrete, ca sa iti faci o idee.</p><p>Unul dintre cele mai populare modele, si pe buna dreptate, este <strong>PocketBook Touch Lux 5</strong>. E un fel de entry-level de calitate. Are un ecran de 6 inch, suficient de mare pentru o lectura confortabila, fara a fi prea voluminos. Il gasesti de obicei pe la 400-500 RON, in functie de reduceri. E ideal pentru cei care vor un e-reader simplu, eficient, pentru a citi carti. Nu are functii complicate, dar face ce trebuie, si face bine.</p><p>Daca vrei ceva mai mult, cu ecran iluminat pentru citit pe intuneric, atunci te uiti la <strong>PocketBook Basic Lux 3</strong>. Asta e cam pe la 500-600 RON. Iluminarea ecranului e ajustabila, ceea ce e un plus mare. Poti citi in pat, fara sa deranjezi pe nimeni, sau in avion, cand luminile sunt stinse. Asta e o diferenta majora fata de modelele fara iluminare.</p><p>Acum, daca esti genul care vrea tot ce e mai bun, sau citesti mult si vrei cea mai buna experienta, atunci te indrepti spre modelele cu ecrane mai mari sau cu functii suplimentare. De exemplu, <strong>PocketBook InkPad 4</strong>. Asta are un ecran de 7.8 inch, deci o suprafata de citire mai generoasa. E perfect pentru PDF-uri, documente tehnice, sau pentru cei care prefera un format mai mare. Pretul e pe masura, undeva intre 900 si 1100 RON.</p><p>Mai exista si modele cu functii speciale, cum ar fi cele rezistente la apa, pentru cei care iubesc sa citeasca la piscina sau la mare. Sau cele cu procesare mai rapida, pentru a rula aplicatii mai complexe, daca PocketBook ofera asa ceva. Totusi, pentru lectura pura, modelele de baza sunt excelente.</p><p>Cand te gandesti la pret, ia in calcul si cat de mult vei folosi dispozitivul. Daca e pentru cateva ore pe luna, poate un model mai ieftin e suficient. Daca devine partenerul tau de citit zilnic, atunci merita sa investesti intr-un ecran mai bun, iluminare performanta si o interfata mai rapida.</p><p>Ca sa iti faci o idee, <strong>PocketBook Era</strong> e un model premium, cu ecran de 7 inch, rezistent la apa, cu difuzoare pentru audiobook-uri si text-to-speech. Asta sare de 1200 RON, dar ofera o experienta completa. E ca un fel de tableta dedicata literaturii.</p><p>Deci, ai de la modele accesibile, perfecte pentru inceput, pana la optiuni mai avansate pentru cititori impatimiti. E important sa stii ce cauti, ce functii sunt esentiale pentru tine, si cat esti dispus sa investesti. Nu te grabi, analizeaza-ti nevoile.</p>
+      </section>
+
+      <section id="la-ce-sa-te-uiti-cand-alegi-un-e-reader-pocketbook">
+        <h2>La ce sa te uiti cand alegi un e-reader PocketBook</h2>
+        <p>Alegerea unui e-reader nu e ca si cum ai cumpara o pereche de sosete. Trebuie sa te gandesti la cateva aspecte cheie, ca sa nu ajungi sa fii dezamagit. Si la PocketBook, lucrurile sunt destul de clare daca stii ce cauti.</p><p><strong>Ecranul</strong> e cel mai important. Majoritatea modelelor PocketBook folosesc tehnologia E Ink. Asta e bine. Dar exista diferente. Rezolutia ecranului (masurata in DPI - dots per inch) influenteaza cat de clare sunt literele. Cu cat DPI-ul e mai mare, cu atat textul e mai fin. Pentru citit, un ecran de 300 DPI e excelent. Modelele mai ieftine pot avea 167 DPI, ceea ce e ok, dar nu la fel de clar.</p><p><strong>Dimensiunea ecranului</strong> conteaza si ea. Cele de 6 inch sunt cele mai comune si portabile. Sunt bune pentru romane, povestiri. Daca citesti mult PDF-uri, articole tehnice, sau documente, un ecran de 7 sau 8 inch (cum e la InkPad) e mult mai comod. Nu va trebui sa faci zoom constant sau sa derulezi paginile.</p><p><strong>Iluminarea ecranului</strong>. Asta e o functie pe care multi o subestimeaza. Daca vrei sa citesti in conditii de lumina slaba, sau pe intuneric, ai nevoie de un ecran cu iluminare frontala. Modelele "Lux" de la PocketBook au asta. Poti ajusta intensitatea luminii, ceea ce e esential pentru confortul ochilor.</p><p><strong>Memoria interna</strong>. Majoritatea cartilor electronice nu ocupa mult spatiu. Dar daca vrei sa tii sute sau mii de carti, plus dictionare, PDF-uri, atunci e bine sa te uiti la memoria disponibila. Multe modele PocketBook au si slot pentru card microSD, deci poti extinde memoria destul de mult.</p><p><strong>Formatul fisierelor suportate</strong>. Aici PocketBook sta foarte bine. Suporta o gramada de formate de ebook-uri (EPUB, PDF, FB2, MOBI, DOC, TXT etc.) si imagini (JPEG, BMP, PNG). Asta inseamna ca rar vei intampina probleme cu deschiderea unui fisier. Nu trebuie sa convertesti mereu cartile.</p><p><strong>Bateria</strong>. E-readerele sunt cunoscute pentru autonomia lor mare. O singura incarcare poate dura saptamani, nu zile. Asta pentru ca ecranul E Ink consuma foarte putina energie, mai ales cand nu schimbi pagina. Deci, nu iti face griji prea mari legate de baterie.</p><p><strong>Conectivitatea</strong>. Majoritatea au Wi-Fi, pentru a descarca carti direct din cloud sau din librarii online. Unele au si Bluetooth, pentru a asculta audiobook-uri sau a folosi functia text-to-speech. Daca te intereseaza audiobook-urile, verifica daca modelul respectiv are difuzoare sau mufa jack.</p><p><strong>Designul si ergonomia</strong>. Chiar daca par toate la fel, unele sunt mai comode in mana decat altele. Materialele folosite, greutatea, forma – toate conteaza pentru sesiuni lungi de citit. Modelele mai scumpe tind sa aiba finisaje mai bune.</p><p><strong>Pretul</strong>. Stabileste-ti un buget. Ai modele bune si sub 500 RON, dar si optiuni premium care depasesc 1000 RON. Decide ce caracteristici sunt critice pentru tine si unde poti face compromisuri.</p><p>Nu uita sa citesti recenzii, sa te uiti la clipuri video cu modelul care te intereseaza. Asta te poate ajuta sa iti faci o idee despre cum arata si cum functioneaza in realitate.</p>
+      </section>
+
+      <section id="ce-functioneaza-si-ce-nu-la-e-readerele-pocketbook">
+        <h2>Ce functioneaza si ce nu la e-readerele PocketBook</h2>
+        <p>Sincer, nu am gasit multe lucruri care sa nu functioneze la un e-reader PocketBook, mai ales daca alegi modelul potrivit pentru tine. Dar, ca la orice tehnologie, exista puncte tari si puncte slabe.</p><p><strong>Ce functioneaza excelent:</strong></p><p><strong>Cititul in sine.</strong> Asta e scopul principal si aici PocketBook exceleaza. Ecranul E Ink e fantastic pentru ochi. Nu vei simti oboseala ca la tableta. Textul e clar, contrastul e bun. E ca si cum ai citi pe hartie. Asta e motivul pentru care multi renunta la tablete pentru citit.</p><p><strong>Suportul pentru formate.</strong> Am mentionat asta, dar e un punct forte urias. Nu trebuie sa iti bati capul cu conversia fisierelor. Poti lua aproape orice carte electronica si o poti citi fara probleme. Asta economiseste timp si nervi.</p><p><strong>Autonomia bateriei.</strong> Aici PocketBook, ca orice e-reader bun, te lasa sa uiti de incarcator. Saptamani intregi de utilizare cu o singura incarcare. Perfect pentru vacante sau deplasari lungi.</p><p><strong>Portabilitatea si greutatea.</strong> Sunt dispozitive usoare, compacte. Le poti lua in geanta, in buzunar. O biblioteca intreaga in palma ta.</p><p><strong>Flexibilitatea cu dictionarele.</strong> Pentru cine invata limbi straine, asta e aur curat. Poti instala dictionare in limba ta, sau dictionare bilingve. Si cand dai de un cuvant necunoscut, dai un tap si vezi traducerea instant. Nu mai trebuie sa cauti in dictionare fizice sau pe telefon.</p><p><strong>Ce ar putea fi mai bun (sau nu functioneaza pentru toata lumea):</strong></p><p><strong>Viteza de refresh a ecranului.</strong> E Ink-ul are o limita. Cand navighezi prin meniuri sau deschizi aplicatii, vei observa o mica intarziere, un fel de "ghosting" (urme de la pagina anterioara). Nu deranjeaza la citit, dar daca esti obisnuit cu viteza telefoanelor si tabletelor, s-ar putea sa ti se para lent.</p><p><strong>Experienta cu PDF-urile pe modelele mici.</strong> Daca citesti multe PDF-uri, mai ales cele cu grafice, tabele sau imagini, un ecran de 6 inch poate fi frustrant. Va trebui sa faci zoom, sa derulezi constant. Modelele cu ecrane mai mari (7-8 inch) rezolva mult din asta.</p><p><strong>Interfata pentru navigare complexa.</strong> Daca vrei sa navighezi pe internet, sa folosesti aplicatii complicate, un e-reader nu e cea mai buna alegere. E optimizat pentru citit. Browserul web e de baza, si aplicatiile (daca exista) sunt limitate.</p><p><strong>Culoare.</strong> Majoritatea e-readerelelor sunt alb-negru. Daca ai nevoie sa citesti materiale cu multe imagini color, sau carti pentru copii, s-ar putea sa fie nevoie sa te uiti la alte tipuri de dispozitive.</p><p><strong>Pretul modelelor premium.</strong> Modelele cu cele mai multe functii, ecran mare, rezistenta la apa, pot fi destul de scumpe. Dar, din nou, depinde de ce cauti.</p><p>Pe scurt, daca vrei un dispozitiv dedicat cititului, PocketBook isi face treaba impecabil. Daca vrei un dispozitiv multifunctional, ca o tableta, atunci e-readerul nu e solutia.</p>
+      </section>
+
+      <section id="trucuri-utile-pentru-utilizarea-pocketbook">
+        <h2>Trucuri utile pentru utilizarea PocketBook</h2>
+        <p>Ca sa te bucuri la maximum de e-readerul tau PocketBook, si sa eviti frustrarile, iata cateva sfaturi practice pe care le-am adunat in timp.</p><p><strong>Organizeaza-ti biblioteca.</strong> Nu lasa cartile sa fie un haos. Foloseste foldere, etichete (daca modelul tau suporta). Creeaza colectii pentru genuri diferite, autori sau proiecte de studiu. Asa, gasesti mult mai rapid ce cauti.</p><p><strong>Foloseste functia "Text-to-Speech" (TTS).</strong> Daca modelul tau are aceasta functie, e o minune. Poti asculta cartile, ca pe audiobook-uri, mai ales cand faci treburi prin casa sau mergi pe jos. Nu e perfect, dar e o alternativa excelenta.</p><p><strong>Personalizeaza setarile de font.</strong> Nu te multumi cu fontul implicit. Experimenteaza cu diferite dimensiuni, tipuri de font, spatiere intre randuri. Gaseste combinatia care iti ofera cel mai mare confort vizual. Asta e un avantaj urias al e-readerelor.</p><p><strong>Instaleaza dictionare.</strong> Asta e pentru mine, pasionatul de limbi straine. Descarca dictionare gratuite sau cumpara-le pe cele profesionale. Poti avea un dictionar explicativ, un dictionar de sinonime, dictionare bilingve. Totul la indemana, cu un simplu tap pe cuvant.</p><p><strong>Fii atent la lumina ecranului.</strong> Chiar daca e iluminare frontala, ajusteaza-o la nivelul potrivit. Nu sta cu lumina la maxim in intuneric, pentru ca iti poate obosi ochii. Cauta acel "sweet spot" care e confortabil pentru tine.</p><p><strong>Foloseste Wi-Fi-ul cu intelepciune.</strong> Descarca cartile cand ai conexiune la internet, dar nu sta conectat non-stop. Asta consuma bateria. Si, de cele mai multe ori, nu ai nevoie de conexiune pentru a citi.</p><p><strong>Backup-ul este prietenul tau.</strong> Daca ai carti din surse proprii, fa-ti un backup regulat pe calculator sau in cloud. E-readerele pot fi pierdute sau pot avea probleme tehnice. Nu vrei sa pierzi toata colectia.</p><p><strong>Evita expunerea la temperaturi extreme.</strong> Nu lasa e-readerul in masina incinsa vara, sau afara pe ger iarna. Ecranele E Ink sunt sensibile la temperaturi extreme.</p><p><strong>Nu te astepta la performante de smartphone.</strong> Am mai zis, dar e important. Nu incerca sa rulezi jocuri sau aplicatii complexe. E un dispozitiv pentru citit. Cand ii ceri lucruri pentru care nu a fost proiectat, vei fi dezamagit.</p><p><strong>Curata ecranul cu grija.</strong> Foloseste o laveta moale, din microfibra, usor umezita. Nu folosi solutii de curatat abrazive sau prea mult lichid. Ecranul E Ink e delicat.</p><p><strong>Actualizeaza firmware-ul.</strong> Producatorul mai lanseaza update-uri care pot imbunatati performanta, pot adauga functii noi sau pot rezolva bug-uri. Verifica din cand in cand daca exista actualizari disponibile.</p><p><strong>Invata shortcut-urile.</strong> Multe modele PocketBook au butoane fizice sau gesturi tactile pentru a schimba pagina. Familiarizeaza-te cu ele pentru o navigare mai rapida.</p><p><strong>Nu te lasa pacalit de "oferte" dubioase.</strong> Cumpara intotdeauna de la surse de incredere, pentru a te asigura ca primesti un produs original si cu garantie.</p>
+      </section>
+
+      <section id="ce-as-alege-eu-si-de-ce">
+        <h2>Ce as alege eu si de ce</h2>
+        <p>Daca ar fi sa aleg un e-reader PocketBook pentru mine, acum, in acest moment, as merge pe <strong>PocketBook InkPad 4</strong>. Si explic imediat de ce.</p><p>Sunt un cititor asiduu. Nu doar romane, ci si multe articole tehnice, studii, documente. Asta inseamna ca am nevoie de un ecran mai mare decat cel standard de 6 inch. Ecranul de 7.8 inch de la InkPad 4 este, pentru mine, un "sweet spot". E suficient de mare incat sa pot citi PDF-uri confortabil, fara sa ma chinui cu zoom-ul. Textul e mare si clar, iar paginile se incarca repede.</p><p>Pe langa asta, InkPad 4 vine cu rezistenta la apa. Asta e un avantaj major pentru mine. Pot sa citesc in cada, langa piscina, sau pur si simplu nu mai stau cu grija daca scap o picatura de cafea pe el. E o liniste in plus.</p><p>Functia text-to-speech si suportul pentru audiobook-uri sunt si ele puncte forte. Chiar daca prefer sa citesc, uneori, cand sunt obosit sau am alte treburi, sa pot asculta o carte e fantastic. Nu am nevoie neaparat de ecran color, dar daca ar fi avut, ar fi fost un plus. Totusi, pentru mine, prioritare sunt claritatea textului, marimea ecranului si functiile practice.</p><p>Iluminarea ecranului este, evident, un must-have. Si la InkPad 4, ajustarea ei e foarte fina. Pot sa o folosesc si pe lumina puternica, si pe intuneric, fara probleme.</p><p>Memoria interna e generoasa, si mai poti adauga un card microSD. Asta inseamna ca pot cara cu mine toata biblioteca, dictionarele mele de limbi straine, si chiar si cateva filme sau muzica daca as vrea sa le folosesc pe post de "media player de urgenta" (desi nu asta e scopul principal).</p><p>Pretul e mai ridicat, undeva peste 1000 RON, dar pentru mine, investitia se justifica. Cat timp petrec citind? Cat de mult ma ajuta in studiu si documentare? Foarte mult. Asa ca un dispozitiv care imi face viata mai usoara si imi imbunatateste experienta de citit este o investitie in mine.</p><p>Pentru cine recomand InkPad 4? Pentru cititorii "voraci", pentru cei care lucreaza cu multe documente PDF, pentru studentii care au nevoie de o biblioteca portabila, si pentru cei care vor un dispozitiv "all-in-one" pentru lectura.</p><p>Daca insa bugetul e mai restrans, sau daca citesti doar romane si nu ai nevoie de ecran mare sau rezistenta la apa, atunci un PocketBook Touch Lux 5 sau Basic Lux 3 ar fi optiuni excelente. Sunt modele care fac cititul o placere, fara sa iti goleasca buzunarul. Important e sa alegi ce se potriveste stilului tau de viata si nevoilor tale.</p><p>Pentru mine, insa, InkPad 4 e un companion de nadejde, un instrument de invatare si relaxare pe care il folosesc zilnic.</p>
+      </section>
+
+      <section class="faq-section" id="faq">
+        <h2 class="faq-title">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+          </svg>
+          Intrebari Frecvente
+        </h2>
+        
+            <div class="faq-item" id="faq-0">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                Pot folosi un e-reader PocketBook pentru a citi carti in limba romana?
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                Absolut! PocketBook suporta o multitudine de formate de ebook-uri, inclusiv cele mai comune pentru cartile in limba romana. Nu vei intampina probleme la deschiderea fisierelor cumparate din librarii online sau obtinute din alte surse.
+              </div>
+            </div>
+
+            <div class="faq-item" id="faq-1">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                Este ecranul E Ink la fel de obositor pentru ochi ca ecranul unui telefon?
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                Nu, deloc. Tehnologia E Ink imita hartia si nu emite lumina directa catre ochi. Poti citi ore in sir fara oboseala vizuala, spre deosebire de telefoane sau tablete care au lumina de fundal.
+              </div>
+            </div>
+
+            <div class="faq-item" id="faq-2">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                Cat dureaza bateria unui e-reader PocketBook?
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                Autonomia bateriei este un punct forte major. O singura incarcare poate dura saptamani intregi, in functie de cat de mult citesti si daca folosesti functii precum iluminarea ecranului sau Wi-Fi.
+              </div>
+            </div>
+
+            <div class="faq-item" id="faq-3">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                Pot instala dictionare pe un PocketBook?
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                Da, si asta este o functie excelenta, mai ales pentru pasionatii de limbi straine. Poti instala dictionare in diverse limbi, inclusiv pentru limba romana, si le poti accesa rapid cand dai de un cuvant necunoscut.
+              </div>
+            </div>
+
+            <div class="faq-item" id="faq-4">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                Ce format de fisier e cel mai bun pentru cartile de pe PocketBook?
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                PocketBook suporta o gama foarte larga de formate. EPUB si FB2 sunt printre cele mai comune si recomandate pentru carti, oferind flexibilitate in setarile de font si aspect. PDF-urile sunt, de asemenea, suportate, dar pe ecrane mai mici pot fi mai greu de citit.
+              </div>
+            </div>
+
+            <div class="faq-item" id="faq-5">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                Merita sa cumpar un model mai scump cu ecran mare sau raman la unul mai simplu?
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                Depinde de obiceiurile tale de citit. Daca citesti preponderent romane si nu te deranjeaza un ecran mai mic, un model de 6 inch e perfect. Daca citesti multe PDF-uri, documente tehnice sau materiale cu grafice, un ecran mai mare (7-8 inch) va face o diferenta semnificativa in confortul tau.
+              </div>
+            </div>
+      </section>
+    </div>
+
+    <div class="author-box">
+      <div class="author-avatar">{author.charAt(0)}</div>
+      <div class="author-info">
+        <h4>{author}</h4>
+        <p class="author-role">{authorRole}</p>
+        <p class="author-bio">{authorBio}</p>
+      </div>
+    </div>
+
+    <SimilarArticles
+      articles={allArticles}
+      currentSlug={slug}
+      currentCategory={category}
+    />
+  </article>
+
+  <Footer />
+  <CookieBanner />
+</Layout>

@@ -1,0 +1,265 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import SimilarArticles from '../components/SimilarArticles.astro';
+import CookieBanner from '../components/CookieBanner.astro';
+import keywordsData from '../../keywords.json';
+
+const title = "Dictionar explicativ al limbii romane recomandat";
+const excerpt = "Am tot vorbit despre cum invat limbile straine, dar azi vreau sa trec in revista ceva la fel de important: dictionarele. Mai ales cele romanesti. Ca sa intelegi mai bine ce zic, ce aud si sa vorbesti corect. Ca uneori si eu ma incurc in cuvinte.";
+const image = "/images/articles/dictionar-explicativ-al-limbii-romane-recomandat.webp";
+const category = "Carti si Dictionare";
+const categorySlug = "carti-si-dictionare";
+const date = "2026-01-19T10:42:06.461Z";
+const modifiedDate = "2026-01-30T10:42:06.538Z";
+const author = "Maria Popescu";
+const authorRole = "Specialist in Lingvistica";
+const authorBio = "Cu peste 10 ani de experienta in domeniul lingvisticii si al editarii de dictionare, Maria te ajuta sa alegi cele mai bune resurse pentru invatare.";
+const slug = "dictionar-explicativ-al-limbii-romane-recomandat";
+
+const faq = [
+  { question: "Ce dictionar roman este cel mai recomandat pentru uz general?", answer: "Pentru uz general, Dictionarul Explicativ al Limbii Romane (DEX) este cel mai recomandat. Cauta cea mai recenta editie, publicata de Academia Romana, pentru a te asigura ca este actualizat si cuprinzator." },
+  { question: "Exista o varianta mai mica si mai accesibila a DEX-ului?", answer: "Da, Micul Dictionar Academic (MDA) este o varianta mai compacta si de obicei mai accesibila ca pret decat DEX-ul complet. Este potrivit pentru consultari rapide ale vocabularului curent." },
+  { question: "Unde pot gasi dictionare romanesti la preturi bune?", answer: "Poti gasi dictionare romanesti in librarii mari, online (pe site-uri ca eMAG, Libris, Carturesti), dar si la anticariate pentru editii mai vechi. Pretul unui DEX nou poate varia intre 150 si 300 RON." },
+  { question: "Sunt dictionarele online la fel de bune ca cele tiparite?", answer: "Variantele online, cum ar fi dexonline.ro, sunt foarte utile pentru cautari rapide si accesibilitate. Totusi, pentru o experienta de studiu mai aprofundata si satisfactia fizica, dictionarele tiparite raman preferate de multi." },
+  { question: "Ce inseamna ca un dictionar este „actualizat”?", answer: "Un dictionar actualizat contine cuvinte noi aparute in limba, sensuri noi ale cuvintelor existente si eventual modificari ortografice sau de uz. Cauta editii cat mai recente." },
+  { question: "Pot folosi un dictionar roman pentru a invata limba romana ca strain?", answer: "Da, un dictionar explicativ roman poate fi o resursa valoroasa. Totusi, pentru inceput, este mai util un dictionar roman-limba ta, care ofera echivalente directe si explicatii mai simple." }
+];
+
+const toc = [
+  { title: "De ce un dictionar roman e esential, chiar si cand vorbesti engleza", id: "de-ce-un-dictionar-roman-e-esential-chiar-si-cand-vorbesti-engleza" },
+  { title: "Ce optiuni ai pe masa: dictionare romanesti cu preturi si pareri", id: "ce-optiuni-ai-pe-masa-dictionare-romanesti-cu-preturi-si-pareri" },
+  { title: "Ce sa urmaresti cand alegi un dictionar roman", id: "ce-sa-urmaresti-cand-alegi-un-dictionar-roman" },
+  { title: "Ce merge si ce nu: experiente cu dictionarele romanesti", id: "ce-merge-si-ce-nu-experiente-cu-dictionarele-romanesti" },
+  { title: "Sfaturi si capcane cand te folosesti de dictionar", id: "sfaturi-si-capcane-cand-te-folosesti-de-dictionar" },
+  { title: "Ce as alege eu si de ce", id: "ce-as-alege-eu-si-de-ce" }
+];
+
+// Get all articles for similar articles component
+const allArticles = (keywordsData.completed || []).map(item => ({
+  title: item.title,
+  slug: item.slug,
+  excerpt: item.excerpt || '',
+  image: item.image,
+  category: item.category,
+  categorySlug: item.categorySlug,
+  date: item.date || new Date().toISOString()
+}));
+---
+
+<Layout
+  title={title}
+  description={excerpt}
+  image={image}
+  article={true}
+  publishedTime={date}
+  modifiedTime={modifiedDate}
+  author={author}
+  faq={faq}
+>
+  <Header />
+
+  <header class="article-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Acasa</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href={`/${categorySlug}/`}>{category}</a>
+        <span class="breadcrumb-separator">/</span>
+        <span class="breadcrumb-current">{title}</span>
+      </nav>
+
+      <h1>{title}</h1>
+
+      <div class="article-header-meta">
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
+          {new Date(date).toLocaleDateString('ro-RO', { year: 'numeric', month: 'long', day: 'numeric' })}
+        </span>
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          {author}
+        </span>
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+          </svg>
+          {category}
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <article class="article-body">
+    <div class="article-featured-image">
+      <img src={image} alt={title} width="800" height="600" loading="eager" />
+    </div>
+
+    <nav class="toc">
+      <h2 class="toc-title">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="8" y1="6" x2="21" y2="6"></line>
+          <line x1="8" y1="12" x2="21" y2="12"></line>
+          <line x1="8" y1="18" x2="21" y2="18"></line>
+          <line x1="3" y1="6" x2="3.01" y2="6"></line>
+          <line x1="3" y1="12" x2="3.01" y2="12"></line>
+          <line x1="3" y1="18" x2="3.01" y2="18"></line>
+        </svg>
+        Cuprins
+      </h2>
+      <ol class="toc-list">
+        {toc.map(item => (
+          <li class="toc-item"><a href={`#${item.id}`}>{item.title}</a></li>
+        ))}
+        <li class="toc-item"><a href="#faq">Intrebari Frecvente</a></li>
+      </ol>
+    </nav>
+
+    <div class="article-content-body">
+      
+      <section id="de-ce-un-dictionar-roman-e-esential-chiar-si-cand-vorbesti-engleza">
+        <h2>De ce un dictionar roman e esential, chiar si cand vorbesti engleza</h2>
+        <p>Stii cum e, mai ales daca ai invatat o limba straina de mult timp. Te obisnuiesti cu cuvintele alea, cu structurile alea. Si apoi, cand vine vorba de romana, parca iti scapa nuantele. Sau, mai rau, incepi sa vorbesti romaneste cu intorsaturi din engleza. Si nu suna deloc bine. Sau nu mai stii exact ce inseamna un cuvant mai rar, chiar daca l-ai auzit de multe ori.</p><p>Aici intervine un dictionar explicativ bun. Nu ma refer la dictionarele alea scolare, unde gasesti doar echivalente. Vorbesc despre cele care iti spun cum se foloseste un cuvant, ce sensuri are, de unde vine. E ca si cum ai avea un profesor de romana langa tine, 24/7. Si te ajuta sa iti cureti vocabularul, sa intelegi idiomaticele. Sa nu mai suni ca un turist care abia a invatat cateva fraze.</p><p>Sunt multi dintre noi care predau sau lucreaza in domenii unde limba romana e cruciala. Profesori, jurnalisti, scriitori, chiar si unii IT-isti care trebuie sa documenteze sau sa explice lucruri in romaneste. Pentru ei, un dictionar explicativ nu e un lux, e o unealta de baza. E ca un bisturiu pentru un chirurg. Nu poti opera fara el. Si nu te poti exprima corect, nu poti scrie clar, fara un dictionar care sa te ghideze.</p><p>Chiar si pentru cei care nu au nevoie de el pentru job, e o placere sa il rasfoiesti. Descoperi cuvinte noi, intelegi etimologii interesante. Te ajuta sa iti apreciezi mai mult propria limba. Si sa vezi cat de bogata si frumoasa e, daca ne aplecam putin asupra ei. Eu personal, de cand am inceput sa il folosesc mai des, mi se pare ca vorbesc si scriu mult mai fluent. Si ma simt mai confortabil.</p><p>Un dictionar explicativ te ajuta sa intelegi subtilitatile. Diferenta dintre „a intenționa” și „a viză”, de exemplu. Sau cum se folosește corect „între” și „printre”. Lucruri marunte, dar care fac diferenta intre o vorbire corecta si una mai putin ingrijita. Si te ajuta sa eviti cacofoniile sau pleonasmele, daca stii ce inseamna cu adevarat cuvintele pe care le folosesti.</p><p>In plus, e o resursa excelenta pentru a intelege texte mai vechi sau mai complexe. Literatură clasică, articole academice, chiar si legi. Fara un dictionar explicativ, te poti pierde usor in limbajul specific. Si pierzi din miezul mesajului. E ca si cum ai incerca sa citesti o carte in engleza, fara sa ai un dictionar englez-englez la indemana.</p>
+      </section>
+
+      <section id="ce-optiuni-ai-pe-masa-dictionare-romanesti-cu-preturi-si-pareri">
+        <h2>Ce optiuni ai pe masa: dictionare romanesti cu preturi si pareri</h2>
+        <p>Cand vine vorba de dictionare romanesti, nu ai de unde alege la nesfarsit, dar ai cateva optiuni solide. Eu am rasfoit cateva si pot sa iti zic ce am gasit. Important e sa iti alegi unul care se potriveste nevoilor tale.</p><p><strong>Dictionarul Explicativ al Limbii Romane (DEX)</strong>. Asta e sfantul graal, practic. Varianta cea mai cunoscuta este cea editata de Institutul de Lingvistica „Iorgu Iordan” al Academiei Romane.</p>
+        <p>Sunt mai multe editii, cele mai recente sunt si cele mai actualizate. Gasesti DEX-ul in format fizic, cartonat, la edituri precum Univers Enciclopedic. Un exemplar nou, in editie cartonata, poate costa undeva intre <strong>150 si 300 RON</strong>, in functie de marime si anul aparitiei.</p>
+        <p>Pro: E cel mai complet, are cele mai multe cuvinte, explicatii detaliate, etimologii. Contra: Poate fi un pic greoi, uneori limbajul explicatiilor e si el mai academic. Nu e tocmai de purtat in geanta.</p><p>Exista si variante mai compacte, mai vechi, care pot fi gasite la anticariate la preturi mult mai mici, poate <strong>30-80 RON</strong>. Dar atentie, sunt mai putin actualizate. Si uneori pot lipsi cuvinte noi sau sensuri noi.</p><p><strong>Micul Dictionar Academic (MDA)</strong>. Asta e o varianta mai „la indemana” a DEX-ului. E mai scurt, mai concentrat pe vocabularul curent, dar totusi destul de cuprinzator.</p>
+        <p>E editat tot de Academia Romana. Un MDA nou poate fi gasit prin librarii la preturi de aproximativ <strong>80-150 RON</strong>. Pro: E mai usor de manevrat, mai rapid de consultat pentru cuvinte uzuale.</p>
+        <p>Contra: Nu are atatea intrari cat DEX-ul, explicatiile sunt mai scurte. E un fel de „DEX de buzunar” pentru cuvintele pe care le folosesti des.</p><p><strong>Dictionare specializate sau tematice</strong>. Aici intra dictionare de sinonime, antonime, proverbe, argou, etc. Acestea nu sunt dictionare explicative in sensul clasic, dar te ajuta sa intelegi anumite aspecte ale limbii. De exemplu, un dictionar de sinonime bun poate costa intre <strong>40 si 100 RON</strong>. Sunt utile daca vrei sa iti imbogatesti vocabularul intr-un anumit domeniu sau sa eviti repetitiile.</p><p><strong>Dictionare online si aplicatii</strong>. Acum, toata lumea folosește internetul. Exista varianta online a DEX-ului (dexonline.ro), care e gratuita si foarte usor de accesat. Si sunt si aplicatii mobile. Pro: Acces rapid, gratuit (majoritatea), usor de cautat. Contra: Nu ai satisfactia fizica a cartii, uneori poti fi distras de alte notificari. Si nu poti „rasfoi” la fel de natural.</p><p>Eu personal, pentru consultare serioasa, prefer cartea. Dar pentru cautari rapide, online-ul e salvator. Depinde si de cat de mult timp ai la dispozitie si ce cauti.</p>
+      </section>
+
+      <section id="ce-sa-urmaresti-cand-alegi-un-dictionar-roman">
+        <h2>Ce sa urmaresti cand alegi un dictionar roman</h2>
+        <p>Nu stiu cum esti tu, dar eu cand cumpar o carte, mai ales una de referinta, ma uit la cateva chestii. Nu vreau sa dau banii pe ceva ce nu ma ajuta sau ma incurca.</p><p><strong>Anul aparitiei si actualizarea</strong>. Asta e primul lucru. Limba evolueaza. Apar cuvinte noi, sensuri noi. Un dictionar din '80 nu va avea „hashtag”, „influencer” sau „selfie”. Si nici sensurile moderne ale unor cuvinte mai vechi. Cauta cea mai recenta editie pe care o gasesti. Institutul de Lingvistica actualizeaza DEX-ul periodic. Deci, cu cat mai nou, cu atat mai bine.</p><p><strong>Numarul de intrari (cuvinte)</strong>. Un dictionar mare, cum e DEX-ul, are peste 100.000 de cuvinte. Unul mai mic, cum e MDA, are mai putine, dar totusi suficiente pentru uz curent. Gandeste-te: ai nevoie de toate cuvintele din univers sau doar de cele pe care le folosesti cel mai des? Pentru uz general, DEX-ul e rege. Pentru consultari rapide, MDA e suficient.</p><p><strong>Calitatea explicatiilor</strong>. Asta e subiectiv, dar important. Explicatiile trebuie sa fie clare, concise si la obiect. Sa nu fie ele insele atat de complicate incat sa ai nevoie de alt dictionar ca sa le intelegi. Si sa acopere cat mai multe sensuri ale cuvantului, cu exemple de utilizare. Un bun dictionar iti arata nu doar ce inseamna un cuvant, ci si cum sa il pui in practica.</p><p><strong>Etimologia si originea cuvantului</strong>. Pentru mine, asta e o chestie super interesanta. Sa stii ca un cuvant vine din latina, din greaca, din turca, din maghiara... iti da o perspectiva mai larga asupra limbii romane. Si te ajuta sa intelegi mai bine structura cuvintelor. Nu toate dictionarele ofera asta detaliat, dar DEX-ul de obicei are informatii despre asta.</p><p><strong>Formatul si aspectul fizic</strong>. Daca il vei folosi des, vrei sa fie confortabil. Un volum prea mare sau cu litere prea mici te va obosi. Daca il vei lua cu tine prin oras, vrei ceva usor. Daca sta pe birou, poate fi si mai masiv. Verificati si calitatea hartiei si a legaturii. Un dictionar bine facut te tine ani de zile.</p><p><strong>Pretul</strong>. Normal, trebuie sa se incadreze in bugetul tau. Dar nu uita ca un dictionar e o investitie pe termen lung. Un DEX mai scump, dar bine actualizat, te va servi mai bine decat unul ieftin, dar incomplet sau vechi.</p><p>Eu personal, cand am cumparat ultima data un dictionar fizic, am stat cu el in mana in librarie vreo jumatate de ora. Am rasfoit, am cautat cateva cuvinte la intamplare, am citit cateva explicatii. Si abia apoi am decis.</p>
+      </section>
+
+      <section id="ce-merge-si-ce-nu-experiente-cu-dictionarele-romanesti">
+        <h2>Ce merge si ce nu: experiente cu dictionarele romanesti</h2>
+        <p>Ca orice unealta, si dictionarele au punctele lor tari si pe cele slabe. Eu am folosit destule ca sa imi fac o idee.</p><p><strong>Ce merge excelent</strong>:</p><ul><li><strong>Gasirea definitiilor clare</strong>. Asta e scopul principal, nu? Si dictionarele bune, in special DEX-ul, fac asta fara probleme. Gasesti sensul principal, sensurile secundare, sensurile figurate. Totul e acolo.</li><li><strong>Verificarea ortografiei</strong>. Ai o indoiala cum se scrie un cuvant? Incearca sa il cauti. Daca nu il gasesti, probabil e scris gresit. Daca il gasesti, vezi cum e corect. E o metoda simpla de autoevaluare.</li><li><strong>Ințelegerea sensurilor multiple</strong>. Multe cuvinte romanesti au sensuri diferite in functie de context. Dictionarul te ajuta sa faci diferenta. De exemplu, „cap” nu inseamna doar partea corpului. Poate fi si „cap de țară”, „cap de situație”, „capăt de drum”. Dictionarul iti arata toate astea.</li><li><strong>Descoperirea sinonimelor si antonimelor (indirect)</strong>. Desi nu sunt dictionare de sinonime, explicatiile din DEX contin adesea cuvinte care sunt sinonime sau antonime. Rasfoind explicatia, poti da peste cuvinte noi.</li><li><strong>Studiul etimologiei</strong>. Cum am zis, DEX-ul e bun la asta. E fascinant sa vezi de unde vin cuvintele. Te ajuta sa iti amintesti mai usor sensul.</li><li><strong>Resursa pentru scriitori si redactori</strong>. Pentru oricine scrie, dictionarul e indispensabil. Te ajuta sa fii precis, sa folosesti cuvintele potrivite. Si sa suni profesionist.</li></ul><p><strong>Ce nu merge mereu asa bine</strong>:</p><ul><li><strong>Actualizarea cu limbajul informal si regionalismele</strong>. DEX-ul, fiind un dictionar academic, tinde sa fie mai conservator. Nu vei gasi intotdeauna cele mai noi argouri sau expresii specifice anumitor zone. Unele regionale sunt incluse, dar nu toate.</li><li><strong>Explicații uneori prea academice</strong>. Unele definiții pot fi scrise intr-un limbaj atat de elevat, incat sa fie greu de inteles pentru un nespecialist. Ai nevoie de un dictionar ca sa intelegi dictionarul. Nu e ideal.</li><li><strong>Dificultatea de a găsi rapid un cuvânt specific (la volume mari)</strong>. Daca ai un volum mare, cartonat, in fata, si cauti un cuvant mai rar, poate dura ceva. Nu ai „quick search” ca pe calculator.</li><li><strong>Lipsa exemplelor de propozitii (uneori)</strong>. Desi DEX-ul da exemple, nu toate intrările au fraze care sa ilustreze perfect utilizarea. Uneori, doar definitia nu e suficienta.</li><li><strong>Dictionarele online pot fi incomplete sau gresite</strong>. Varianta online a DEX-ului e buna, dar exista si alte site-uri mai putin serioase care pretind ca sunt dictionare. Verificati sursa.</li><li><strong>Prețul poate fi un impediment</strong>. Un DEX nou, complet, nu e ieftin. Poate fi o suma considerabila pentru un student sau cineva cu buget redus.</li></ul><p>Per total, punctele forte depasesc cu mult pe cele slabe. Dictionarul explicativ ramane o unealta de necontestat pentru oricine vrea sa stie sa vorbeasca si sa scrie corect romaneste.</p>
+      </section>
+
+      <section id="sfaturi-si-capcane-cand-te-folosesti-de-dictionar">
+        <h2>Sfaturi si capcane cand te folosesti de dictionar</h2>
+        <p>Folosirea unui dictionar poate parea simpla, dar sunt cateva trucuri care te ajuta sa il folosesti la potential maxim. Si cateva greseli pe care e bine sa le eviti.</p><p><strong>Trucuri utile</strong>:</p><ul><li><strong>Nu te opri la prima definitie</strong>. Multe cuvinte au mai multe sensuri. Citeste-le pe toate ca sa intelegi cel mai potrivit pentru contextul tau. Uneori, sensul mai putin comun e cel care face diferenta.</li><li><strong>Acorda atentie exemplelor de utilizare</strong>. Daca dictionarul ofera exemple, citeste-le cu atentie. Ele iti arata cum se foloseste cuvantul in fraza, cum se combina cu alte cuvinte. E mult mai util decat o simpla definitie.</li><li><strong>Noteaza-ti cuvintele noi</strong>. Cand gasesti un cuvant interesant sau o definitie care te surprinde, noteaza-l. Poti sa iti faci un mic caiet sau o lista digitala. Revino asupra lor.</li><li><strong>Foloseste-l ca pe o carte de povesti</strong>. Rasfoieste dictionarul la intamplare. Da peste cuvinte necunoscute. Cauta-le. E un mod relaxant de a invata.</li><li><strong>Verifica si cuvintele din definitii</strong>. Daca o definitie contine un cuvant pe care nu il stii, cauta-l si pe acela. E un fel de „lanț” de invatare.</li><li><strong>Foloseste dictionarul pentru a verifica prescurtarile si abrevierile</strong>. Unele pot fi confuze. Dictionarul te poate ajuta sa le deslusesti.</li><li><strong>Intelege contextul</strong>. Un cuvant poate avea sensuri diferite in functie de domeniul in care e folosit (medical, juridic, literar etc.). Un dictionar bun va specifica asta.</li></ul><p><strong>Greseli comune de evitat</strong>:</p><ul><li><strong>A te baza doar pe un singur dictionar</strong>. In special pe unul online, mai putin verificat. E bine sa ai cel putin doua surse de incredere, ideal DEX-ul fizic si o varianta online buna.</li><li><strong>A presupune ca stii sensul unui cuvant</strong>. Chiar daca il folosesti des, s-ar putea sa nu stii toate nuantele. O verificare rapida poate preveni greseli.</li><li><strong>A ignora etimologia</strong>. Chiar daca nu te pasioneaza, uneori originea cuvantului iti poate clarifica sensul.</li><li><strong>A folosi dictionarul doar cand ai o problema</strong>. Integreaza-l in rutina ta de invatare. Cauta cuvinte din cartile sau filmele pe care le consumi.</li><li><strong>A te astepta la perfectiune</strong>. Niciun dictionar nu e perfect. Vor exista intotdeauna cuvinte noi sau sensuri noi care nu sunt incluse imediat.</li><li><strong>A folosi dictionarul ca pe o sursa unica de invatare a limbii</strong>. El e o unealta, nu un curs complet. Ai nevoie si de conversatie, de citit, de scris.</li><li><strong>A cauta cuvinte in limba straina in dictionarul roman</strong>. Asta pare evident, dar se intampla. Foloseste dictionare roman-strain si strain-roman pentru asta.</li></ul><p>Sfatul meu e sa il ai mereu la indemana, fie fizic, fie pe telefon. Si sa nu iti fie teama sa il folosesti. E cel mai bun prieten al tau cand vine vorba de limba romana.</p>
+      </section>
+
+      <section id="ce-as-alege-eu-si-de-ce">
+        <h2>Ce as alege eu si de ce</h2>
+        <p>Daca ar trebui sa aleg acum un dictionar explicativ al limbii romane recomandat, fara sa ma gandesc prea mult, as merge pe varianta clasica, dar actualizata.</p><p><strong>Recomandarea mea directa: Dictionarul Explicativ al Limbii Romane (DEX)</strong>, in cea mai recenta editie cartonata, publicata de Institutul de Lingvistica „Iorgu Iordan” al Academiei Romane, de la o editura serioasa (Univers Enciclopedic, de exemplu).</p><p><strong>De ce DEX?</strong></p><p>Pentru ca e cel mai complet. Punct. Nu exista alta resursa in limba romana care sa cuprinda atat de multe cuvinte, cu atat de multe sensuri si explicatii detaliate. Pentru mine, care sunt pasionat de limbi si de cum functioneaza ele, DEX-ul e o mina de aur. Nu ma intereseaza doar sa stiu ce inseamna un cuvant, ci si cum e folosit, de unde vine, ce nuante are.</p><p><strong>Pentru cine e DEX-ul?</strong></p><p>Pentru oricine vrea sa stie sa vorbeasca si sa scrie corect romaneste. Asta include, evident, profesorii, studentii la litere, jurnalistii, scriitorii. Dar si pentru oricine vrea sa isi imbunatateasca modul in care se exprima. Chiar si pentru cei care invata romana ca limba straina, desi acolo e nevoie si de dictionare bilingve.</p><p><strong>Ce pret sa astepti?</strong></p><p>Cum am zis, un exemplar nou, in editie cartonata, bine legat, poate fi undeva intre <strong>150 si 300 RON</strong>. Depinde de marime, de anul aparitiei, de promotii. Nu e o suma mica, dar e o investitie care te tine ani buni. E ca si cum ai cumpara unelte bune pentru meseria ta.</p><p><strong>Varianta mea „de buzunar”</strong></p><p>Daca as avea nevoie de ceva mai portabil, mai rapid pentru cautari uzuale, as alege Micul Dictionar Academic (MDA). E mai compact, mai usor de manevrat si acopera bine vocabularul curent. Pretul e si el mai accesibil, cam <strong>80-150 RON</strong>.</p><p><strong>Si online-ul?</strong></p><p>Desigur, nu as neglija varianta online (dexonline.ro). E gratuita, rapida, accesibila de oriunde. O folosesc des pentru verificari rapide. Dar, pentru o analiza mai profunda, pentru a te pierde printre cuvinte si a descoperi noi sensuri, cartea fizica ramane, pentru mine, de neegalat.</p><p>In final, alegerea depinde mult de nevoile tale. Dar daca vrei „the real deal”, DEX-ul clasic e raspunsul. E baza.</p>
+      </section>
+
+      <section class="faq-section" id="faq">
+        <h2 class="faq-title">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+          </svg>
+          Intrebari Frecvente
+        </h2>
+        
+            <div class="faq-item" id="faq-0">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                Ce dictionar roman este cel mai recomandat pentru uz general?
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                Pentru uz general, Dictionarul Explicativ al Limbii Romane (DEX) este cel mai recomandat. Cauta cea mai recenta editie, publicata de Academia Romana, pentru a te asigura ca este actualizat si cuprinzator.
+              </div>
+            </div>
+
+            <div class="faq-item" id="faq-1">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                Exista o varianta mai mica si mai accesibila a DEX-ului?
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                Da, Micul Dictionar Academic (MDA) este o varianta mai compacta si de obicei mai accesibila ca pret decat DEX-ul complet. Este potrivit pentru consultari rapide ale vocabularului curent.
+              </div>
+            </div>
+
+            <div class="faq-item" id="faq-2">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                Unde pot gasi dictionare romanesti la preturi bune?
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                Poti gasi dictionare romanesti in librarii mari, online (pe site-uri ca eMAG, Libris, Carturesti), dar si la anticariate pentru editii mai vechi. Pretul unui DEX nou poate varia intre 150 si 300 RON.
+              </div>
+            </div>
+
+            <div class="faq-item" id="faq-3">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                Sunt dictionarele online la fel de bune ca cele tiparite?
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                Variantele online, cum ar fi dexonline.ro, sunt foarte utile pentru cautari rapide si accesibilitate. Totusi, pentru o experienta de studiu mai aprofundata si satisfactia fizica, dictionarele tiparite raman preferate de multi.
+              </div>
+            </div>
+
+            <div class="faq-item" id="faq-4">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                Ce inseamna ca un dictionar este „actualizat”?
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                Un dictionar actualizat contine cuvinte noi aparute in limba, sensuri noi ale cuvintelor existente si eventual modificari ortografice sau de uz. Cauta editii cat mai recente.
+              </div>
+            </div>
+
+            <div class="faq-item" id="faq-5">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                Pot folosi un dictionar roman pentru a invata limba romana ca strain?
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                Da, un dictionar explicativ roman poate fi o resursa valoroasa. Totusi, pentru inceput, este mai util un dictionar roman-limba ta, care ofera echivalente directe si explicatii mai simple.
+              </div>
+            </div>
+      </section>
+    </div>
+
+    <div class="author-box">
+      <div class="author-avatar">{author.charAt(0)}</div>
+      <div class="author-info">
+        <h4>{author}</h4>
+        <p class="author-role">{authorRole}</p>
+        <p class="author-bio">{authorBio}</p>
+      </div>
+    </div>
+
+    <SimilarArticles
+      articles={allArticles}
+      currentSlug={slug}
+      currentCategory={category}
+    />
+  </article>
+
+  <Footer />
+  <CookieBanner />
+</Layout>

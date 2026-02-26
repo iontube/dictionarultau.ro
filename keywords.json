@@ -1,0 +1,713 @@
+{
+  "categories": [
+    {
+      "name": "Carti si Dictionare",
+      "slug": "carti-si-dictionare",
+      "description": "Ghiduri complete pentru alegerea celor mai bune dictionare si carti de referinta"
+    },
+    {
+      "name": "Invatare Limbi Straine",
+      "slug": "invatare-limbi-straine",
+      "description": "Resurse, metode si sfaturi pentru invatarea eficienta a limbilor straine"
+    },
+    {
+      "name": "Electronice Educative",
+      "slug": "electronice-educative",
+      "description": "Dispozitive si gadgeturi care faciliteaza invatarea si lectura"
+    },
+    {
+      "name": "Jocuri de Cuvinte",
+      "slug": "jocuri-de-cuvinte",
+      "description": "Jocuri educative care dezvolta vocabularul si gandirea critica"
+    }
+  ],
+  "completed": [
+    {
+      "keyword": "Cel mai bun dictionar englez roman",
+      "title": "Cel mai bun dictionar englez roman",
+      "slug": "cel-mai-bun-dictionar-englez-roman",
+      "excerpt": "Am tot cautat prin dictionare de-a lungul timpului, de la cele vechi si groase de carti, la cele online, ca sa inteleg mai bine ce citesc sau ce aud in engleza. E o lupta continua sa gasesti cuvintele potrivite si sa intelegi nuantele. Un bun dictionar englez roman e ca un prieten de incredere in aventura asta lingvistica.",
+      "image": "/images/articles/cel-mai-bun-dictionar-englez-roman.webp",
+      "category": "Carti si Dictionare",
+      "categorySlug": "carti-si-dictionare",
+      "date": "2026-01-11T09:17:31.076Z",
+      "author": "Maria Popescu",
+      "modifiedDate": "2026-01-28T09:17:31.923Z"
+    },
+    {
+      "keyword": "Cum sa inveti engleza singur acasa",
+      "title": "Cum sa inveti engleza singur acasa",
+      "slug": "cum-sa-inveti-engleza-singur-acasa",
+      "excerpt": "Am tot auzit intrebarea asta: 'Cum sa inveti engleza singur acasa?'. E o cursa contra cronometru, dar si o calatorie super misto. Azi iti spun din experienta mea cum poti sa faci asta, fara sa te ruinezi si fara sa simti ca te chinui.",
+      "image": "/images/articles/cum-sa-inveti-engleza-singur-acasa.webp",
+      "category": "Invatare Limbi Straine",
+      "categorySlug": "invatare-limbi-straine",
+      "date": "2026-01-16T18:08:04.307Z",
+      "author": "Alexandru Ionescu",
+      "modifiedDate": "2026-01-29T18:08:04.692Z"
+    },
+    {
+      "keyword": "Kindle sau tableta pentru citit carti",
+      "title": "Kindle sau tableta pentru citit carti",
+      "slug": "kindle-sau-tableta-pentru-citit-carti",
+      "excerpt": "Am tot amanat momentul in care sa vorbesc despre asta, dar parca simt ca e momentul. Cititul pe device-uri e ceva ce multi dintre noi facem zilnic, fie pentru studiu, fie pentru relaxare. Dar cand vine vorba de o achizitie serioasa, apare dilema: Kindle sau o tableta normala? Eu am trecut prin asta si am adunat ceva experienta.",
+      "image": "/images/articles/kindle-sau-tableta-pentru-citit-carti.webp",
+      "category": "Electronice Educative",
+      "categorySlug": "electronice-educative",
+      "date": "2026-01-25T08:50:10.769Z",
+      "author": "Cristian Mihai",
+      "modifiedDate": "2026-02-01T08:50:10.230Z"
+    },
+    {
+      "keyword": "Cele mai bune jocuri Scrabble in romana",
+      "title": "Cele mai bune jocuri Scrabble in romana",
+      "slug": "cele-mai-bune-jocuri-scrabble-in-romana",
+      "excerpt": "Ma tot intrebati de jocuri de cuvinte, mai ales de cand am inceput sa tot povestesc despre pasiunea mea pentru limbi straine si dictionare. Si cum sa nu fie Scrabble-ul un punct de plecare excelent? Azi vorbim despre cum sa gasesti cele mai bune jocuri Scrabble in romana, ca sa te joci si sa inveti in acelasi timp.",
+      "image": "/images/articles/cele-mai-bune-jocuri-scrabble-in-romana.webp",
+      "category": "Jocuri de Cuvinte",
+      "categorySlug": "jocuri-de-cuvinte",
+      "date": "2026-01-14T15:51:33.230Z",
+      "author": "Elena Dumitrescu",
+      "modifiedDate": "2026-01-29T15:51:33.769Z"
+    },
+    {
+      "keyword": "Dictionar explicativ al limbii romane recomandat",
+      "title": "Dictionar explicativ al limbii romane recomandat",
+      "slug": "dictionar-explicativ-al-limbii-romane-recomandat",
+      "excerpt": "Am tot vorbit despre cum invat limbile straine, dar azi vreau sa trec in revista ceva la fel de important: dictionarele. Mai ales cele romanesti. Ca sa intelegi mai bine ce zic, ce aud si sa vorbesti corect. Ca uneori si eu ma incurc in cuvinte.",
+      "image": "/images/articles/dictionar-explicativ-al-limbii-romane-recomandat.webp",
+      "category": "Carti si Dictionare",
+      "categorySlug": "carti-si-dictionare",
+      "date": "2026-01-19T10:42:06.461Z",
+      "author": "Maria Popescu",
+      "modifiedDate": "2026-01-30T10:42:06.538Z"
+    },
+    {
+      "keyword": "Duolingo pareri si experienta personala",
+      "title": "Duolingo pareri si experienta personala",
+      "slug": "duolingo-pareri-si-experienta-personala",
+      "excerpt": "Am tot auzit lumea vorbind despre Duolingo, platforma aia cu bufnița verde. Sincer, și eu am fost sceptic la început. Dar după ce am trecut prin vreo două limbi cu el, am zis să vă spun și vouă cum stă treaba, fără fițe.",
+      "image": "/images/articles/duolingo-pareri-si-experienta-personala.webp",
+      "category": "Invatare Limbi Straine",
+      "categorySlug": "invatare-limbi-straine",
+      "date": "2026-01-20T13:59:37.538Z",
+      "author": "Alexandru Ionescu",
+      "modifiedDate": "2026-01-31T13:59:37.461Z"
+    },
+    {
+      "keyword": "Kindle Paperwhite pareri si experienta",
+      "title": "Kindle Paperwhite pareri si experienta",
+      "slug": "kindle-paperwhite-pareri-si-experienta",
+      "excerpt": "Am tot auzit vorbindu-se despre cititoarele electronice, si am zis ca e momentul sa va povestesc si eu despre experienta mea cu un Kindle Paperwhite. Daca te gandeai sa faci pasul catre cartile digitale, s-ar putea sa gasesti aici cateva informatii utile.",
+      "image": "/images/articles/kindle-paperwhite-pareri-si-experienta.webp",
+      "category": "Electronice Educative",
+      "categorySlug": "electronice-educative",
+      "date": "2026-01-23T19:33:39.692Z",
+      "author": "Cristian Mihai",
+      "modifiedDate": "2026-02-01T19:33:39.307Z"
+    },
+    {
+      "keyword": "Wordle joc de cuvinte online",
+      "title": "Wordle joc de cuvinte online",
+      "slug": "wordle-joc-de-cuvinte-online",
+      "excerpt": "Stiu, poate suna ciudat sa vorbim despre jocuri de cuvinte cand vine vorba de invatat limbi straine. Dar am descoperit ceva absolut genial, un mic joc online care mi-a redeschis apetitul pentru cuvinte noi. Si nu vorbesc de vreo aplicatie complicata, ci de ceva simplu, dar super eficient.",
+      "image": "/images/articles/wordle-joc-de-cuvinte-online.webp",
+      "category": "Jocuri de Cuvinte",
+      "categorySlug": "jocuri-de-cuvinte",
+      "date": "2026-01-30T17:41:43.000Z",
+      "author": "Elena Dumitrescu",
+      "modifiedDate": "2026-02-03T17:41:43.000Z"
+    },
+    {
+      "keyword": "Dictionar de sinonime si antonime pentru elevi",
+      "title": "Dictionar de sinonime si antonime pentru elevi",
+      "slug": "dictionar-de-sinonime-si-antonime-pentru-elevi",
+      "excerpt": "Am tot vorbit despre cum invatam cuvinte noi, dar ce ne facem cand avem nevoie de nuante? Sau cand vrem sa evitam repetitia obositoare? Asta e problema pe care o rezolva un dictionar de sinonime si antonime. Si nu, nu e doar pentru scolari.",
+      "image": "/images/articles/dictionar-de-sinonime-si-antonime-pentru-elevi.webp",
+      "category": "Carti si Dictionare",
+      "categorySlug": "carti-si-dictionare",
+      "date": "2026-01-17T07:25:35.384Z",
+      "author": "Maria Popescu",
+      "modifiedDate": "2026-01-30T07:25:35.615Z"
+    },
+    {
+      "keyword": "Babbel versus Duolingo care e mai bun",
+      "title": "Babbel versus Duolingo care e mai bun",
+      "slug": "babbel-versus-duolingo-care-e-mai-bun",
+      "excerpt": "M-am tot gandit zilele astea la cum invatam limbi straine si am ajuns la o intrebare clasica: Babbel versus Duolingo, care e mai bun? E o dilema pe care o au multi dintre noi cand vrem sa ne apucam de o limba noua, si am zis ca meritam sa discutam deschis despre asta.",
+      "image": "/images/articles/babbel-versus-duolingo-care-e-mai-bun.webp",
+      "category": "Invatare Limbi Straine",
+      "categorySlug": "invatare-limbi-straine",
+      "date": "2026-01-10T06:00:00.000Z",
+      "author": "Alexandru Ionescu",
+      "modifiedDate": "2026-01-28T06:00:00.000Z"
+    },
+    {
+      "keyword": "Kobo Clara HD versus Kindle Paperwhite",
+      "title": "Kobo Clara HD versus Kindle Paperwhite",
+      "slug": "kobo-clara-hd-versus-kindle-paperwhite",
+      "excerpt": "Am tot auzit discuții despre cititoarele electronice, mai ales când vine vorba de Kobo și Kindle. Eu, ca un împătimit al lecturii și al învățării limbilor, am pus mâna pe mai multe modele de-a lungul timpului. Astăzi vreau să vorbim despre două variante care stau mult în atenția cititorilor pasionați: Kobo Clara HD și Kindle Paperwhite.",
+      "image": "/images/articles/kobo-clara-hd-versus-kindle-paperwhite.webp",
+      "category": "Electronice Educative",
+      "categorySlug": "electronice-educative",
+      "date": "2026-01-27T11:07:41.846Z",
+      "author": "Cristian Mihai",
+      "modifiedDate": "2026-02-02T11:07:41.153Z"
+    },
+    {
+      "keyword": "Jocuri de cuvinte gratuite online",
+      "title": "Jocuri de cuvinte gratuite online",
+      "slug": "jocuri-de-cuvinte-gratuite-online",
+      "excerpt": "Sunt un fan declarat al jocurilor de cuvinte, mai ales cand vine vorba de invatat limbi straine. Si daca mai sunt si gratuite, atunci e o combinatie castigatoare! M-am gandit sa impartasesc cu tine cateva descoperiri si sfaturi.",
+      "image": "/images/articles/jocuri-de-cuvinte-gratuite-online.webp",
+      "category": "Jocuri de Cuvinte",
+      "categorySlug": "jocuri-de-cuvinte",
+      "date": "2026-01-22T16:16:08.615Z",
+      "author": "Elena Dumitrescu",
+      "modifiedDate": "2026-01-31T16:16:08.384Z"
+    },
+    {
+      "keyword": "Mondly aplicatie pentru invatat limbi straine",
+      "title": "Mondly aplicatie pentru invatat limbi straine",
+      "slug": "mondly-aplicatie-pentru-invatat-limbi-straine",
+      "excerpt": "Am tot auzit vorbindu-se despre Mondly aplicatie pentru invatat limbi straine si am zis sa-i dau o sansa. M-am gandit sa va zic si voua cum a fost experienta mea, ca poate va ajuta sa va decideti.",
+      "image": "/images/articles/mondly-aplicatie-pentru-invatat-limbi-straine.webp",
+      "category": "Invatare Limbi Straine",
+      "categorySlug": "invatare-limbi-straine",
+      "date": "2026-01-28T14:24:12.923Z",
+      "author": "Alexandru Ionescu",
+      "modifiedDate": "2026-02-02T14:24:12.076Z"
+    },
+    {
+      "keyword": "PocketBook e-reader pareri Romania",
+      "title": "PocketBook e-reader pareri Romania",
+      "slug": "pocketbook-e-reader-pareri-romania",
+      "excerpt": "Am tot amanat momentul sa vorbesc despre asta, dar acum simt ca e momentul potrivit. Daca esti ca mine, pasionat de carti, de invatat lucruri noi si de a tine totul la indemana, atunci stii cat de greu e sa jonglezi cu atatea volume fizice. Si daca te gandesti la un e-reader, dar nu stii de unde sa incepi, hai sa povestim despre PocketBook.",
+      "image": "/images/articles/pocketbook-e-reader-pareri-romania.webp",
+      "category": "Electronice Educative",
+      "categorySlug": "electronice-educative",
+      "date": "2026-02-03T13:22:33.731Z",
+      "author": "Cristian Mihai"
+    },
+    {
+      "keyword": "Cel mai bun e-reader pentru PDF-uri",
+      "title": "Cel mai bun e-reader pentru PDF-uri",
+      "slug": "cel-mai-bun-e-reader-pentru-pdf-uri",
+      "excerpt": "Am petrecut ore in sir incercand sa citesc PDF-uri pe dispozitive care nu erau facute pentru asta. Ecranul mic, zoom-ul enervant, totul era o bataie de cap. Acum, am gasit solutia perfecta, si vreau sa o impart cu tine.",
+      "image": "/images/articles/cel-mai-bun-e-reader-pentru-pdf-uri.webp",
+      "category": "Electronice Educative",
+      "categorySlug": "electronice-educative",
+      "date": "2026-02-03T14:40:48.072Z",
+      "author": "Cristian Mihai"
+    },
+    {
+      "keyword": "Aplicatii jocuri de cuvinte pentru telefon",
+      "title": "Aplicatii jocuri de cuvinte pentru telefon",
+      "slug": "aplicatii-jocuri-de-cuvinte-pentru-telefon",
+      "excerpt": "Am descoperit recent o lume fascinantă a jocurilor de cuvinte pe telefon. Sunt un fan înfocat al învățării limbilor străine și mereu caut metode noi și distractive să-mi exersez vocabularul. Aceste aplicații mi-au devenit rapid nelipsite.",
+      "image": "/images/articles/aplicatii-jocuri-de-cuvinte-pentru-telefon.webp",
+      "category": "Jocuri de Cuvinte",
+      "categorySlug": "jocuri-de-cuvinte",
+      "date": "2026-02-04T14:41:05.969Z",
+      "author": "Elena Dumitrescu"
+    },
+    {
+      "keyword": "Words with Friends versus Scrabble GO",
+      "title": "Words with Friends versus Scrabble GO",
+      "slug": "words-with-friends-versus-scrabble-go",
+      "excerpt": "Daca esti ca mine, un om caruia ii plac cuvintele si jocurile, probabil ca te-ai lovit si tu de dilema asta: Scrabble GO sau Words with Friends? Ambele sunt super populare, dar au diferente subtile care pot face o mare diferenta in experienta ta de joc. Hai sa vedem care se potriveste mai bine stilului tau.",
+      "image": "/images/articles/words-with-friends-versus-scrabble-go.webp",
+      "category": "Jocuri de Cuvinte",
+      "categorySlug": "jocuri-de-cuvinte",
+      "date": "2026-02-04T17:12:26.617Z",
+      "author": "Elena Dumitrescu"
+    },
+    {
+      "keyword": "Dictionar german roman pentru incepatori",
+      "title": "Dictionar german roman pentru incepatori",
+      "slug": "dictionar-german-roman-pentru-incepatori",
+      "excerpt": "Daca vrei un <strong>dictionar german roman pentru incepatori</strong> care sa te ajute sa prinzi rapid bazele, eu zic sa te uiti la \"Langenscheidt Pocket German Dictionary\" sau la \"Collins German Dictionary - Essential Edition\". Ambele sunt compacte, usor de folosit si au un vocabular esential pentru primii pasi.",
+      "image": "/images/articles/dictionar-german-roman-pentru-incepatori.webp",
+      "category": "Carti si Dictionare",
+      "categorySlug": "carti-si-dictionare",
+      "date": "2026-02-05T14:40:49.454Z",
+      "author": "Maria Popescu"
+    },
+    {
+      "keyword": "Busuu pareri aplicatie limbi straine",
+      "title": "Busuu pareri aplicatie limbi straine",
+      "slug": "busuu-pareri-aplicatie-limbi-straine",
+      "excerpt": "Daca ma intrebi pe mine, Busuu pareri aplicatie limbi straine, Busuu e o optiune solida pentru a invata o limba straina, mai ales daca esti la inceput sau vrei sa-ti consolidezi cunostintele de baza. E structurat bine, are exercitii interactive si te tine motivat. Totusi, nu te astepta sa devii fluent peste noapte doar cu el.",
+      "image": "/images/articles/busuu-pareri-aplicatie-limbi-straine.webp",
+      "category": "Invatare Limbi Straine",
+      "categorySlug": "invatare-limbi-straine",
+      "date": "2026-02-06T14:41:02.948Z",
+      "author": "Alexandru Ionescu"
+    },
+    {
+      "keyword": "E-reader cu ecran mare pentru documente",
+      "title": "E-reader cu ecran mare pentru documente",
+      "slug": "e-reader-cu-ecran-mare-pentru-documente",
+      "excerpt": "Daca vrei un e-reader cu ecran mare pentru documente, cel mai bun sfat e sa te uiti la modelele de 10 inci sau chiar mai mari. Amazon Kindle Scribe si Kobo Elipsa 2E sunt optiuni de top, gandite special pentru asta, cu functii de scris si organizare. Sunt scumpe, da, dar fac treaba excelent cand vine vorba de PDF-uri, carti tehnice sau orice altceva ai nevoie sa citesti si sa manipulezi pe un ecran generos.",
+      "image": "/images/articles/e-reader-cu-ecran-mare-pentru-documente.webp",
+      "category": "Electronice Educative",
+      "categorySlug": "electronice-educative",
+      "date": "2026-02-07T14:41:28.391Z",
+      "author": "Cristian Mihai"
+    },
+    {
+      "keyword": "Dictionar spaniol roman recomandat",
+      "title": "Dictionar spaniol roman recomandat",
+      "slug": "dictionar-spaniol-roman-recomandat",
+      "excerpt": "Daca ma intrebi pe mine, cel mai bun dictionar spaniol roman recomandat la ora actuala, care sa fie si practic si complet, e cel de la Larousse sau, daca vrei ceva mai compact, editia Pocket de la Vox. Ambele acopera bine nevoile unui roman care invata spaniola sau are nevoie sa traduca rapid.",
+      "image": "/images/articles/dictionar-spaniol-roman-recomandat.webp",
+      "category": "Carti si Dictionare",
+      "categorySlug": "carti-si-dictionare",
+      "date": "2026-02-09T14:40:44.321Z",
+      "author": "Maria Popescu"
+    },
+    {
+      "keyword": "Rosetta Stone merita pretul",
+      "title": "Rosetta Stone merita pretul",
+      "slug": "rosetta-stone-merita-pretul",
+      "excerpt": "Deci, Rosetta Stone merita pretul? Sincer, depinde mult de ce cauti si cat esti dispus sa investesti. Daca vrei o metoda imersiva, fara traduceri si cu accent pe intelegerea naturala a limbii, poate ca da. Dar nu-i singura optiune, si pretul poate fi un factor decisiv pentru multi.",
+      "image": "/images/articles/rosetta-stone-merita-pretul.webp",
+      "category": "Invatare Limbi Straine",
+      "categorySlug": "invatare-limbi-straine",
+      "date": "2026-02-10T14:40:45.601Z",
+      "author": "Alexandru Ionescu"
+    },
+    {
+      "keyword": "Remarkable 2 versus iPad pentru notite",
+      "title": "Remarkable 2 versus iPad pentru notite",
+      "slug": "remarkable-2-versus-ipad-pentru-notite",
+      "excerpt": "Am sa fiu direct: daca vrei sa iei notite, sa schitezi, sa citesti documente fara distrageri si sa ai o experienta cat mai apropiata de hartie, Remarkable 2 versus iPad pentru notite se traduce clar in favoarea lui Remarkable 2. iPad-ul e un soi de \"cutit elvetian\" digital, bun la multe, dar pentru focus pe notite, Remarkable 2 e regele.",
+      "image": "/images/articles/remarkable-2-versus-ipad-pentru-notite.webp",
+      "category": "Electronice Educative",
+      "categorySlug": "electronice-educative",
+      "date": "2026-02-19T14:40:21.850Z",
+      "author": "Cristian Mihai"
+    },
+    {
+      "keyword": "Bananagrams joc de cuvinte pareri",
+      "title": "Bananagrams joc de cuvinte pareri",
+      "slug": "bananagrams-joc-de-cuvinte-pareri",
+      "excerpt": "Daca ma intrebi pe mine, Bananagrams joc de cuvinte pareri sunt in general super pozitive, si pe buna dreptate. E un joc simplu, rapid, dar care te pune pe ganduri si e perfect pentru seri cu prietenii sau chiar pentru a-ti exersa vocabularul singur. Merita sa-l incerci, mai ales ca nu e nici scump.",
+      "image": "/images/articles/bananagrams-joc-de-cuvinte-pareri.webp",
+      "category": "Jocuri de Cuvinte",
+      "categorySlug": "jocuri-de-cuvinte",
+      "date": "2026-02-20T14:41:10.179Z",
+      "author": "Elena Dumitrescu"
+    },
+    {
+      "keyword": "Dictionar de expresii si locutiuni romanesti",
+      "title": "Dictionar de expresii si locutiuni romanesti",
+      "slug": "dictionar-de-expresii-si-locutiuni-romanesti",
+      "excerpt": "Ca sa-ti faci o idee mai clara despre expresiile si locutiunile romanesti, cel mai bine e sa te uiti dupa un dictionar de expresii si locutiuni romanesti bine structurat, care sa explice atat sensul, cat si originea. Daca ma intrebi pe mine, un punct bun de plecare e \"Dictionarul de expresii si locutiuni romanesti\" de la Litera, pentru ca e cuprinzator si usor de folosit.",
+      "image": "/images/articles/dictionar-de-expresii-si-locutiuni-romanesti.webp",
+      "category": "Carti si Dictionare",
+      "categorySlug": "carti-si-dictionare",
+      "date": "2026-02-21T14:40:26.334Z",
+      "author": "Maria Popescu"
+    },
+    {
+      "keyword": "Cum sa inveti franceza de la zero",
+      "title": "Cum sa inveti franceza de la zero",
+      "slug": "cum-sa-inveti-franceza-de-la-zero",
+      "excerpt": "Daca vrei sa inveti franceza de la zero, cel mai bine e sa incepi cu o combinatie de cursuri online structurate si aplicatii mobile interactive, completate de expunere zilnica la limba prin muzica sau filme. Nu te complica de la inceput cu gramatica prea multa; concentreaza-te pe cuvinte uzuale si fraze simple.",
+      "image": "/images/articles/cum-sa-inveti-franceza-de-la-zero.webp",
+      "category": "Invatare Limbi Straine",
+      "categorySlug": "invatare-limbi-straine",
+      "date": "2026-02-22T14:40:32.666Z",
+      "author": "Alexandru Ionescu"
+    },
+    {
+      "keyword": "Cum sa inveti germana singur acasa",
+      "title": "Cum sa inveti germana singur acasa",
+      "slug": "cum-sa-inveti-germana-singur-acasa",
+      "excerpt": "Vrei sa inveti germana acasa, fara profesor? E perfect realizabil. Cheia e sa ai un plan, sa alegi resursele potrivite pentru tine si sa fii constant. Nu exista o formula magica, dar cu abordarea corecta, poti ajunge sa vorbesti fluent.",
+      "image": "/images/articles/cum-sa-inveti-germana-singur-acasa.webp",
+      "category": "Invatare Limbi Straine",
+      "categorySlug": "invatare-limbi-straine",
+      "date": "2026-02-26T10:06:49.687Z",
+      "author": "Alexandru Ionescu"
+    }
+  ],
+  "pending": [
+    {
+      "keyword": "Dictionar frazeologic englez roman",
+      "category": "Carti si Dictionare",
+      "categorySlug": "carti-si-dictionare"
+    },
+    {
+      "keyword": "Dictionar tehnic englez roman pentru ingineri",
+      "category": "Carti si Dictionare",
+      "categorySlug": "carti-si-dictionare"
+    },
+    {
+      "keyword": "Dictionar medical englez roman",
+      "category": "Carti si Dictionare",
+      "categorySlug": "carti-si-dictionare"
+    },
+    {
+      "keyword": "Dictionar juridic englez roman",
+      "category": "Carti si Dictionare",
+      "categorySlug": "carti-si-dictionare"
+    },
+    {
+      "keyword": "Dictionar economic englez roman",
+      "category": "Carti si Dictionare",
+      "categorySlug": "carti-si-dictionare"
+    },
+    {
+      "keyword": "Dictionar de argou si slang englezesc",
+      "category": "Carti si Dictionare",
+      "categorySlug": "carti-si-dictionare"
+    },
+    {
+      "keyword": "Carti pentru imbunatatirea vocabularului",
+      "category": "Carti si Dictionare",
+      "categorySlug": "carti-si-dictionare"
+    },
+    {
+      "keyword": "Gramatica limbii engleze pentru adulti",
+      "category": "Carti si Dictionare",
+      "categorySlug": "carti-si-dictionare"
+    },
+    {
+      "keyword": "Carti de exercitii engleza nivel avansat",
+      "category": "Carti si Dictionare",
+      "categorySlug": "carti-si-dictionare"
+    },
+    {
+      "keyword": "Dictionar vizual englez roman pentru copii",
+      "category": "Carti si Dictionare",
+      "categorySlug": "carti-si-dictionare"
+    },
+    {
+      "keyword": "Dictionar ilustrat pentru prescolari",
+      "category": "Carti si Dictionare",
+      "categorySlug": "carti-si-dictionare"
+    },
+    {
+      "keyword": "Cele mai bune editii Oxford pentru engleza",
+      "category": "Carti si Dictionare",
+      "categorySlug": "carti-si-dictionare"
+    },
+    {
+      "keyword": "Dictionar Cambridge sau Oxford care e mai bun",
+      "category": "Carti si Dictionare",
+      "categorySlug": "carti-si-dictionare"
+    },
+    {
+      "keyword": "Dictionar de buzunar pentru calatorii",
+      "category": "Carti si Dictionare",
+      "categorySlug": "carti-si-dictionare"
+    },
+    {
+      "keyword": "Carti pentru pregatire examen Cambridge",
+      "category": "Carti si Dictionare",
+      "categorySlug": "carti-si-dictionare"
+    },
+    {
+      "keyword": "Carti pentru pregatire IELTS",
+      "category": "Carti si Dictionare",
+      "categorySlug": "carti-si-dictionare"
+    },
+    {
+      "keyword": "Carti pentru pregatire TOEFL",
+      "category": "Carti si Dictionare",
+      "categorySlug": "carti-si-dictionare"
+    },
+    {
+      "keyword": "Dictionar de rime pentru poezie",
+      "category": "Carti si Dictionare",
+      "categorySlug": "carti-si-dictionare"
+    },
+    {
+      "keyword": "Cum sa inveti spaniola rapid",
+      "category": "Invatare Limbi Straine",
+      "categorySlug": "invatare-limbi-straine"
+    },
+    {
+      "keyword": "Cum sa inveti italiana pentru vacanta",
+      "category": "Invatare Limbi Straine",
+      "categorySlug": "invatare-limbi-straine"
+    },
+    {
+      "keyword": "Metoda de invatare prin repetitie spatiata",
+      "category": "Invatare Limbi Straine",
+      "categorySlug": "invatare-limbi-straine"
+    },
+    {
+      "keyword": "Anki flashcards pentru memorare vocabular",
+      "category": "Invatare Limbi Straine",
+      "categorySlug": "invatare-limbi-straine"
+    },
+    {
+      "keyword": "Cum sa memorezi cuvinte noi mai usor",
+      "category": "Invatare Limbi Straine",
+      "categorySlug": "invatare-limbi-straine"
+    },
+    {
+      "keyword": "Cursuri online gratuite de engleza",
+      "category": "Invatare Limbi Straine",
+      "categorySlug": "invatare-limbi-straine"
+    },
+    {
+      "keyword": "Cele mai bune podcasturi pentru invatat engleza",
+      "category": "Invatare Limbi Straine",
+      "categorySlug": "invatare-limbi-straine"
+    },
+    {
+      "keyword": "Filme si seriale pentru invatat engleza",
+      "category": "Invatare Limbi Straine",
+      "categorySlug": "invatare-limbi-straine"
+    },
+    {
+      "keyword": "Canale YouTube pentru invatat engleza",
+      "category": "Invatare Limbi Straine",
+      "categorySlug": "invatare-limbi-straine"
+    },
+    {
+      "keyword": "Cum sa iti imbunatatesti pronuntia in engleza",
+      "category": "Invatare Limbi Straine",
+      "categorySlug": "invatare-limbi-straine"
+    },
+    {
+      "keyword": "Cum sa gandesti direct in engleza",
+      "category": "Invatare Limbi Straine",
+      "categorySlug": "invatare-limbi-straine"
+    },
+    {
+      "keyword": "Cum sa depasesti bariera limbii in conversatie",
+      "category": "Invatare Limbi Straine",
+      "categorySlug": "invatare-limbi-straine"
+    },
+    {
+      "keyword": "Aplicatii pentru practicat conversatia in engleza",
+      "category": "Invatare Limbi Straine",
+      "categorySlug": "invatare-limbi-straine"
+    },
+    {
+      "keyword": "Cum sa scrii corect in engleza",
+      "category": "Invatare Limbi Straine",
+      "categorySlug": "invatare-limbi-straine"
+    },
+    {
+      "keyword": "Grammarly pareri si alternative gratuite",
+      "category": "Invatare Limbi Straine",
+      "categorySlug": "invatare-limbi-straine"
+    },
+    {
+      "keyword": "Cum sa pregatesti un interviu in engleza",
+      "category": "Invatare Limbi Straine",
+      "categorySlug": "invatare-limbi-straine"
+    },
+    {
+      "keyword": "Engleza de business pentru corporatisti",
+      "category": "Invatare Limbi Straine",
+      "categorySlug": "invatare-limbi-straine"
+    },
+    {
+      "keyword": "Cum sa inveti o limba straina la 40 de ani",
+      "category": "Invatare Limbi Straine",
+      "categorySlug": "invatare-limbi-straine"
+    },
+    {
+      "keyword": "Tableta pentru copii recomandata",
+      "category": "Electronice Educative",
+      "categorySlug": "electronice-educative"
+    },
+    {
+      "keyword": "Amazon Fire Kids tableta pareri",
+      "category": "Electronice Educative",
+      "categorySlug": "electronice-educative"
+    },
+    {
+      "keyword": "Tableta Samsung pentru elevi",
+      "category": "Electronice Educative",
+      "categorySlug": "electronice-educative"
+    },
+    {
+      "keyword": "iPad pentru studenti merita investitia",
+      "category": "Electronice Educative",
+      "categorySlug": "electronice-educative"
+    },
+    {
+      "keyword": "Casti pentru invatare limbi straine",
+      "category": "Electronice Educative",
+      "categorySlug": "electronice-educative"
+    },
+    {
+      "keyword": "Boxa inteligenta pentru exersat engleza",
+      "category": "Electronice Educative",
+      "categorySlug": "electronice-educative"
+    },
+    {
+      "keyword": "Stilou digital pentru notite",
+      "category": "Electronice Educative",
+      "categorySlug": "electronice-educative"
+    },
+    {
+      "keyword": "Lampa de citit pentru ebook reader",
+      "category": "Electronice Educative",
+      "categorySlug": "electronice-educative"
+    },
+    {
+      "keyword": "Husa si accesorii pentru Kindle",
+      "category": "Electronice Educative",
+      "categorySlug": "electronice-educative"
+    },
+    {
+      "keyword": "Cum sa transferi carti pe Kindle",
+      "category": "Electronice Educative",
+      "categorySlug": "electronice-educative"
+    },
+    {
+      "keyword": "Calibre program pentru gestionat ebook-uri",
+      "category": "Electronice Educative",
+      "categorySlug": "electronice-educative"
+    },
+    {
+      "keyword": "Unde gasesti carti gratuite pentru Kindle",
+      "category": "Electronice Educative",
+      "categorySlug": "electronice-educative"
+    },
+    {
+      "keyword": "Audiobook-uri versus carti traditionale",
+      "category": "Electronice Educative",
+      "categorySlug": "electronice-educative"
+    },
+    {
+      "keyword": "Audible pareri si alternative gratuite",
+      "category": "Electronice Educative",
+      "categorySlug": "electronice-educative"
+    },
+    {
+      "keyword": "Aplicatii de citit carti pe telefon",
+      "category": "Electronice Educative",
+      "categorySlug": "electronice-educative"
+    },
+    {
+      "keyword": "Translator electronic de buzunar pareri",
+      "category": "Electronice Educative",
+      "categorySlug": "electronice-educative"
+    },
+    {
+      "keyword": "Dispozitive pentru invatare limbi straine",
+      "category": "Electronice Educative",
+      "categorySlug": "electronice-educative"
+    },
+    {
+      "keyword": "Boggle joc de cuvinte clasic",
+      "category": "Jocuri de Cuvinte",
+      "categorySlug": "jocuri-de-cuvinte"
+    },
+    {
+      "keyword": "Codenames joc de societate pareri",
+      "category": "Jocuri de Cuvinte",
+      "categorySlug": "jocuri-de-cuvinte"
+    },
+    {
+      "keyword": "Dixit joc creativ cu cuvinte",
+      "category": "Jocuri de Cuvinte",
+      "categorySlug": "jocuri-de-cuvinte"
+    },
+    {
+      "keyword": "Jocuri de masa pentru familie seara",
+      "category": "Jocuri de Cuvinte",
+      "categorySlug": "jocuri-de-cuvinte"
+    },
+    {
+      "keyword": "Jocuri educative pentru copii 6-10 ani",
+      "category": "Jocuri de Cuvinte",
+      "categorySlug": "jocuri-de-cuvinte"
+    },
+    {
+      "keyword": "Jocuri de logica si cuvinte pentru adulti",
+      "category": "Jocuri de Cuvinte",
+      "categorySlug": "jocuri-de-cuvinte"
+    },
+    {
+      "keyword": "Puzzle-uri cu cuvinte pentru batrani",
+      "category": "Jocuri de Cuvinte",
+      "categorySlug": "jocuri-de-cuvinte"
+    },
+    {
+      "keyword": "Integrame si rebusuri online gratuite",
+      "category": "Jocuri de Cuvinte",
+      "categorySlug": "jocuri-de-cuvinte"
+    },
+    {
+      "keyword": "Cuvinte incrucisate aplicatie telefon",
+      "category": "Jocuri de Cuvinte",
+      "categorySlug": "jocuri-de-cuvinte"
+    },
+    {
+      "keyword": "Jocuri de cuvinte pentru imbunatatit engleza",
+      "category": "Jocuri de Cuvinte",
+      "categorySlug": "jocuri-de-cuvinte"
+    },
+    {
+      "keyword": "Trivia jocuri de cultura generala",
+      "category": "Jocuri de Cuvinte",
+      "categorySlug": "jocuri-de-cuvinte"
+    },
+    {
+      "keyword": "Jocuri de echipa cu cuvinte si mimica",
+      "category": "Jocuri de Cuvinte",
+      "categorySlug": "jocuri-de-cuvinte"
+    },
+    {
+      "keyword": "Activity joc de societate pareri",
+      "category": "Jocuri de Cuvinte",
+      "categorySlug": "jocuri-de-cuvinte"
+    },
+    {
+      "keyword": "Alias joc de cuvinte pentru petreceri",
+      "category": "Jocuri de Cuvinte",
+      "categorySlug": "jocuri-de-cuvinte"
+    },
+    {
+      "keyword": "Taboo joc de cuvinte interzise",
+      "category": "Jocuri de Cuvinte",
+      "categorySlug": "jocuri-de-cuvinte"
+    },
+    {
+      "keyword": "Jocuri de cuvinte pentru doi jucatori",
+      "category": "Jocuri de Cuvinte",
+      "categorySlug": "jocuri-de-cuvinte"
+    },
+    {
+      "keyword": "Jocuri printabile de cuvinte pentru copii",
+      "category": "Jocuri de Cuvinte",
+      "categorySlug": "jocuri-de-cuvinte"
+    },
+    {
+      "keyword": "Cele mai bune dictionare francez roman",
+      "category": "Carti si Dictionare",
+      "categorySlug": "carti-si-dictionare"
+    },
+    {
+      "keyword": "Jocuri de societate educative pentru copii",
+      "category": "Jocuri de Cuvinte",
+      "categorySlug": "jocuri-de-cuvinte"
+    },
+    {
+      "keyword": "Kindle Scribe pareri pentru notite",
+      "category": "Electronice Educative",
+      "categorySlug": "electronice-educative"
+    },
+    {
+      "keyword": "Jocuri pentru dezvoltarea vocabularului",
+      "category": "Jocuri de Cuvinte",
+      "categorySlug": "jocuri-de-cuvinte"
+    },
+    {
+      "keyword": "Dictionar italian roman pentru calatorii",
+      "category": "Carti si Dictionare",
+      "categorySlug": "carti-si-dictionare"
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+---
+import ArticleCard from './ArticleCard.astro';
+
+interface Article {
+  title: string;
+  excerpt: string;
+  image: string;
+  category: string;
+  categorySlug: string;
+  date: string;
+  slug: string;
+}
+
+interface Props {
+  articles: Article[];
+  currentSlug: string;
+  currentCategory: string;
+}
+
+const { articles, currentSlug, currentCategory } = Astro.props;
+
+// Filter out current article and prioritize same category
+const filteredArticles = articles
+  .filter(a => a.slug !== currentSlug)
+  .sort((a, b) => {
+    // Prioritize same category
+    if (a.category === currentCategory && b.category !== currentCategory) return -1;
+    if (b.category === currentCategory && a.category !== currentCategory) return 1;
+    // Then sort by date
+    return new Date(b.date).getTime() - new Date(a.date).getTime();
+  })
+  .slice(0, 3);
+---
+
+{filteredArticles.length > 0 && (
+  <section class="similar-articles">
+    <h3>Articole Similare</h3>
+    <div class="articles-grid">
+      {filteredArticles.map(article => (
+        <ArticleCard {...article} />
+      ))}
+    </div>
+  </section>
+)}

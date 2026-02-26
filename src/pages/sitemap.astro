@@ -1,0 +1,64 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CookieBanner from '../components/CookieBanner.astro';
+
+import keywordsData from '../../keywords.json';
+
+const categories = keywordsData.categories || [];
+const completedArticles = keywordsData.completed || [];
+
+// Group articles by category
+const articlesByCategory = categories.map(cat => ({
+  ...cat,
+  articles: completedArticles.filter(a => a.categorySlug === cat.slug)
+}));
+---
+
+<Layout
+  title="Harta Site-ului"
+  description="Harta completa a site-ului DictionarulTau.ro. Navigheaza usor catre toate paginile si articolele."
+>
+  <Header />
+
+  <main class="container">
+    <article class="legal-page">
+      <h1>Harta Site-ului</h1>
+      <p>Navigheaza usor catre toate sectiunile si articolele site-ului nostru.</p>
+
+      <section class="sitemap-section">
+        <h2>Pagini Principale</h2>
+        <ul class="sitemap-list">
+          <li><a href="/">Pagina Principala</a></li>
+          <li><a href="/contact/">Contact</a></li>
+          <li><a href="/privacy-policy/">Politica de Confidentialitate</a></li>
+          <li><a href="/terms/">Termeni si Conditii</a></li>
+          <li><a href="/cookies/">Politica Cookies</a></li>
+        </ul>
+      </section>
+
+      {articlesByCategory.map(cat => (
+        <section class="sitemap-section">
+          <h2>
+            <a href={`/${cat.slug}/`}>{cat.name}</a>
+          </h2>
+          {cat.articles.length > 0 ? (
+            <ul class="sitemap-list">
+              {cat.articles.map(article => (
+                <li><a href={`/${article.slug}/`}>{article.title}</a></li>
+              ))}
+            </ul>
+          ) : (
+            <p style="color: var(--color-neutral-500); font-size: 0.9375rem;">
+              Articole in curand...
+            </p>
+          )}
+        </section>
+      ))}
+    </article>
+  </main>
+
+  <Footer />
+  <CookieBanner />
+</Layout>

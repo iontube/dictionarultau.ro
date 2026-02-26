@@ -1,0 +1,260 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ArticleCard from '../components/ArticleCard.astro';
+import CookieBanner from '../components/CookieBanner.astro';
+
+import keywordsData from '../../keywords.json';
+
+const categories = [
+  {
+    name: 'Carti si Dictionare',
+    slug: 'carti-si-dictionare',
+    description: 'Recenzii si comparatii pentru dictionare englez-roman, explicative si de specialitate. Te ajutam sa alegi cele mai bune carti de referinta pentru studiu si dezvoltare personala.',
+    icon: '📚'
+  },
+  {
+    name: 'Invatare Limbi Straine',
+    slug: 'invatare-limbi-straine',
+    description: 'Resurse, aplicatii si metode pentru a invata engleza, franceza, germana sau alte limbi. Sfaturi practice pentru autodidacti si cursanti.',
+    icon: '🌍'
+  },
+  {
+    name: 'Electronice Educative',
+    slug: 'electronice-educative',
+    description: 'Kindle, tablete si gadgeturi pentru citit si invatat. Comparam dispozitivele care iti fac viata mai usoara cand vine vorba de lectura digitala.',
+    icon: '📱'
+  },
+  {
+    name: 'Jocuri de Cuvinte',
+    slug: 'jocuri-de-cuvinte',
+    description: 'Scrabble, jocuri de societate educative si aplicatii care iti dezvolta vocabularul intr-un mod distractiv. Pentru copii si adulti.',
+    icon: '🎯'
+  }
+];
+
+// Get completed articles
+const articles = keywordsData.completed.map(item => ({
+  title: item.title,
+  slug: item.slug,
+  excerpt: item.excerpt || '',
+  image: item.image,
+  category: item.category,
+  categorySlug: item.categorySlug,
+  date: item.date || new Date().toISOString()
+})).sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
+// Count articles per category
+const categoryCounts = categories.map(cat => ({
+  ...cat,
+  count: articles.filter(a => a.categorySlug === cat.slug).length
+}));
+---
+
+<Layout
+  title="Resurse pentru Invatarea Limbilor si Vocabular"
+  description="DictionarulTau.ro - Articole detaliate despre dictionare, cursuri de limbi straine, dispozitive pentru citit si jocuri educative. Resurse premium pentru dezvoltarea vocabularului."
+>
+  <Header />
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <span class="hero-badge">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
+            <path d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/>
+          </svg>
+          Resurse Premium
+        </span>
+        <h1>Lumea Cuvintelor</h1>
+        <p class="hero-subtitle">Articole detaliate despre dictionare, cursuri de limbi straine, dispozitive pentru citit si jocuri care iti dezvolta vocabularul.</p>
+      </div>
+    </div>
+  </section>
+
+  <main class="container">
+    {articles.length > 0 && (
+      <section class="section">
+        <div class="section-header">
+          <h2 class="section-title">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            Articole Recente
+          </h2>
+        </div>
+
+        <div class="articles-grid">
+          {articles.slice(0, 15).map(article => (
+            <ArticleCard {...article} />
+          ))}
+        </div>
+      </section>
+    )}
+
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+          Exploreaza pe Categorii
+        </h2>
+      </div>
+
+      <div class="categories-list">
+        {categoryCounts.map(cat => (
+          <a href={`/${cat.slug}/`} class="category-item">
+            <span class="category-icon">{cat.icon}</span>
+            <div class="category-text">
+              <h3>{cat.name}</h3>
+              <p>{cat.description}</p>
+            </div>
+            <span class="category-count">{cat.count}</span>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <section class="section about-section">
+      <div style="max-width: 900px; margin: 0 auto;">
+        <h2 class="section-title" style="justify-content: center;">Despre DictionarulTau</h2>
+        <div class="article-content-body" style="text-align: left;">
+
+          <p>
+            DictionarulTau.ro a aparut dintr-o nevoie reala pe care multi dintre noi o cunoastem: cum alegi <strong>cel mai bun dictionar</strong> cand ai zeci de optiuni in fata? Cum stii daca o <strong>aplicatie pentru invatat limbi straine</strong> chiar functioneaza sau e doar marketing frumos? Ce <strong>dispozitiv pentru citit carti electronice</strong> merita banii?
+          </p>
+
+          <p>
+            Am pornit acest proiect pentru ca stim cat de frustrant poate fi sa cauti informatii concrete si sa gasesti doar reclame deghizate sau recenzii superficiale. Vrem sa oferim ceva diferit: analize oneste, comparatii detaliate si recomandari bazate pe utilizare reala, nu pe specificatii copiate de pe site-urile producatorilor.
+          </p>
+
+          <h3>De ce exista DictionarulTau.ro</h3>
+
+          <p>
+            Limba romana are o comunitate online surprinzator de saraca cand vine vorba de resurse pentru <strong>invatarea limbilor straine</strong>. Daca vrei sa inveti engleza, franceza sau germana, gasesti tone de materiale in engleza, dar foarte putin continut de calitate in romana. Asta inseamna ca multi oameni fie renunta, fie se descurca cum pot cu informatii fragmentate.
+          </p>
+
+          <p>
+            Noi credem ca accesul la educatie lingvistica nu ar trebui sa depinda de cat de bine stii deja engleza. De aceea, tot continutul nostru este scris in romana, pentru romani, tinand cont de nevoile si contextul local. Cand recomandam un <strong>dictionar englez-roman</strong>, ne gandim la cum il va folosi un elev din Romania, nu un student din Londra.
+          </p>
+
+          <p>
+            Pe langa asta, piata din Romania pentru <strong>carti si dictionare</strong> este diferita de cea internationala. Avem edituri locale cu produse excelente, dar si multe importuri care nu intotdeauna se potrivesc nevoilor noastre. Incercam sa facem lumina in aceasta jungla de optiuni si sa te ajutam sa faci alegeri informate.
+          </p>
+
+          <h3>Ce gasesti pe site</h3>
+
+          <p>
+            Continutul nostru este organizat in patru categorii principale, fiecare adresand o nevoie specifica:
+          </p>
+
+          <p>
+            <strong>Carti si Dictionare</strong> - Aceasta sectiune acopera tot ce tine de cartile fizice si digitale pentru invatarea limbilor. Analizez <strong>dictionare explicative</strong>, <strong>dictionare bilingve</strong> (englez-roman, francez-roman, german-roman si altele), <strong>dictionare de sinonime</strong>, <strong>dictionare frazeologice</strong> si <strong>dictionare de specialitate</strong>. Comparam editii, verificam calitatea hartiei si a legaturilor, evaluam cat de usor sunt de folosit si daca merita pretul cerut.
+          </p>
+
+          <p>
+            <strong>Invatare Limbi Straine</strong> - Aici gasesti tot ce trebuie sa stii despre metodele moderne de <strong>invatare a limbilor straine</strong>. Analizez <strong>aplicatii precum Duolingo, Babbel sau Mondly</strong>, discut despre <strong>cursuri online</strong>, <strong>metode de memorare a vocabularului</strong> si tehnici care chiar functioneaza. Nu promovam solutii magice - invatarea unei limbi necesita timp si efort, dar exista instrumente care fac procesul mai eficient.
+          </p>
+
+          <p>
+            <strong>Electronice Educative</strong> - Tehnologia poate fi un aliat extraordinar in educatie, daca stii ce sa alegi. Comparam <strong>cititoare de carti electronice</strong> precum <strong>Kindle, Kobo sau PocketBook</strong>, analizez <strong>tablete pentru copii</strong>, <strong>stilouri digitale</strong> si alte gadgeturi care pot ajuta la invatare. Discutam despre raportul calitate-pret, durabilitate si cat de potrivit este fiecare dispozitiv pentru diferite categorii de utilizatori.
+          </p>
+
+          <p>
+            <strong>Jocuri de Cuvinte</strong> - Invatarea nu trebuie sa fie plictisitoare. In aceasta sectiune acoperim <strong>jocuri educative</strong> care dezvolta vocabularul si abilitatile lingvistice. De la clasicul <strong>Scrabble</strong> la <strong>jocuri de societate moderne</strong> si <strong>aplicatii mobile pentru jocuri de cuvinte</strong>, gasesti recomandari pentru toate varstele. Jocurile sunt o metoda excelenta de a invata cuvinte noi fara sa simti ca studiezi.
+          </p>
+
+          <h3>Cum lucram</h3>
+
+          <p>
+            Fiecare articol de pe DictionarulTau.ro este rezultatul unei cercetari atente. Nu scriem despre produse pe care nu le-am testat sau despre care nu avem informatii de prima mana. Cand recomandam un <strong>dictionar</strong>, l-am tinut in mana, am verificat calitatea tiparului si am evaluat cat de util este in practica.
+          </p>
+
+          <p>
+            Pentru <strong>aplicatiile de invatat limbi</strong>, le folosim efectiv, parcurgem lectiile, testam sistemele de repetitie spatiata si evaluam daca metodele propuse chiar ajuta la retinerea informatiilor. Multi creatori de continut fac recenzii dupa cateva minute de utilizare - noi incercam sa oferim o perspectiva de lunga durata.
+          </p>
+
+          <p>
+            In cazul <strong>dispozitivelor electronice</strong>, testam autonomia bateriei in conditii reale, verificam cum se comporta ecranul in diferite conditii de lumina si evaluam experienta de utilizare pe parcursul mai multor saptamani. Un Kindle poate parea perfect in prima zi, dar cum se comporta dupa trei luni de utilizare zilnica?
+          </p>
+
+          <h3>Pentru cine scriem</h3>
+
+          <p>
+            Continutul nostru se adreseaza unei audiente diverse, unite de interesul pentru limbi si lectura:
+          </p>
+
+          <p>
+            <strong>Elevi si studenti</strong> care au nevoie de resurse pentru scoala sau facultate. Fie ca pregatesti un examen de limba engleza, vrei sa iti imbunatatesti media la franceza sau ai nevoie de un dictionar pentru cursurile de la universitate, aici gasesti recomandari adaptate nivelului tau.
+          </p>
+
+          <p>
+            <strong>Parinti</strong> care cauta materiale educative pentru copiii lor. Stim cat de greu e sa alegi intre sutele de optiuni de pe piata. Care <strong>dictionar pentru copii</strong> este potrivit pentru varsta lor? Ce <strong>jocuri educative</strong> ii vor ajuta sa invete fara sa se plictiseasca? Ce <strong>tableta</strong> este suficient de rezistenta pentru un copil de 7 ani?
+          </p>
+
+          <p>
+            <strong>Adulti autodidacti</strong> care vor sa invete o limba noua pe cont propriu. Poate vrei sa inveti spaniola pentru urmatoarea vacanta, sau germana pentru oportunitati profesionale. Indiferent de motivatie, oferim informatii despre cele mai eficiente metode si resurse pentru <strong>invatarea limbilor straine de acasa</strong>.
+          </p>
+
+          <p>
+            <strong>Profesori si educatori</strong> care cauta materiale suplimentare pentru elevii lor. Multi profesori ne-au scris ca articolele noastre i-au ajutat sa recomande resurse potrivite parintilor sau sa isi completeze arsenalul de instrumente didactice.
+          </p>
+
+          <p>
+            <strong>Iubitori de lectura</strong> care vor sa treaca la <strong>carti electronice</strong> sau care cauta recomandari pentru urmatoarea achizitie. Daca esti pasionat de citit si vrei sa stii care <strong>e-reader</strong> ti se potriveste cel mai bine, aici gasesti comparatii detaliate si oneste.
+          </p>
+
+          <h3>Valorile noastre</h3>
+
+          <p>
+            <strong>Onestitate</strong> - Nu promovam produse doar pentru ca primim comisioane. Daca un dictionar este slab sau o aplicatie nu merita banii, o spunem direct. Preferem sa pierdem un potential castig decat sa recomandam ceva care te va dezamagi.
+          </p>
+
+          <p>
+            <strong>Accesibilitate</strong> - Scriem pentru toata lumea, nu doar pentru experti. Explicam termenii tehnici, evitam jargonul inutil si ne asiguram ca informatiile sunt usor de inteles si aplicat. Nu trebuie sa fii lingvist ca sa beneficiezi de continutul nostru.
+          </p>
+
+          <p>
+            <strong>Actualitate</strong> - Piata se schimba constant. Apar dictionare noi, aplicatii noi, dispozitive noi. Ne straduim sa tinem continutul la zi si sa adaugam informatii despre cele mai recente produse si tendinte din domeniu.
+          </p>
+
+          <p>
+            <strong>Utilitate practica</strong> - Nu scriem de dragul de a scrie. Fiecare articol are un scop clar: sa te ajute sa iei o decizie sau sa rezolvi o problema. Evitam umpluturile si ne concentram pe informatiile care chiar conteaza.
+          </p>
+
+          <h3>Un cuvant despre affiliate marketing</h3>
+
+          <p>
+            Transparenta este importanta pentru noi, asa ca vrem sa fii la curent: unele linkuri de pe site sunt linkuri afiliate. Asta inseamna ca daca cumperi un produs prin linkul nostru, primim un mic comision, fara niciun cost suplimentar pentru tine.
+          </p>
+
+          <p>
+            Acest model ne permite sa continuam sa cream continut gratuit si de calitate. Dar, si asta e esential, comisioanele nu influenteaza niciodata recenziile noastre. Recomandam produse pentru ca le consideram bune, nu pentru ca ne aduc cei mai multi bani. Am refuzat de multe ori sa promovam produse care nu ne-au convins, chiar daca ofertele financiare erau tentante.
+          </p>
+
+          <h3>Viitorul DictionarulTau.ro</h3>
+
+          <p>
+            Planurile noastre includ extinderea continutului cu mai multe limbi (nu doar engleza, ci si franceza, germana, spaniola, italiana si altele), adaugarea de sectiuni interactive si poate chiar crearea unor cursuri proprii. Vrem sa devenim resursa principala pentru oricine din Romania interesat de <strong>invatarea limbilor straine</strong> si <strong>dezvoltarea vocabularului</strong>.
+          </p>
+
+          <p>
+            Suntem mereu deschisi la sugestii. Daca exista un subiect pe care ai vrea sa il acoperim, un produs pe care vrei sa il recenzam sau o intrebare la care nu ai gasit raspuns, nu ezita sa ne contactezi. Acest site exista pentru tine, si feedback-ul tau ne ajuta sa il facem mai bun.
+          </p>
+
+          <p>
+            Iti multumim ca ai ales sa ne citesti. Speram ca informatiile de aici te vor ajuta sa iti atingi obiectivele lingvistice, fie ca vrei sa <strong>inveti o limba noua</strong>, sa <strong>iti imbunatatesti vocabularul</strong> sau pur si simplu sa gasesti <strong>cea mai buna carte pentru urmatoarea lectura</strong>.
+          </p>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+  <CookieBanner />
+</Layout>

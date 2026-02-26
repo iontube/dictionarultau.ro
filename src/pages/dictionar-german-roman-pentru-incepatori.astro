@@ -1,0 +1,288 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import SimilarArticles from '../components/SimilarArticles.astro';
+import CookieBanner from '../components/CookieBanner.astro';
+import keywordsData from '../../keywords.json';
+
+const title = "Dictionar german roman pentru incepatori";
+const excerpt = "Daca vrei un <strong>dictionar german roman pentru incepatori</strong> care sa te ajute sa prinzi rapid bazele, eu zic sa te uiti la \"Langenscheidt Pocket German Dictionary\" sau la \"Collins German Dictionary - Essential Edition\". Ambele sunt compacte, usor de folosit si au un vocabular esential pentru primii pasi.";
+const image = "/images/articles/dictionar-german-roman-pentru-incepatori.webp";
+const category = "Carti si Dictionare";
+const categorySlug = "carti-si-dictionare";
+const date = "2026-02-05T14:40:49.454Z";
+const modifiedDate = "2026-02-05T14:40:49.454Z";
+const author = "Maria Popescu";
+const authorRole = "Specialist in Lingvistica";
+const authorBio = "Cu peste 10 ani de experienta in domeniul lingvisticii si al editarii de dictionare, Maria te ajuta sa alegi cele mai bune resurse pentru invatare.";
+const slug = "dictionar-german-roman-pentru-incepatori";
+
+const faq = [
+  { question: "Cat costa un dictionar german roman pentru incepatori?", answer: "Un dictionar german roman pentru incepatori de tip pocket sau esential, fizic, costa in jur de 40-70 lei. Dictionarele mai cuprinzatoare, de birou, pot ajunge la 100-150 lei, dar pentru inceput nu sunt neaparat necesare." },
+  { question: "Care e diferenta intre un dictionar de buzunar si unul de birou?", answer: "Un dictionar de buzunar e mic, compact, cu vocabular esential pentru uz zilnic rapid. Un dictionar de birou e mai mare, cu mai multe cuvinte, definitii mai detaliate si exemple, fiind mai potrivit pentru studiu aprofundat." },
+  { question: "Merita sa cumpar un dictionar fizic sau sa folosesc o aplicatie?", answer: "Pentru incepatori, un dictionar fizic e adesea mai eficient pentru concentrare si invatare rapida. Aplicatiile sunt bune, dar pot fi pline de reclame sau pot distrage atentia. Un dictionar fizic de la o editura cunoscuta e o investitie sigura." },
+  { question: "Ce criterii sa urmaresc la un dictionar german roman pentru incepatori?", answer: "Uita-te la marime (portabilitate), claritatea definitiilor si a exemplelor, vocabularul (sa fie esential), anul publicarii (sa fie recent) si pretul (sa fie accesibil)." },
+  { question: "Ce se intampla daca iau un dictionar prea vechi?", answer: "Un dictionar vechi s-ar putea sa nu contina termeni noi aparuti in limba germana moderna sau sa foloseasca expresii care nu mai sunt la moda. E bine sa alegi o editie cat mai recenta, publicata in ultimii 5-10 ani." },
+  { question: "Cum pot folosi cel mai bine un dictionar pentru invatare?", answer: "Nu doar cauta cuvinte. Noteaza-le, incearca sa le folosesti in propozitii proprii, cauta exemple de utilizare in dictionar si repeta-le. Fa din dictionar un partener activ, nu doar o biblioteca." },
+  { question: "Unde gasesc un dictionar german roman pentru incepatori bun?", answer: "Cele mai bune locuri sunt librariile mari (Carturesti, Humanitas, Diverta), magazinele online de carte (elefant.ro, libris.ro) sau direct pe site-urile editurilor cunoscute." },
+  { question: "Exista dictionare german-roman gratuite online care sunt de incredere?", answer: "Exista multe site-uri gratuite, dar calitatea traducerilor poate varia mult. Cele de la edituri mari (ex. Pons, Langenscheidt) au de obicei si versiuni online sau aplicatii, care sunt mai de incredere, dar pot avea limitari sau necesita abonament pentru functii complete." }
+];
+
+const toc = [
+  { title: "Primii pasi in germana: Ce dictionar german roman pentru incepatori chiar te ajuta", id: "primii-pasi-in-germana-ce-dictionar-german-roman-pentru-incepatori-chiar-te-ajuta" },
+  { title: "Top dictionare germane romanesti pentru incepatori: Avantaje si Dezavantaje", id: "top-dictionare-germane-romanesti-pentru-incepatori-avantaje-si-dezavantaje" },
+  { title: "Cum alegi cel mai bun dictionar german roman pentru incepatori: Criterii simple", id: "cum-alegi-cel-mai-bun-dictionar-german-roman-pentru-incepatori-criterii-simple" },
+  { title: "Langenscheidt Pocket vs. Collins Essential: Test comparativ dictionar german roman pentru incepatori", id: "langenscheidt-pocket-vs-collins-essential-test-comparativ-dictionar-german-roman-pentru-incepatori" },
+  { title: "Top 5 greseli cand cumperi un dictionar german roman pentru incepatori si cum sa le eviti", id: "top-5-greseli-cand-cumperi-un-dictionar-german-roman-pentru-incepatori-si-cum-sa-le-eviti" },
+  { title: "Recomandari dictionar german roman pentru incepatori pe categorii de buget", id: "recomandari-dictionar-german-roman-pentru-incepatori-pe-categorii-de-buget" }
+];
+
+// Get all articles for similar articles component
+const allArticles = (keywordsData.completed || []).map(item => ({
+  title: item.title,
+  slug: item.slug,
+  excerpt: item.excerpt || '',
+  image: item.image,
+  category: item.category,
+  categorySlug: item.categorySlug,
+  date: item.date || new Date().toISOString()
+}));
+---
+
+<Layout
+  title={title}
+  description={excerpt}
+  image={image}
+  article={true}
+  publishedTime={date}
+  modifiedTime={modifiedDate}
+  author={author}
+  faq={faq}
+>
+  <Header />
+
+  <header class="article-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Acasa</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href={`/${categorySlug}/`}>{category}</a>
+        <span class="breadcrumb-separator">/</span>
+        <span class="breadcrumb-current">{title}</span>
+      </nav>
+
+      <h1>{title}</h1>
+
+      <div class="article-header-meta">
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
+          {new Date(date).toLocaleDateString('ro-RO', { year: 'numeric', month: 'long', day: 'numeric' })}
+        </span>
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          {author}
+        </span>
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+          </svg>
+          {category}
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <article class="article-body">
+    <div class="article-featured-image">
+      <img src={image} alt={title} width="800" height="600" loading="eager" />
+    </div>
+
+    <nav class="toc">
+      <h2 class="toc-title">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="8" y1="6" x2="21" y2="6"></line>
+          <line x1="8" y1="12" x2="21" y2="12"></line>
+          <line x1="8" y1="18" x2="21" y2="18"></line>
+          <line x1="3" y1="6" x2="3.01" y2="6"></line>
+          <line x1="3" y1="12" x2="3.01" y2="12"></line>
+          <line x1="3" y1="18" x2="3.01" y2="18"></line>
+        </svg>
+        Cuprins
+      </h2>
+      <ol class="toc-list">
+        {toc.map(item => (
+          <li class="toc-item"><a href={`#${item.id}`}>{item.title}</a></li>
+        ))}
+        <li class="toc-item"><a href="#faq">Intrebari Frecvente</a></li>
+      </ol>
+    </nav>
+
+    <div class="article-content-body">
+      
+      <section id="primii-pasi-in-germana-ce-dictionar-german-roman-pentru-incepatori-chiar-te-ajuta">
+        <h2>Primii pasi in germana: Ce dictionar german roman pentru incepatori chiar te ajuta</h2>
+        <p>Bon, hai sa fim directi. Ai nevoie de un <strong>dictionar german roman pentru incepatori</strong> si vrei sa stii ce sa iei. Nu te complica prea mult la inceput. Cel mai important e sa fie usor de rasfoit, sa aiba cuvintele cele mai folosite si sa nu te ingroape in detalii gramaticale complicate. Eu recomand de obicei dictionarele de buzunar sau cele "esentiale" pentru ca sunt facute special pentru asta: sa ai la indemana ce ai nevoie cand inveti.</p><p>Am avut colegi care si-au luat dictionare masive, de 1000 de pagini, si pana la urma au folosit doar 10% din ele la inceput. E ca si cum ai vrea sa mergi cu bicicleta si ti-ai lua un camion. Deci, focus pe ce e esential.</p><p>Un <strong>dictionar german roman pentru incepatori</strong> bun trebuie sa iti ofere definitii clare, sa aiba exemple de utilizare si, daca se poate, sa includa si pronuntia. Nu te astepta la minuni, nu toate dictionarele de buzunar au asta, dar e un plus mare.</p><p>M-am lovit si eu de problema asta acum multi ani, cand am inceput sa invat italiana. Am luat un dictionar imens si mi-am dat seama ca pierd timp cautand cuvinte pe care oricum nu le voi folosi in primele luni. Dupa am trecut pe unul mic si a fost mult mai eficient. Asta e sfatul meu sincer: nu te complica.</p>
+      </section>
+
+      <section id="top-dictionare-germane-romanesti-pentru-incepatori-avantaje-si-dezavantaje">
+        <h2>Top dictionare germane romanesti pentru incepatori: Avantaje si Dezavantaje</h2>
+        <p>Uite, am pus pe lista cateva optiuni pe care le-am vazut pe piata si pe care le-as recomanda. Nu sunt toate perfecte, dar au punctele lor forte.</p><ul><li><strong>Langenscheidt Pocket German Dictionary</strong></li><li>Pret estimat: 40-60 lei</li><li>Avantaje: Foarte compact, usor de carat. Vocabular esential pentru conversatii zilnice. Langenscheidt e un nume de traditie in dictionare.</li><li>Dezavantaje: Nu are foarte multe cuvinte, deci vei simti limitele mai repede daca avansezi. Nu are neaparat multe exemple de fraze.</li></ul><ul><li><strong>Collins German Dictionary - Essential Edition</strong></li><li>Pret estimat: 50-70 lei</li><li>Avantaje: Acoperire buna pentru nivel incepator-intermediar. Definitii clare si exemple utile. E o editie "esentiala", deci nu te copleseste.</li><li>Dezavantaje: Poate fi putin mai gros decat un "pocket" clasic. Unele cuvinte mai specifice pot lipsi.</li></ul><ul><li><strong>Dictionar Roman-German, German-Roman (Edituri romanesti gen Polirom, Nemira)</strong></li><li>Pret estimat: 70-100 lei</li><li>Avantaje: Adesea mai adaptate nevoilor vorbitorilor de limba romana, cu explicatii in romana. Pot avea si sectiuni de gramatica de baza.</li><li>Dezavantaje: Pot fi mai voluminoase. Calitatea traducerilor si a definitiilor poate varia mult intre edituri. Nu toate sunt la fel de "la zi".</li></ul><p>Am testat personal un Collins "Essential" si mi s-a parut echilibrat. Pentru un prieten care incepea germana, i-am recomandat Langenscheidt Pocket pentru ca voia ceva sa tina in geanta mereu. Na, depinde si de cum vrei sa-l folosesti.</p><p>Ce am observat e ca dictionarele mai vechi, din anii '90, chiar daca sunt fizice, pot avea cuvinte care nu se mai folosesc atat de des sau pot lipsi termeni noi, din limbajul tehnic sau modern. Deci, daca alegi fizic, cauta o editie cat mai recenta.</p><p>Si inca ceva: am vazut si dictionare online "gratuite", dar multe sunt pline de reclame sau au traduceri automate care ies prost. Pentru inceput, ceva fizic, de incredere, te ajuta sa te concentrezi mai bine. Poti folosi si aplicatii de dictionar pe telefon, dar sa fie de la o editura cunoscuta. Zic si eu.</p>
+      </section>
+
+      <section id="cum-alegi-cel-mai-bun-dictionar-german-roman-pentru-incepatori-criterii-simple">
+        <h2>Cum alegi cel mai bun dictionar german roman pentru incepatori: Criterii simple</h2>
+        <p>Bun, cum alegi fara sa te incurci? Simplu. Uita-te la astea:</p><ul><li><strong>Marimea si Portabilitatea:</strong> Vrei sa-l cari cu tine la cursuri, in parc, in metrou? Un dictionar mic, de buzunar, e ideal. Daca sta pe birou, poate fi si mai mare, dar pentru inceput, mobilitatea conteaza.</li><li><strong>Vocabularul:</strong> Nu ai nevoie de 100.000 de cuvinte. Concentreaza-te pe cele uzuale: saluturi, intrebari de baza, mancare, transport, familie, munca. Un bun <strong>dictionar german roman pentru incepatori</strong> are in jur de 20.000-30.000 de intrari.</li><li><strong>Claritatea Definitiilor si Exemplelor:</strong> Daca definita e mai complicata decat cuvantul in sine, nu te ajuta cu nimic. Si exemplele de fraze te invata cum sa folosesti cuvantul in context. Asta e crucial.</li><li><strong>Pretul:</strong> Nu trebuie sa dai o avere. Pentru nivelul de inceput, un dictionar bun costa intre 40 si 100 lei. Mai mult e cam mult, mai putin poate fi suspect de slab.</li><li><strong>Editura si Anul Publicarii:</strong> Nume ca Langenscheidt, Collins, Oxford, sau editurile mari romanesti (Polirom, Nemira, Humanitas) sunt de obicei o garantie. Si verifica anul aparitiei. Daca e din 2005, s-ar putea sa nu aiba termeni noi.</li></ul><p>Eu am avut un prieten care si-a luat un dictionar online, credea ca e mai "modern". A ajuns sa-si ia unul fizic dupa doua luni pentru ca pierdea prea mult timp cu reclamele si cautarile lente. Deci, da, un fizic e uneori mai rapid si mai focusat.</p><p>Gandeste-te la asta ca la unelte. Ai nevoie de o surubelnita buna, nu de unelte de constructii complete pentru o singura surubela. Asta e si cu dictionarul. Sa fie practic.</p>
+      </section>
+
+      <section id="langenscheidt-pocket-vs-collins-essential-test-comparativ-dictionar-german-roman-pentru-incepatori">
+        <h2>Langenscheidt Pocket vs. Collins Essential: Test comparativ dictionar german roman pentru incepatori</h2>
+        <p>Hai sa comparam doi dintre cei mai populari candidati pentru un <strong>dictionar german roman pentru incepatori</strong>: Langenscheidt Pocket si Collins Essential.</p><p><strong>Langenscheidt Pocket</strong> e regele portabilitatii. E mic, il tii in palma, in buzunar, in geanta de cosmetice. Perfect daca esti mereu pe drumuri sau daca vrei sa-l consulti rapid pe strada. El se axeaza pe cuvintele cele mai frecvente, cele pe care le vei folosi in 80% din conversatiile de zi cu zi. Nu te astepta la cuvinte tehnice sau argou. E ca un ghid de supravietuire lingvistica. Pretul e de obicei cel mai mic, in jur de 40-50 lei.</p><p>Pe de alta parte, <strong>Collins Essential</strong> e putin mai generos. E tot compact, dar poate un pic mai gros. In schimb, are un vocabular mai extins decat Langenscheidt Pocket, incluzand si termeni mai specifici, dar totusi uzuali. Definitiile sunt, cumva, mai detaliate, si ai mai multe exemple de fraze. Asta te ajuta sa intelegi nu doar ce inseamna un cuvant, ci si cum se construieste o propozitie cu el. Pretul e un pic mai sus, cam 50-70 lei.</p><p>Daca ar fi sa aleg pe cineva sa ma insoteasca intr-un oras german timp de o saptamana, fara sa stiu prea bine limba, as lua Collins Essential. Mi-ar da un pic mai multa siguranta. Dar daca am nevoie doar sa gasesc repede "unde e", "cat costa" sau "va rog", Langenscheidt Pocket e perfect.</p><p>Am avut un prieten care a inceput cu Langenscheidt Pocket si dupa vreo 6 luni, cand simtea ca nu-i mai ajunge, si-a luat un Collins "Larg" (nu "Essential", ci varianta mai mare). Asta arata ca un dictionar de inceput e un prim pas, nu o solutie pe viata. Oricum, ambele sunt mult mai bune decat sa te bazezi doar pe Google Translate pentru notiuni de baza, care poate fi imprevizibil.</p>
+      </section>
+
+      <section id="top-5-greseli-cand-cumperi-un-dictionar-german-roman-pentru-incepatori-si-cum-sa-le-eviti">
+        <h2>Top 5 greseli cand cumperi un dictionar german roman pentru incepatori si cum sa le eviti</h2>
+        <p>Ok, uite ce am vazut ca fac oamenii si ce ar fi bine sa nu faci si tu cand cauti un <strong>dictionar german roman pentru incepatori</strong>.</p><ul><li><strong>Alegerea unui dictionar prea complex:</strong> Stai, nu te repezi la cel cu 2000 de pagini. E tentant, pare "mai bun", dar te va ametesti. Concentreaza-te pe ce ai nevoie acum. Nu ai nevoie de dictionarul unui filolog, ci de unul pentru supravietuire zilnica.</li><li><strong>Ignorarea anului publicarii:</strong> Limbile evolueaza. Cuvinte noi apar, altele vechi dispar sau isi schimba sensul. Un dictionar vechi de 10-15 ani s-ar putea sa nu includa termeni moderni. Verifica anul, cauta editii recente.</li><li><strong>Neacordarea atentiei la exemple:</strong> Un cuvant fara context e ca o masina fara roti. Daca dictionarul nu-ti da exemple de fraze, s-ar putea sa nu stii cum sa-l folosesti corect. Asta e o greseala mare.</li><li><strong>Cumpararea celui mai ieftin produs, fara sa verifici:</strong> "Asta e cel mai ieftin, iau asta". Nu mereu cea mai buna idee. Am vazut dictionare ieftine, de la edituri necunoscute, care aveau greseli gramaticale sau traduceri aiurea. Mai bine un pic mai mult, dar de la o sursa de incredere.</li><li><strong>Neconsultarea recenziilor (daca e online):</strong> Daca cumperi online, cauta pareri. Oamenii spun adesea daca dictionarul e util, daca are greseli sau daca e greu de folosit. Nu te baza doar pe descrierea produsului.</li></ul><p>Eu am prins pe cineva, un vecin, care si-a luat un dictionar "universal", cum zicea el, pe care il folosea si pentru engleza, si pentru franceza, si pentru germana. A fost un dezastru. Fiecare limba merita atentia ei. Un <strong>dictionar german roman pentru incepatori</strong> dedicat e mult mai eficient.</p><p>Si inca un sfat de "insider": daca ai ocazia, rasfoieste dictionarul in magazin. Vezi cum se simte in mana, cat de clare sunt literele, daca gasesti usor ce cauti. Asta te scapa de multe batai de cap.</p>
+      </section>
+
+      <section id="recomandari-dictionar-german-roman-pentru-incepatori-pe-categorii-de-buget">
+        <h2>Recomandari dictionar german roman pentru incepatori pe categorii de buget</h2>
+        <p>Uite cum iti recomand un <strong>dictionar german roman pentru incepatori</strong> in functie de cati bani vrei sa dai. Nu uita, preturile sunt estimative si pot varia.</p><h3>Buget Mic (sub 50 lei)</h3><p>Aici intra in joc dictionarele de buzunar, cele mai compacte. Recomand cu tarie <strong>Langenscheidt Pocket German Dictionary</strong>. E ieftin, usor de gasit si acopera necesarul de baza pentru inceput. Nu te astepta la complexitate, dar pentru "salut", "multumesc", "unde e toaleta?" si "cat costa?" e perfect. E genul de dictionar pe care il tii in buzunarul gecii si-l scoti cand ai nevoie.</p><h3>Buget Mediu (50 - 100 lei)</h3><p>In aceasta categorie gasesti optiuni mai echilibrate, cum ar fi <strong>Collins German Dictionary - Essential Edition</strong> sau dictionare romanesti de la edituri serioase (Polirom, Nemira). Acestea ofera un vocabular mai bogat, definitii mai clare si mai multe exemple de fraze. Sunt ideale daca vrei sa evoluezi un pic mai repede si sa nu ramai blocat doar la cuvintele de baza. Collins Essential e o alegere foarte buna aici, un fel de "best value for money".</p><h3>Buget Generos (peste 100 lei)</h3><p>Daca vrei sa investesti un pic mai mult, poti merge pe un dictionar german-roman mai cuprinzator, poate nu "pocket", ci unul "de birou" de la aceleasi edituri de traditie (Langenscheidt, Collins, Oxford). Acestea pot avea si sectiuni dedicate gramaticii, conjugari de verbe, sau un vocabular mult mai larg, inclusiv termeni mai tehnici sau specifici. Totusi, pentru un incepator absolut, s-ar putea sa fie overkill.</p>
+        <p>Eu zic ca pentru inceput, bugetul mediu e cel mai indicat. Peste 100 lei, poate te gandesti deja la un curs online sau la o aplicatie mai avansata, nu doar la un dictionar fizic.</p><p>Am avut un coleg care si-a luat un dictionar "premium" de peste 150 lei, crezand ca "mai scump e mai bun". A ajuns sa-l foloseasca la fel de rar ca pe unul de 50 lei, pentru ca ii era lene sa-l care. Deci, gandeste-te la cum vei folosi dictionarul zi de zi. Practic e cuvantul cheie.</p>
+      </section>
+
+      <section class="faq-section" id="faq">
+        <h2 class="faq-title">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+          </svg>
+          Intrebari Frecvente
+        </h2>
+        
+            <div class="faq-item" id="faq-0">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                Cat costa un <strong>dictionar german roman pentru incepatori</strong>?
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                Un <strong>dictionar german roman pentru incepatori</strong> de tip pocket sau esential, fizic, costa in jur de 40-70 lei. Dictionarele mai cuprinzatoare, de birou, pot ajunge la 100-150 lei, dar pentru inceput nu sunt neaparat necesare.
+              </div>
+            </div>
+
+            <div class="faq-item" id="faq-1">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                Care e diferenta intre un dictionar de buzunar si unul de birou?
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                Un dictionar de buzunar e mic, compact, cu vocabular esential pentru uz zilnic rapid. Un dictionar de birou e mai mare, cu mai multe cuvinte, definitii mai detaliate si exemple, fiind mai potrivit pentru studiu aprofundat.
+              </div>
+            </div>
+
+            <div class="faq-item" id="faq-2">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                Merita sa cumpar un dictionar fizic sau sa folosesc o aplicatie?
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                Pentru incepatori, un dictionar fizic e adesea mai eficient pentru concentrare si invatare rapida. Aplicatiile sunt bune, dar pot fi pline de reclame sau pot distrage atentia. Un dictionar fizic de la o editura cunoscuta e o investitie sigura.
+              </div>
+            </div>
+
+            <div class="faq-item" id="faq-3">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                Ce criterii sa urmaresc la un <strong>dictionar german roman pentru incepatori</strong>?
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                Uita-te la marime (portabilitate), claritatea definitiilor si a exemplelor, vocabularul (sa fie esential), anul publicarii (sa fie recent) si pretul (sa fie accesibil).
+              </div>
+            </div>
+
+            <div class="faq-item" id="faq-4">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                Ce se intampla daca iau un dictionar prea vechi?
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                Un dictionar vechi s-ar putea sa nu contina termeni noi aparuti in limba germana moderna sau sa foloseasca expresii care nu mai sunt la moda. E bine sa alegi o editie cat mai recenta, publicata in ultimii 5-10 ani.
+              </div>
+            </div>
+
+            <div class="faq-item" id="faq-5">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                Cum pot folosi cel mai bine un dictionar pentru invatare?
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                Nu doar cauta cuvinte. Noteaza-le, incearca sa le folosesti in propozitii proprii, cauta exemple de utilizare in dictionar si repeta-le. Fa din dictionar un partener activ, nu doar o biblioteca.
+              </div>
+            </div>
+
+            <div class="faq-item" id="faq-6">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                Unde gasesc un <strong>dictionar german roman pentru incepatori</strong> bun?
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                Cele mai bune locuri sunt librariile mari (Carturesti, Humanitas, Diverta), magazinele online de carte (elefant.ro, libris.ro) sau direct pe site-urile editurilor cunoscute.
+              </div>
+            </div>
+
+            <div class="faq-item" id="faq-7">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                Exista dictionare german-roman gratuite online care sunt de incredere?
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                Exista multe site-uri gratuite, dar calitatea traducerilor poate varia mult. Cele de la edituri mari (ex. Pons, Langenscheidt) au de obicei si versiuni online sau aplicatii, care sunt mai de incredere, dar pot avea limitari sau necesita abonament pentru functii complete.
+              </div>
+            </div>
+      </section>
+    </div>
+
+    <div class="author-box">
+      <div class="author-avatar">{author.charAt(0)}</div>
+      <div class="author-info">
+        <h4>{author}</h4>
+        <p class="author-role">{authorRole}</p>
+        <p class="author-bio">{authorBio}</p>
+      </div>
+    </div>
+
+    <SimilarArticles
+      articles={allArticles}
+      currentSlug={slug}
+      currentCategory={category}
+    />
+  </article>
+
+  <Footer />
+  <CookieBanner />
+</Layout>

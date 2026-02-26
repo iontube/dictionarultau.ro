@@ -1,0 +1,264 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import SimilarArticles from '../components/SimilarArticles.astro';
+import CookieBanner from '../components/CookieBanner.astro';
+import keywordsData from '../../keywords.json';
+
+const title = "Jocuri de cuvinte gratuite online";
+const excerpt = "Sunt un fan declarat al jocurilor de cuvinte, mai ales cand vine vorba de invatat limbi straine. Si daca mai sunt si gratuite, atunci e o combinatie castigatoare! M-am gandit sa impartasesc cu tine cateva descoperiri si sfaturi.";
+const image = "/images/articles/jocuri-de-cuvinte-gratuite-online.webp";
+const category = "Jocuri de Cuvinte";
+const categorySlug = "jocuri-de-cuvinte";
+const date = "2026-01-22T16:16:08.615Z";
+const modifiedDate = "2026-01-31T16:16:08.384Z";
+const author = "Elena Dumitrescu";
+const authorRole = "Specialist in Jocuri Educative";
+const authorBio = "Elena crede ca invatarea trebuie sa fie distractiva. Te ajuta sa descoperi cele mai captivante jocuri care iti dezvolta vocabularul.";
+const slug = "jocuri-de-cuvinte-gratuite-online";
+
+const faq = [
+  { question: "Sunt jocurile de cuvinte cu adevarat eficiente pentru invatarea unei limbi straine?", answer: "Da, pot fi foarte eficiente mai ales pentru extinderea vocabularului, memorarea cuvintelor noi si imbunatatirea vitezei de gandire in limba respectiva. Nu inlocuiesc insa studiul gramaticii sau practica vorbirii." },
+  { question: "Ce fac daca un joc de cuvinte este plin de reclame?", answer: "Poti incerca sa blochezi reclamele cu un ad-blocker (daca joci pe browser) sau sa cauti versiuni fara reclame. Uneori, aplicatiile mobile au optiuni de a elimina reclamele contra unei mici taxe." },
+  { question: "Pot folosi jocurile de cuvinte pentru a invata limbi mai putin comune?", answer: "Este mai dificil. Pentru limbi mai putin raspandite, optiunile gratuite sunt limitate. In aceste cazuri, aplicatii ca Anki, unde poti crea propriile seturi de cuvinte, sunt mai utile." },
+  { question: "Exista jocuri de cuvinte online pentru mai multi jucatori?", answer: "Da, exista platforme care permit jocuri multiplayer, cum ar fi Scrabble online. Acestea sunt excelente pentru a exersa limbile intr-un mod competitiv si distractiv alaturi de prieteni." },
+  { question: "Cat timp ar trebui sa joc zilnic pentru a vedea rezultate?", answer: "Chiar si 10-15 minute pe zi pot face o diferenta semnificativa pe termen lung. Cheia este constanta. Sesiunile scurte si regulate sunt mai eficiente decat cele lungi si rare." },
+  { question: "Ce fac daca gasesc un cuvant pe care nu il inteleg in joc?", answer: "Este o oportunitate excelenta de invatare! Foloseste un dictionar online (cum ar fi Cambridge Dictionary, WordReference) pentru a cauta sensul cuvantului si exemple de utilizare. Noteaza-l pentru a-l memora." }
+];
+
+const toc = [
+  { title: "De ce merita atentia ta - problema reala pe care o rezolva, pentru cine e util", id: "de-ce-merita-atentia-ta---problema-reala-pe-care-o-rezolva-pentru-cine-e-util" },
+  { title: "Variante pe care le poti alege - 4-5 optiuni concrete cu preturi in RON daca e cazul, pro/contra pentru fiecare", id: "variante-pe-care-le-poti-alege---4-5-optiuni-concrete-cu-preturi-in-ron-daca-e-cazul-procontra-pentru-fiecare" },
+  { title: "La ce sa te uiti cand alegi - criterii practice de selectie, specificatii importante", id: "la-ce-sa-te-uiti-cand-alegi---criterii-practice-de-selectie-specificatii-importante" },
+  { title: "Ce functioneaza si ce nu - analiza sincera si echilibrata, nu doar laude", id: "ce-functioneaza-si-ce-nu---analiza-sincera-si-echilibrata-nu-doar-laude" },
+  { title: "Trucuri utile - sfaturi practice, greseli comune de evitat", id: "trucuri-utile---sfaturi-practice-greseli-comune-de-evitat" },
+  { title: "Ce as alege eu - recomandare directa si de ce, pentru ce tip de persoana", id: "ce-as-alege-eu---recomandare-directa-si-de-ce-pentru-ce-tip-de-persoana" }
+];
+
+// Get all articles for similar articles component
+const allArticles = (keywordsData.completed || []).map(item => ({
+  title: item.title,
+  slug: item.slug,
+  excerpt: item.excerpt || '',
+  image: item.image,
+  category: item.category,
+  categorySlug: item.categorySlug,
+  date: item.date || new Date().toISOString()
+}));
+---
+
+<Layout
+  title={title}
+  description={excerpt}
+  image={image}
+  article={true}
+  publishedTime={date}
+  modifiedTime={modifiedDate}
+  author={author}
+  faq={faq}
+>
+  <Header />
+
+  <header class="article-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Acasa</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href={`/${categorySlug}/`}>{category}</a>
+        <span class="breadcrumb-separator">/</span>
+        <span class="breadcrumb-current">{title}</span>
+      </nav>
+
+      <h1>{title}</h1>
+
+      <div class="article-header-meta">
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
+          {new Date(date).toLocaleDateString('ro-RO', { year: 'numeric', month: 'long', day: 'numeric' })}
+        </span>
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          {author}
+        </span>
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+          </svg>
+          {category}
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <article class="article-body">
+    <div class="article-featured-image">
+      <img src={image} alt={title} width="800" height="600" loading="eager" />
+    </div>
+
+    <nav class="toc">
+      <h2 class="toc-title">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="8" y1="6" x2="21" y2="6"></line>
+          <line x1="8" y1="12" x2="21" y2="12"></line>
+          <line x1="8" y1="18" x2="21" y2="18"></line>
+          <line x1="3" y1="6" x2="3.01" y2="6"></line>
+          <line x1="3" y1="12" x2="3.01" y2="12"></line>
+          <line x1="3" y1="18" x2="3.01" y2="18"></line>
+        </svg>
+        Cuprins
+      </h2>
+      <ol class="toc-list">
+        {toc.map(item => (
+          <li class="toc-item"><a href={`#${item.id}`}>{item.title}</a></li>
+        ))}
+        <li class="toc-item"><a href="#faq">Intrebari Frecvente</a></li>
+      </ol>
+    </nav>
+
+    <div class="article-content-body">
+      
+      <section id="de-ce-merita-atentia-ta---problema-reala-pe-care-o-rezolva-pentru-cine-e-util">
+        <h2>De ce merita atentia ta - problema reala pe care o rezolva, pentru cine e util</h2>
+        <p>Stii cum e cand vrei sa inveti o limba noua, dar te simti un pic blocat? Sau poate ai deja o baza, dar vrei sa iti extinzi vocabularul si sa iti imbunatatesti gramatica intr-un mod mai distractiv? Asta e exact problema pe care jocurile de cuvinte o rezolva. Nu mai trebuie sa stai cu burta pe carte ore in sir, plictisit de liste interminabile de cuvinte.</p><p>Gândește-te la ele ca la niste antrenamente cerebrale. Le poti face oricand, oriunde. In pauza de cafea, in autobuz, seara pe canapea. Sunt perfecte pentru oricine vrea sa isi mentina mintea agera, indiferent de varsta. Mai ales daca esti student si trebuie sa inveti pentru examene, sau daca esti deja la munca si vrei sa te dezvolti profesional, o limba straina te poate ajuta enorm.</p><p>Pentru mine, jocurile de cuvinte au fost un salvator cand am inceput sa invat spaniola. Aveam impresia ca doar invat cuvinte, dar nu le folosesc in context. Jocurile m-au obligat sa fac conexiuni, sa caut sinonime, sa inteleg nuante. Si cel mai important, au transformat procesul de invatare intr-o activitate placuta. Nu mai simteam ca e o corvoada.</p><p>Sunt utile si pentru copiii care sunt la inceput de drum cu o limba straina. Le dezvolta vocabularul, ii invata sa recunoasca cuvinte si sa le foloseasca. E o metoda mult mai interactiva decat un manual clasic. Si pentru ca sunt gratuite, accesul e deschis tuturor. Nu trebuie sa investesti o avere in cursuri sau aplicatii scumpe pentru a incepe.</p><p>Ideea e ca invatarea nu trebuie sa fie anosta. Poate fi plina de satisfactii si chiar amuzanta. Jocurile de cuvinte sunt o dovada vie a acestui lucru. Ele transforma o sarcina potential obositoare intr-o provocare interesanta. Si rezultatele se vad, crezi-ma. Ai un vocabular mai bogat, o intelegere mai buna a limbii si, nu in ultimul rand, un sentiment de implinire.</p><p>Pe scurt, daca vrei sa iti extinzi orizonturile lingvistice, sa iti antrenezi creierul si sa te distrezi in acelasi timp, jocurile de cuvinte gratuite online sunt exact ce ai nevoie. Ele raspund nevoii de a invata eficient, fara stres si fara costuri ascunse. Sunt o resursa valoroasa in arsenalul oricarui invatacel de limbi straine.</p>
+      </section>
+
+      <section id="variante-pe-care-le-poti-alege---4-5-optiuni-concrete-cu-preturi-in-ron-daca-e-cazul-procontra-pentru-fiecare">
+        <h2>Variante pe care le poti alege - 4-5 optiuni concrete cu preturi in RON daca e cazul, pro/contra pentru fiecare</h2>
+        <p>Piata e plina de optiuni, dar eu ma concentrez pe cele gratuite, ca sa fie accesibile tuturor. Prima optiune, si probabil cea mai cunoscuta, sunt <strong>site-urile cu jocuri de cuvinte tip 'word search' sau 'crossword'</strong>. Gasesti o gramada pe internet.</p>
+        <p>Multe sunt dedicate specific invatarii limbii engleze, dar exista si variante pentru alte limbi, cum ar fi spaniola sau franceza. Avantajul lor e ca te ajuta sa recunosti cuvinte si sa le memorezi in context. Dezavantajul? Unele pot fi cam repetitive si nu te ajuta neaparat cu gramatica.</p><p>Apoi, avem <strong>aplicatiile mobile dedicate invatarii vocabularului</strong>. Aici ma refer la cele care folosesc tehnica spaced repetition, cum ar fi Anki sau Quizlet. Acestea iti permit sa creezi propriile seturi de carti cu cuvinte sau sa folosesti seturi create de alti utilizatori.</p>
+        <p>Pretul? Anki e gratuit pe desktop si Android, dar pe iOS costa in jur de 25 RON. Quizlet are o varianta gratuita foarte buna si una premium la vreo 20 RON/luna. Pro: sunt extrem de eficiente pentru memorare.</p>
+        <p>Contra: pot fi un pic prea 'serioase' pentru unii, nu sunt chiar jocuri in sensul clasic.</p><p>O alta categorie sunt <strong>platformele online care integreaza jocuri in procesul de invatare</strong>. Duolingo este cel mai bun exemplu. E gratuit in proportie de 90%. Are o gramada de nivele, exercitii variate: de la traduceri la completarea spatiilor goale. Pro: e foarte antrenant, te tine motivat cu puncte si clasamente. Contra: uneori explicatiile gramaticale sunt sumare, iar traducerea nu e mereu cea mai naturala.</p><p>Nu in ultimul rand, <strong>site-urile cu jocuri de logica si cuvinte</strong>, cum ar fi cele cu 'Scrabble' online sau jocuri de tip 'word connect'. Acestea pot fi jucate in diverse limbi. De exemplu, multe site-uri de 'Scrabble' iti permit sa alegi limba. Pretul? Majoritatea sunt gratuite. Avantaj: iti dezvolta agilitatea mentala si te ajuta sa gandesti rapid in limba respectiva. Dezavantaj: nu sunt facute specific pentru invatarea limbii, deci nu vei avea explicatii sau structura didactica.</p><p>Am mai gasit si site-uri mai mici, dedicate anumitor jocuri. De exemplu, pentru engleza, exista site-uri care ofera zilnic noi 'word puzzles' sau 'crosswords' cu diferite niveluri de dificultate. Costul este zero. Sunt excelente pentru a-ti mentine nivelul si pentru a invata cuvinte noi, specifice unor anumite teme. Sunt o completare buna la celelalte resurse.</p><p>Cand ma gandesc la preturi, cele mai multe optiuni bune sunt 100% gratuite. Aplicatiile gen Anki sau Quizlet sunt cele care pot avea un cost, dar chiar si acolo, variantele gratuite sunt foarte solide. Duolingo este, de asemenea, o resursa fantastică, fără costuri semnificative dacă nu vrei abonamentul premium.</p>
+      </section>
+
+      <section id="la-ce-sa-te-uiti-cand-alegi---criterii-practice-de-selectie-specificatii-importante">
+        <h2>La ce sa te uiti cand alegi - criterii practice de selectie, specificatii importante</h2>
+        <p>Cand vine vorba de a alege un joc de cuvinte, mai ales unul gratuit, trebuie sa te uiti la cateva lucruri esentiale. Primul si cel mai important este <strong>limba pe care vrei sa o inveti</strong>. Nu toate jocurile sunt disponibile in toate limbile. Daca vrei sa inveti japoneza, sansele sa gasesti un 'word search' distractiv si gratuit sunt mai mici decat pentru engleza sau spaniola.</p><p>Apoi, gandeste-te la <strong>tipul de joc</strong> care ti se potriveste. Preferi ceva mai structurat, cum ar fi un 'crossword' unde trebuie sa gasesti definitii, sau ceva mai liber, cum ar fi un joc de tip 'word connect' unde pur si simplu formezi cuvinte din litere? Daca vrei sa inveti vocabular nou, jocurile de tip 'flashcards' sau cele care te obliga sa formezi cuvinte sunt mai potrivite. Daca vrei sa iti imbunatatesti viteza de gandire, poate un joc de tip 'Scrabble' e mai bun.</p><p>Un alt criteriu important este <strong>nivelul de dificultate</strong>. Multe jocuri ofera nivele diferite, de la incepator la avansat. E important sa alegi ceva care te provoaca, dar nu te frustreaza. Daca e prea usor, nu vei invata nimic nou. Daca e prea greu, vei renunta repede. Verifica daca jocul permite ajustarea nivelului sau daca are nivele distincte.</p><p><strong>Interfata si usurinta in utilizare</strong> sunt, de asemenea, cruciale. Un joc cu o interfata complicata, plina de reclame enervante sau greu de navigat, nu te va motiva sa revii. Cauta ceva curat, intuitiv si placut vizual. Daca joci pe mobil, verifica daca aplicatia functioneaza bine pe telefonul tau.</p><p>Nu uita de <strong>elementul de feedback si progres</strong>. Un joc bun iti ofera feedback despre greselile tale si iti arata progresul. Poate fi sub forma de puncte, nivele, stele sau chiar statistici. Acest lucru te ajuta sa vezi cat de mult ai evoluat si unde mai ai de lucrat. Daca jocul nu iti spune nimic despre performanta ta, e mai greu sa iti dai seama daca inveti ceva.</p><p>In final, verifica <strong>daca jocul este cu adevarat gratuit</strong>. Unele site-uri promit jocuri gratuite, dar apoi te lovesti de blocaje sau reclame excesive care te imping spre o versiune platita. Citeste parerile altor utilizatori sau incearca jocul pentru cateva minute ca sa iti dai seama cum functioneaza.</p>
+      </section>
+
+      <section id="ce-functioneaza-si-ce-nu---analiza-sincera-si-echilibrata-nu-doar-laude">
+        <h2>Ce functioneaza si ce nu - analiza sincera si echilibrata, nu doar laude</h2>
+        <p>Sincer, nu toate jocurile de cuvinte sunt create egal. Cele care <strong>functioneaza cel mai bine</strong> sunt cele care imbina distractia cu o structura educativa. Aplicatiile gen Anki sau Quizlet, desi nu sunt strict jocuri, functioneaza fantastic pentru memorarea vocabularului prin repetitie inteligent distribuita. Ele te forteaza sa iti reamintesti cuvintele in momente cheie, ceea ce consolideaza memoria pe termen lung.</p><p>Platforme ca Duolingo au succes pentru ca integreaza o gramada de elemente de gamification: puncte, nivele, serii. Asta te tine conectat. Exercitiile lor, desi uneori un pic artificiale, te obisnuiesc cu structuri de fraze si cuvinte in context. Sunt bune pentru a incepe si pentru a te mentine in forma lingvistica.</p><p>Jocurile de tip 'word search' si 'crossword' dedicate invatarii sunt bune pentru a recunoaste cuvinte si pentru a-ti extinde vocabularul pasiv. Daca ai deja o baza, te ajuta sa consolidezi. Sunt relaxante si poti face o sesiune scurta, fara presiune.</p><p>Ce <strong>nu functioneaza</strong> la fel de bine, sau cel putin nu pentru toata lumea, sunt jocurile prea simple sau repetitive. Daca un joc de cuvinte nu te provoaca deloc, sau daca e doar o lista de cuvinte de gasit fara nicio variatie, nu vei invata prea mult. De asemenea, jocurile care nu ofera nicio forma de feedback sau explicatie sunt limitate. Nu stii de ce ai gresit sau cum sa te imbunatatesti.</p><p>Am intalnit si jocuri care promit minuni, dar in realitate sunt pline de greseli de traducere sau au o logica interna ciudata. Acestea pot crea confuzie mai degraba decat sa ajute. E important sa fii critic si sa nu accepti tot ce ti se ofera ca fiind perfect.</p><p>Un alt aspect care uneori nu functioneaza este lipsa de varietate. Daca joci doar un singur tip de joc, te vei plictisi. E bine sa combini diferite resurse. De exemplu, foloseste Anki pentru cuvinte noi, Duolingo pentru structuri de fraze, si un joc de cuvinte mai distractiv pentru relaxare.</p>
+      </section>
+
+      <section id="trucuri-utile---sfaturi-practice-greseli-comune-de-evitat">
+        <h2>Trucuri utile - sfaturi practice, greseli comune de evitat</h2>
+        <p>Ca sa extragi maximum din jocurile de cuvinte gratuite, ai cateva trucuri simple. In primul rand, <strong>nu te lasa pacalit de aspectul 'doar distractie'</strong>. Chiar si in cele mai simple jocuri, incearca sa intelegi de ce un anumit cuvant se potriveste sau de ce o anumita structura e corecta. Fii curios!</p><p>Un alt truc e sa <strong>ti continui sesiunile de joc</strong>. Nu e nevoie sa fie sesiuni lungi, 10-15 minute pe zi fac minuni. Constant a invins sporadicitatea. E ca la sport, mai bine putin si des, decat mult si rar.</p><p>Foloseste jocurile ca pe un <strong>complement, nu ca pe unica resursa</strong>. Daca inveti o limba noua, ai nevoie si de gramatica, si de vorbire, si de ascultare. Jocurile de cuvinte sunt excelente pentru vocabular si pentru agilitate mentala, dar nu inlocuiesc totul.</p><p><strong>Noteaza cuvintele noi</strong> pe care le gasesti si care ti se par utile. Poti folosi un caiet clasic sau o aplicatie de notite. Apoi, incearca sa le folosesti in propriile fraze. Asta te ajuta sa le integrezi mai bine.</p><p><strong>Greseli comune de evitat:</strong></p><ul><li><strong>Sa te multumesti cu primul joc pe care il gasesti.</strong> Petrece putin timp cautand si comparand. S-ar putea sa gasesti ceva mult mai bun.</li><li><strong>Sa ignori reclamele.</strong> Unele reclame pot fi chiar utile, continand cuvinte sau expresii noi.</li><li><strong>Sa joci doar jocurile care iti plac cel mai mult.</strong> Uneori, cele mai dificile sau cele care iti par plictisitoare sunt cele care te ajuta cel mai mult sa progresezi.</li><li><strong>Sa te astepti la rezultate peste noapte.</strong> Invatarea unei limbi e un maraton, nu un sprint. Fiecare joc, fiecare cuvant nou conteaza.</li><li><strong>Sa nu verifici daca jocul este actualizat.</strong> Unele jocuri vechi pot avea probleme de compatibilitate sau pot fi pline de bug-uri.</li></ul><p>Un alt sfat: <strong>implica-ti prietenii</strong>. Daca gasiti un joc multiplayer sau puteti concura unul cu celalalt, motivatia creste. E mai distractiv sa inveti impreuna.</p><p>Nu uita sa <strong>fii flexibil</strong>. Daca un joc nu mai functioneaza pentru tine, nu ezita sa il schimbi. Exista o multime de optiuni, si ceea ce functioneaza azi s-ar putea sa nu mai functioneze maine.</p>
+      </section>
+
+      <section id="ce-as-alege-eu---recomandare-directa-si-de-ce-pentru-ce-tip-de-persoana">
+        <h2>Ce as alege eu - recomandare directa si de ce, pentru ce tip de persoana</h2>
+        <p>Daca ar fi sa aleg o singura resursa, fara sa ma gandesc la pret, as merge pe o combinatie. Pentru memorare pura si eficienta, <strong>Anki</strong> este regele. Este gratuit pe majoritatea platformelor si, odata ce te obisnuiesti cu el, devine un instrument de nepretuit. Il folosesc pentru a memora cuvinte noi, expresii idiomatice, chiar si conjugari de verbe.</p><p>Pentru o abordare mai ludica si pentru a exersa structuri de fraze, <strong>Duolingo</strong> ramane o optiune excelenta. E gratuit, distractiv si te tin constant in miscare. E perfect pentru zilele in care nu vrei sa te gandesti prea mult, doar sa treci prin exercitii.</p><p>Daca vrei ceva pur si simplu pentru distractie si pentru a-ti mentine mintea agera, as recomanda site-urile care ofera zilnic <strong>'word puzzles' sau 'crosswords'</strong> in limba dorita. Sunt multe site-uri in engleza, dar gasesti si pentru alte limbi. De exemplu, pentru engleza, site-uri ca NYT Games (desi unele parti sunt platite, au si elemente gratuite) sau diverse site-uri de 'word of the day' cu exercitii.</p><p>Pentru ce tip de persoana? Cred ca aceasta combinatie functioneaza pentru <strong>majoritatea invatacelilor</strong>. Daca esti un incepator absolut, Duolingo te va ajuta sa pui bazele. Daca esti la nivel intermediar si vrei sa iti extinzi vocabularul, Anki este esential. Daca esti la nivel avansat si vrei doar sa iti mentii fluiditatea si sa inveti cuvinte noi, jocurile de tip puzzle sunt perfecte.</p><p>Pentru cineva care nu are timp de sesiuni lungi, combinatia Duolingo (15 min) + Anki (10 min) este ideala. Pentru cineva care se plictiseste repede, jocurile de tip puzzle pot fi mai atractive. Pentru cei care sunt foarte organizati, Anki le va oferi structura de care au nevoie.</p><p>Eu personal folosesc Anki zilnic, Duolingo de 2-3 ori pe saptamana, si ma joc cate un 'crossword' sau 'word search' cand am chef. Aceasta varietate ma tine motivat si ma asigura ca acopar diverse aspecte ale invatarii unei limbi.</p>
+      </section>
+
+      <section class="faq-section" id="faq">
+        <h2 class="faq-title">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+          </svg>
+          Intrebari Frecvente
+        </h2>
+        
+            <div class="faq-item" id="faq-0">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                Sunt jocurile de cuvinte cu adevarat eficiente pentru invatarea unei limbi straine?
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                Da, pot fi foarte eficiente mai ales pentru extinderea vocabularului, memorarea cuvintelor noi si imbunatatirea vitezei de gandire in limba respectiva. Nu inlocuiesc insa studiul gramaticii sau practica vorbirii.
+              </div>
+            </div>
+
+            <div class="faq-item" id="faq-1">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                Ce fac daca un joc de cuvinte este plin de reclame?
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                Poti incerca sa blochezi reclamele cu un ad-blocker (daca joci pe browser) sau sa cauti versiuni fara reclame. Uneori, aplicatiile mobile au optiuni de a elimina reclamele contra unei mici taxe.
+              </div>
+            </div>
+
+            <div class="faq-item" id="faq-2">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                Pot folosi jocurile de cuvinte pentru a invata limbi mai putin comune?
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                Este mai dificil. Pentru limbi mai putin raspandite, optiunile gratuite sunt limitate. In aceste cazuri, aplicatii ca Anki, unde poti crea propriile seturi de cuvinte, sunt mai utile.
+              </div>
+            </div>
+
+            <div class="faq-item" id="faq-3">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                Exista jocuri de cuvinte online pentru mai multi jucatori?
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                Da, exista platforme care permit jocuri multiplayer, cum ar fi Scrabble online. Acestea sunt excelente pentru a exersa limbile intr-un mod competitiv si distractiv alaturi de prieteni.
+              </div>
+            </div>
+
+            <div class="faq-item" id="faq-4">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                Cat timp ar trebui sa joc zilnic pentru a vedea rezultate?
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                Chiar si 10-15 minute pe zi pot face o diferenta semnificativa pe termen lung. Cheia este constanta. Sesiunile scurte si regulate sunt mai eficiente decat cele lungi si rare.
+              </div>
+            </div>
+
+            <div class="faq-item" id="faq-5">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                Ce fac daca gasesc un cuvant pe care nu il inteleg in joc?
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                Este o oportunitate excelenta de invatare! Foloseste un dictionar online (cum ar fi Cambridge Dictionary, WordReference) pentru a cauta sensul cuvantului si exemple de utilizare. Noteaza-l pentru a-l memora.
+              </div>
+            </div>
+      </section>
+    </div>
+
+    <div class="author-box">
+      <div class="author-avatar">{author.charAt(0)}</div>
+      <div class="author-info">
+        <h4>{author}</h4>
+        <p class="author-role">{authorRole}</p>
+        <p class="author-bio">{authorBio}</p>
+      </div>
+    </div>
+
+    <SimilarArticles
+      articles={allArticles}
+      currentSlug={slug}
+      currentCategory={category}
+    />
+  </article>
+
+  <Footer />
+  <CookieBanner />
+</Layout>

@@ -1,0 +1,66 @@
+---
+const categories = [
+  { name: 'Carti si Dictionare', slug: 'carti-si-dictionare' },
+  { name: 'Invatare Limbi Straine', slug: 'invatare-limbi-straine' },
+  { name: 'Electronice Educative', slug: 'electronice-educative' },
+  { name: 'Jocuri de Cuvinte', slug: 'jocuri-de-cuvinte' }
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="/" class="logo">
+        <span class="logo-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        DictionarulTau
+      </a>
+
+      <nav class="nav-desktop">
+        <a href="/" class:list={["nav-link", { active: currentPath === '/' }]}>Acasa</a>
+        {categories.map(cat => (
+          <a
+            href={`/${cat.slug}/`}
+            class:list={["nav-link", { active: currentPath.includes(cat.slug) }]}
+          >
+            {cat.name}
+          </a>
+        ))}
+      </nav>
+
+      <button class="mobile-menu-btn" aria-label="Meniu" id="mobile-menu-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <nav class="mobile-menu" id="mobile-menu">
+    <a href="/" class:list={{ active: currentPath === '/' }}>Acasa</a>
+    {categories.map(cat => (
+      <a
+        href={`/${cat.slug}/`}
+        class:list={{ active: currentPath.includes(cat.slug) }}
+      >
+        {cat.name}
+      </a>
+    ))}
+  </nav>
+</header>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+
+  btn?.addEventListener('click', () => {
+    menu?.classList.toggle('open');
+  });
+</script>

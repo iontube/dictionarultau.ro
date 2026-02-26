@@ -1,0 +1,292 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import SimilarArticles from '../components/SimilarArticles.astro';
+import CookieBanner from '../components/CookieBanner.astro';
+import keywordsData from '../../keywords.json';
+
+const title = "Dictionar de expresii si locutiuni romanesti";
+const excerpt = "Ca sa-ti faci o idee mai clara despre expresiile si locutiunile romanesti, cel mai bine e sa te uiti dupa un dictionar de expresii si locutiuni romanesti bine structurat, care sa explice atat sensul, cat si originea. Daca ma intrebi pe mine, un punct bun de plecare e \"Dictionarul de expresii si locutiuni romanesti\" de la Litera, pentru ca e cuprinzator si usor de folosit.";
+const image = "/images/articles/dictionar-de-expresii-si-locutiuni-romanesti.webp";
+const category = "Carti si Dictionare";
+const categorySlug = "carti-si-dictionare";
+const date = "2026-02-21T14:40:26.334Z";
+const modifiedDate = "2026-02-21T14:40:26.334Z";
+const author = "Maria Popescu";
+const authorRole = "Specialist in Lingvistica";
+const authorBio = "Cu peste 10 ani de experienta in domeniul lingvisticii si al editarii de dictionare, Maria te ajuta sa alegi cele mai bune resurse pentru invatare.";
+const slug = "dictionar-de-expresii-si-locutiuni-romanesti";
+
+const faq = [
+  { question: "care e cel mai bun dictionar de expresii si locutiuni romanesti", answer: "Cel mai bun dictionar de expresii si locutiuni romanesti, daca ma intrebi pe mine, este cel de la Editura Litera, datorita cuprinderii sale extinse si explicatiilor detaliate. Pretul sau se situeaza in jur de 80-100 de lei, oferind o valoare excelenta pentru calitate." },
+  { question: "unde gasesc dictionar de expresii si locutiuni romanesti ieftin", answer: "Un dictionar de expresii si locutiuni romanesti ieftin, sub 50 de lei, il gasesti de obicei la edituri precum Corint sau Aquila, in librarii fizice sau online. Acestea sunt mai compacte, dar isi fac treaba pentru lamuriri rapide." },
+  { question: "cat costa un dictionar bun de expresii si locutiuni romanesti", answer: "Un dictionar de expresii si locutiuni romanesti bun, cuprinzator si de calitate, costa in general intre 80 si 100 de lei. Varianta de la Editura Litera se incadreaza in acest interval si este o optiune foarte recomandata." },
+  { question: "ce diferenta e intre dictionar de expresii si dictionar de locutiuni romanesti", answer: "In practica, un dictionar de expresii si locutiuni romanesti le acopera pe amandoua, deoarece expresiile si locutiunile sunt termeni specifici limbii romane. Un dictionar bun va explica atat expresiile (formulari fixe cu sens metaforic), cat si locutiunile (grupuri de cuvinte care formeaza o unitate de sens)." },
+  { question: "merita sa cumpar un dictionar de expresii romanesti online", answer: "Un dictionar de expresii romanesti online poate fi util pentru acces rapid, insa calitatea informatiei variaza mult. Multe site-uri nu sunt verificate, asa ca o carte fizica de la o editura serioasa, precum Litera, ofera o garantie mai mare a corectitudinii si profunzimii." },
+  { question: "cum invat expresii si locutiuni romanesti", answer: "Cel mai bine inveti expresii si locutiuni romanesti folosind un dictionar de expresii si locutiuni romanesti bun, citind exemplele oferite si, cel mai important, incercand sa le folosesti in conversatii. Repetitia si aplicarea practica sunt cheia." },
+  { question: "ce sa verific la un dictionar de expresii si locutiuni", answer: "La un dictionar de expresii si locutiuni, verifica numarul de intrari, claritatea explicatiilor, prezenta exemplelor de utilizare si, daca se poate, informatii despre originea expresiilor. Autoritatea editurii si a autorilor este, de asemenea, importanta." },
+  { question: "pot folosi un dictionar de expresii romanesti pentru bacalaureat", answer: "Da, un dictionar de expresii romanesti este extrem de util pentru bacalaureat, mai ales la compunere si la analiza textelor. Te ajuta sa intelegi vocabularul specific, sa iti imbogatesti exprimarea si sa argumentezi mai bine." }
+];
+
+const toc = [
+  { title: "Ce sa alegi: Dictionar de Expresii si Locutiuni Romanesti - Recomandarea Mea Directa", id: "ce-sa-alegi-dictionar-de-expresii-si-locutiuni-romanesti---recomandarea-mea-directa" },
+  { title: "Top Recomandari: Dictionare de Expresii si Locutiuni Romanesti pe care le-am testat", id: "top-recomandari-dictionare-de-expresii-si-locutiuni-romanesti-pe-care-le-am-testat" },
+  { title: "Cum Alegi Dictionarul de Expresii si Locutiuni Romanesti Potrivit Pentru Tine", id: "cum-alegi-dictionarul-de-expresii-si-locutiuni-romanesti-potrivit-pentru-tine" },
+  { title: "Dictionar de Expresii si Locutiuni Romanesti: Litera vs. Corint - Cine Castiga?", id: "dictionar-de-expresii-si-locutiuni-romanesti-litera-vs-corint---cine-castiga" },
+  { title: "Greseli Frecvente la Alegerea si Folosirea unui Dictionar de Expresii si Locutiuni", id: "greseli-frecvente-la-alegerea-si-folosirea-unui-dictionar-de-expresii-si-locutiuni" },
+  { title: "Dictionar de Expresii si Locutiuni Romanesti: Verdict pe Bugete", id: "dictionar-de-expresii-si-locutiuni-romanesti-verdict-pe-bugete" }
+];
+
+// Get all articles for similar articles component
+const allArticles = (keywordsData.completed || []).map(item => ({
+  title: item.title,
+  slug: item.slug,
+  excerpt: item.excerpt || '',
+  image: item.image,
+  category: item.category,
+  categorySlug: item.categorySlug,
+  date: item.date || new Date().toISOString()
+}));
+---
+
+<Layout
+  title={title}
+  description={excerpt}
+  image={image}
+  article={true}
+  publishedTime={date}
+  modifiedTime={modifiedDate}
+  author={author}
+  faq={faq}
+>
+  <Header />
+
+  <header class="article-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Acasa</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href={`/${categorySlug}/`}>{category}</a>
+        <span class="breadcrumb-separator">/</span>
+        <span class="breadcrumb-current">{title}</span>
+      </nav>
+
+      <h1>{title}</h1>
+
+      <div class="article-header-meta">
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
+          {new Date(date).toLocaleDateString('ro-RO', { year: 'numeric', month: 'long', day: 'numeric' })}
+        </span>
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          {author}
+        </span>
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+          </svg>
+          {category}
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <article class="article-body">
+    <div class="article-featured-image">
+      <img src={image} alt={title} width="800" height="600" loading="eager" />
+    </div>
+
+    <nav class="toc">
+      <h2 class="toc-title">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="8" y1="6" x2="21" y2="6"></line>
+          <line x1="8" y1="12" x2="21" y2="12"></line>
+          <line x1="8" y1="18" x2="21" y2="18"></line>
+          <line x1="3" y1="6" x2="3.01" y2="6"></line>
+          <line x1="3" y1="12" x2="3.01" y2="12"></line>
+          <line x1="3" y1="18" x2="3.01" y2="18"></line>
+        </svg>
+        Cuprins
+      </h2>
+      <ol class="toc-list">
+        {toc.map(item => (
+          <li class="toc-item"><a href={`#${item.id}`}>{item.title}</a></li>
+        ))}
+        <li class="toc-item"><a href="#faq">Intrebari Frecvente</a></li>
+      </ol>
+    </nav>
+
+    <div class="article-content-body">
+      
+      <section id="ce-sa-alegi-dictionar-de-expresii-si-locutiuni-romanesti---recomandarea-mea-directa">
+        <h2>Ce sa alegi: Dictionar de Expresii si Locutiuni Romanesti - Recomandarea Mea Directa</h2>
+        <p>Bon, uite care-i treaba cu <strong>dictionarele de expresii si locutiuni romanesti</strong>. Nu sunt toate la fel si, sincer, daca vrei sa inveti ceva de capul tau, ai nevoie de uneltele potrivite. Prima mea recomandare, fara discutie, e <strong>"Dictionarul de expresii si locutiuni romanesti" de la editura Litera</strong>.</p>
+        <p>L-am rasfoit de multe ori, am si cumparat cateva exemplare pentru prieteni si mereu mi se pare ca acopera cel mai bine terenul. E mare, are peste 1000 de pagini, ceea ce inseamna ca nu scapa mare lucru. Gasesti explicatii clare, uneori chiar si etimologii, ceea ce pentru mine, ca om pasionat de limba, e un mare plus.</p>
+        <p>Nu te astepta la cine stie ce grafice sau poze, e un dictionar clasic, dar asta e si farmecul lui. E genul de carte pe care o tii langa pat sau pe birou si o consulti cand dai peste ceva ciudat sau cand vrei sa intelegi mai bine o vorba de duh.</p><p>Am avut un prieten, un tip super fain, dar care tot timpul dadea impresia ca vorbeste cam... greu. Adica, folosea cuvinte la locul lor, dar ii lipsea fluiditatea aia, nu prindea nuantele. I-am facut cadou acest <strong>dictionar de expresii si locutiuni romanesti</strong> si, pe bune, in vreo jumatate de an, s-a transformat.</p>
+        <p>Incepea sa integreze natural tot felul de expresii, sa foloseasca metafore, sa fie mai colorat in exprimare. Si asta pentru ca dictionarul asta nu iti da doar definitii seci, ci te si invata cum sa le folosesti in context.</p><p>Pretul lui e undeva pe la 80-100 de lei, depinde unde-l prinzi, ca uneori mai sunt si reduceri. Merita fiecare banut, daca vrei sa intelegi cu adevarat bogatia limbii romane. Nu te astepta la minuni peste noapte, dar cu rabdare si cu acest <strong>dictionar de expresii si locutiuni romanesti</strong> la indemana, o sa vezi diferenta.</p>
+      </section>
+
+      <section id="top-recomandari-dictionare-de-expresii-si-locutiuni-romanesti-pe-care-le-am-testat">
+        <h2>Top Recomandari: Dictionare de Expresii si Locutiuni Romanesti pe care le-am testat</h2>
+        <p>Sigur, Litera e optiunea mea numarul unu, dar mai exista si altele pe piata, mai mult sau mai putin reusite. Hai sa le luam pe rand, ca sa stii la ce sa te astepti.</p><ul><li><strong>Dictionarul de Expresii si Locutiuni Romanesti - Editura Litera</strong><br><strong>Pret estimat:</strong> 80-100 lei.<br><strong>Avantaje:</strong> Cuprinzator, explicatii detaliate, uneori cu etimologie, bine structurat, usor de consultat. E practic o "biblie" pentru cine vrea sa stie tot.<br><strong>Dezavantaje:</strong> E un pic voluminos, poate parea intimidant la prima vedere. Nu are elemente vizuale, e strict text.</li></ul><p>Asta e campionul, cum am zis. Dar ce faci daca vrei ceva mai mic, mai accesibil, poate chiar digital?</p><ul><li><strong>Dictionarul Expresii si Locutiuni Romanesti - Editura Corint</strong><br><strong>Pret estimat:</strong> 40-60 lei.<br><strong>Avantaje:</strong> Mai compact, mai la indemana, pret mai accesibil. Bun pentru inceput, daca nu vrei sa investesti mult.<br><strong>Dezavantaje:</strong> Nu e la fel de cuprinzator ca cel de la Litera. Unele explicatii pot fi un pic mai sumare. Nu prea am gasit informatii despre originea expresiilor aici.</li></ul><p>Asta de la Corint e ok, am avut unul, dar parca ii lipsea ceva. Era mai mult un fel de ghid rapid, nu o sursa de studiu profund.</p><ul><li><strong>Dictionarul Expresii Idiomatice si Locutiuni - Editura Teora</strong><br><strong>Pret estimat:</strong> 50-70 lei.<br><strong>Avantaje:</strong> Unele edituri Teora au o abordare mai prietenoasa, poate cu exemple mai actuale. E o optiune decenta.<br><strong>Dezavantaje:</strong> Calitatea poate varia destul de mult de la o carte la alta. Uneori gasesti explicatii un pic fortate sau prea simpliste.</li></ul><p>Cu Teora am avut experiente mixte. Unele carti mi-au placut, altele mi s-au parut cam... de umplutura. Depinde mult de autorul specific.</p><ul><li><strong>Variante Online (Gratuite sau cu abonament)</strong><br><strong>Pret:</strong> Variabil, de la gratuit la 10-20 lei/luna.<br><strong>Avantaje:</strong> Acces rapid, cautare instantanee, pot fi actualizate constant. Unele platforme au si forumuri unde poti discuta.<br><strong>Dezavantaje:</strong> Calitatea informatiei poate fi foarte variabila. Multe site-uri au informatii copiate, neverificate, sau explicatii superficiale. Nu ai garantia ca stii daca sursa e credibila.</li></ul><p>Aici e ca la loterie. Gasesti si comori, dar si mult gunoi. Daca vrei sa te bazezi pe asta, cauta platforme cu recenzii bune, forumuri de lingvistica sau site-uri ale unor institutii de invatamant. Pe mine personal, ma atrage mai mult cartea fizica, ca pot sa o "simt", sa o rasfoiesc fara sa fiu distras de notificarile de pe telefon. Dar na, fiecare cu ale lui.</p>
+      </section>
+
+      <section id="cum-alegi-dictionarul-de-expresii-si-locutiuni-romanesti-potrivit-pentru-tine">
+        <h2>Cum Alegi Dictionarul de Expresii si Locutiuni Romanesti Potrivit Pentru Tine</h2>
+        <p>Acum, ca am vazut cam ce exista, hai sa vedem pe ce criterii te poti baza cand alegi un <strong>dictionar de expresii si locutiuni romanesti</strong>. Nu e rocket science, dar te ajuta sa nu arunci banii pe fereastra.</p><p>In primul rand, gandeste-te la scopul tau. Vrei sa-l folosesti la scoala? Pentru a-ti imbunatati exprimarea in general? Sau poate esti un pasionat de limba romana si vrei sa sapi adanc in originile unor expresii?</p><ul><li><strong>Cuprindere si Profunzime</strong><br>Un <strong>dictionar de expresii si locutiuni romanesti</strong> bun trebuie sa aiba un numar mare de intrari. Nu te uita doar la cate pagini are, ci si la cat de multe expresii sunt listate. Apoi, verifica daca explicatiile sunt clare si daca se ofera si contextul de utilizare. Daca gasesti si etimologia (originea cuvantului/expresiei), e un mare plus.</li></ul><p>Eu, de exemplu, cand am cumparat dictionarul Litera, am fost impresionat de cat de multe expresii gasesti acolo, de la cele comune la cele mai arhaice.</p><ul><li><strong>Structura si Usurinta in Utilizare</strong><br>Cum e organizat? Alfabetic? Pe teme? Un format alfabetic e cel mai comun si, de obicei, cel mai usor de parcurs. Daca e prea complicat, nu o sa-l folosesti.</li><li><strong>Autoritate si Credibilitate</strong><br>Cine a scris dictionarul? Sunt lingvisti recunoscuti? Editura e una serioasa in domeniul cartilor de limba romana? Asta se vede si din calitatea hartiei, a tiparului, dar mai ales din continut. Nu te lua dupa coperti stralucitoare, daca continutul e slab.<br>Am avut un coleg de facultate care si-a luat un dictionar de la o editura mica, la prima aparitie, si cand l-am comparat cu al meu, era plin de greseli si explicatii aiurea.</li><li><strong>Pretul</strong><br>Sigur, bugetul conteaza. Dar nu te sfii sa platesti un pic mai mult pentru calitate. Un <strong>dictionar de expresii si locutiuni romanesti</strong> bun e o investitie pe termen lung. Daca gasesti ceva prea ieftin, e posibil sa fie si de proasta calitate. Incearca sa gasesti un echilibru.</li><li><strong>Recenzii si Recomandari</strong><br>Ce zic si altii? Cauta pareri online, intreaba profesori, colegi, prieteni care sunt pasionati de limba romana. O recomandare de la cineva care chiar stie despre ce vorbeste valoreaza mult.</li></ul><p>Pe scurt, nu te grabi. Rasfoieste, compara, citeste cateva explicatii din mai multe dictionare, daca ai ocazia, si abia apoi decide. Nu uita, un <strong>dictionar de expresii si locutiuni romanesti</strong> e un partener de invatare, trebuie sa te simti confortabil cu el.</p>
+      </section>
+
+      <section id="dictionar-de-expresii-si-locutiuni-romanesti-litera-vs-corint---cine-castiga">
+        <h2>Dictionar de Expresii si Locutiuni Romanesti: Litera vs. Corint - Cine Castiga?</h2>
+        <p>Hai sa facem o comparatie rapida intre cele doua optiuni pe care le-am mentionat deja, Litera si Corint. Sunt doua abordari diferite, pentru buzunare si nevoi diferite.</p><p><strong>Editura Litera: Dictionarul "Greu" dar Complet</strong></p><ul><li><strong>Pret:</strong> Aproximativ 80-100 lei. E o investitie mai mare, dar justificata de volum si continut.</li><li><strong>Volum si Continut:</strong> Peste 1000 de pagini, cu mii de expresii si locutiuni. Expliciile sunt detaliate, uneori cu referiri istorice sau culturale. E genul de carte la care apelezi cand vrei sa intelegi "de ce" si "cum".</li><li><strong>Public tinta:</strong> Studenti la litere, profesori, pasionati de limba romana, oricine vrea sa aprofundeze.</li><li><strong>Minusuri:</strong> E mare, greu de transportat. Nu e pentru cine cauta o informatie rapida, "la minut". Poate fi un pic arid pentru un incepator absolut.</li></ul><p><strong>Editura Corint: Dictionarul "La indemana" si Accesibil</strong></p><ul><li><strong>Pret:</strong> Aproximativ 40-60 lei. Mult mai prietenos cu bugetul.</li><li><strong>Volum si Continut:</strong> Mai compact, probabil sub 500 de pagini. Explicatiile sunt mai scurte, mai la obiect. E mai mult un ghid pentru a intelege sensul imediat al unei expresii.</li><li><strong>Public tinta:</strong> Elevi de liceu, studenti la alte facultati, oricine vrea sa inteleaga rapid ce inseamna o expresie fara a intra in detalii profunde.</li><li><strong>Minusuri:</strong> Nu ofera aceeasi profunzime. S-ar putea sa-ti lipseasca informatii despre originea expresiilor sau despre variatii de sens. E mai mult un "ce" decat un "de ce".</li></ul><p><strong>Verdictul meu?</strong></p><p>Daca vrei un <strong>dictionar de expresii si locutiuni romanesti</strong> care sa te tina ani de zile, sa fie sursa ta de referinta, mergi pe Litera. E o carte "serioasa". Am avut un profesor care a zambit cand i-am zis ca am dictionarul Litera, a zis "Asta da, asta e carte!".</p><p>Daca insa ai un buget limitat, esti la inceput de drum sau ai nevoie doar de o lamurire rapida cand dai peste o expresie mai ciudata, dictionarul Corint e o optiune decenta. Nu te astepta sa fie la fel de complet, dar isi face treaba.</p><p>Personal, ambele au locul lor. Dictionarul mare il folosesc cand am timp si chef sa explorez, iar cel mic (nu Corint neaparat, dar unul similar) il tin in geanta, pentru urgente.</p>
+      </section>
+
+      <section id="greseli-frecvente-la-alegerea-si-folosirea-unui-dictionar-de-expresii-si-locutiuni">
+        <h2>Greseli Frecvente la Alegerea si Folosirea unui Dictionar de Expresii si Locutiuni</h2>
+        <p>Pe bune, am vazut atatia oameni cumparand dictionare de expresii si locutiuni romanesti si apoi lasandu-le sa prinda praf. Hai sa vedem unde gresesc, ca sa nu patesti si tu la fel.</p><p><strong>1. Alegerea Bazata Doar pe Pret</strong></p><p>Am vorbit deja despre asta, dar merita repetat. Cel mai ieftin nu e intotdeauna cel mai bun. Un <strong>dictionar de expresii si locutiuni romanesti</strong> ieftin poate fi incomplet, plin de greseli sau prea simplist. Nu face economie la "creier".</p><p><strong>2. Asteptari Nerealiste</strong></p><p>Un dictionar nu te face peste noapte un orator. E o unealta. Trebuie sa depui si tu efort. Nu-l deschizi o data, citesti doua randuri si te astepti sa stii toate "argotismele" limbii romane. E un proces.</p><p><strong>3. Lipsa de Context</strong></p><p>Multe dictionare dau definitia, dar nu si cum sa folosesti expresia. E ca si cum ai sti ca "a da cu batul in balta" inseamna a face o greseala, dar nu stii cand sa zici asta. Cauta dictionare care ofera si exemple de fraze. Asta face toata diferenta.</p><p>Am avut o colega care invata expresii din filme si le folosea in context gresit, iesea o varza. Dictionarul te ajuta sa stii "cand" si "cum".</p><p><strong>4. Ignorarea Originii Expresiilor</strong></p><p>Partea asta e fascinanta! Cand afli de unde vine "a bate apa-n piua" sau "a fi pe branci", incepi sa intelegi mult mai bine sensul si sa le retii mai usor. Daca dictionarul tau nu ofera si "povestea" din spate, e un minus.</p><p><strong>5. Folosirea Excesiva sau Inadecvata</strong></p><p>Sa zici "ploua cu broaste" la orice ploaie mai mare nu suna bine. Sau sa folosesti expresii arhaice intr-o conversatie cu cineva tanar. Un <strong>dictionar de expresii si locutiuni romanesti</strong> te ajuta sa intelegi registrul (formal, informal, arhaic, modern) in care se potriveste fiecare expresie. Nu le arunca pe toate la gramada.</p><p><strong>6. A te baza doar pe surse online nesigure</strong></p><p>Internetul e plin de "dictionare" facute la repezeala. Multe sunt copiate, neverificate, incomplete. Daca nu e de pe un site de la o universitate, o academie sau o editura serioasa, ia cu un mare semn de intrebare. Carte fizica, de la o editura buna, e garantia cea mai sigura.</p><p><strong>Sfat de "insider"</strong>: Incearca sa inveti cate 2-3 expresii pe saptamana si, cel mai important, sa le folosesti. Scrie-le, vorbeste-le. Altfel, raman doar niste cuvinte pe o pagina.</p>
+      </section>
+
+      <section id="dictionar-de-expresii-si-locutiuni-romanesti-verdict-pe-bugete">
+        <h2>Dictionar de Expresii si Locutiuni Romanesti: Verdict pe Bugete</h2>
+        <p>Ok, am tot vorbit despre ce si cum. Acum, hai sa punem problema pe categorii de buget, ca sa fie treaba clara.</p><p><strong>Buget Mic (Sub 50 lei)</strong></p><p>Aici, optiunile sunt mai limitate, dar nu imposibile. Cel mai probabil vei da peste dictionare mai scurte, mai simpliste, dar care isi fac treaba pentru nivelul de baza. Cauta la edituri ca <strong>Corint</strong> sau <strong>Aquila</strong> (uneori au si ei oferte bune).</p>
+        <p>Nu te astepta la explicatii amanuntite despre etimologie, ci mai degraba la definitii clare si exemple scurte. E o solutie buna daca vrei doar sa intelegi sensul imediat al unei expresii si nu ai nevoie de o "enciclopedie" a limbii romane.</p><p><strong>Recomandare concreta:</strong> Dictionarul de la Corint, daca il gasesti la un pret bun. Sau cauta oferte la librarii online.</p><p><strong>Buget Mediu (50 - 100 lei)</strong></p><p>Aici intram in terenul serios. Cu siguranta poti gasi <strong>dictionare de expresii si locutiuni romanesti</strong> de calitate, cum ar fi varianta de la <strong>Editura Litera</strong>. Ai un volum mare de informatie, explicatii detaliate, uneori si originea expresiilor. E o investitie care merita, pentru ca vei avea un dictionar pe care te poti baza ani de zile. Poti gasi si alte edituri cu lucrari similare in acest interval de pret, dar Litera e un "safe bet".</p><p><strong>Recomandare concreta:</strong> Dictionarul de expresii si locutiuni romanesti de la Litera. E cel mai echilibrat raport calitate-pret-cuprindere.</p><p><strong>Buget Mare (Peste 100 lei)</strong></p><p>Daca esti dispus sa investesti mai mult, poti cauta dictionare mult mai specializate, poate chiar volume academice, scrise de lingvisti de renume. Acestea pot fi mai greu de gasit in librariile obisnuite, s-ar putea sa fie nevoie sa cauti in anticariate sau la edituri universitare. Acestea sunt pentru "cunoscatori", pentru cei care vor sa studieze limba romana la un nivel foarte inalt, sa descopere nuante si variatii regionale.</p>
+        <p>Poate fi vorba de colectii de expresii pe domenii specifice (medical, juridic, etc.) sau de lucrari care analizeaza in profunzime istoria limbii romane.</p><p><strong>Recomandare concreta:</strong> Aici nu pot da o recomandare generala, pentru ca depinde foarte mult de ce anume te intereseaza. Cauta lucrari publicate de Academia Romana sau de universitati cu facultati de litere. De exemplu, "Dictionarul Expresiilor Idiomatice" al lui George Pascu, daca-l gasesti, e o bijuterie, dar probabil depaseste 100 lei si e mai greu de gasit.</p><p>Indiferent de buget, nu uita sa citesti cateva pagini din dictionarul pe care vrei sa-l cumperi. Asta e cea mai buna metoda sa vezi daca ti se potriveste.</p>
+      </section>
+
+      <section class="faq-section" id="faq">
+        <h2 class="faq-title">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+          </svg>
+          Intrebari Frecvente
+        </h2>
+        
+            <div class="faq-item" id="faq-0">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                care e cel mai bun dictionar de expresii si locutiuni romanesti
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                Cel mai bun <strong>dictionar de expresii si locutiuni romanesti</strong>, daca ma intrebi pe mine, este cel de la Editura Litera, datorita cuprinderii sale extinse si explicatiilor detaliate. Pretul sau se situeaza in jur de 80-100 de lei, oferind o valoare excelenta pentru calitate.
+              </div>
+            </div>
+
+            <div class="faq-item" id="faq-1">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                unde gasesc dictionar de expresii si locutiuni romanesti ieftin
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                Un <strong>dictionar de expresii si locutiuni romanesti</strong> ieftin, sub 50 de lei, il gasesti de obicei la edituri precum Corint sau Aquila, in librarii fizice sau online. Acestea sunt mai compacte, dar isi fac treaba pentru lamuriri rapide.
+              </div>
+            </div>
+
+            <div class="faq-item" id="faq-2">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                cat costa un dictionar bun de expresii si locutiuni romanesti
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                Un <strong>dictionar de expresii si locutiuni romanesti</strong> bun, cuprinzator si de calitate, costa in general intre 80 si 100 de lei. Varianta de la Editura Litera se incadreaza in acest interval si este o optiune foarte recomandata.
+              </div>
+            </div>
+
+            <div class="faq-item" id="faq-3">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                ce diferenta e intre dictionar de expresii si dictionar de locutiuni romanesti
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                In practica, un <strong>dictionar de expresii si locutiuni romanesti</strong> le acopera pe amandoua, deoarece expresiile si locutiunile sunt termeni specifici limbii romane. Un dictionar bun va explica atat expresiile (formulari fixe cu sens metaforic), cat si locutiunile (grupuri de cuvinte care formeaza o unitate de sens).
+              </div>
+            </div>
+
+            <div class="faq-item" id="faq-4">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                merita sa cumpar un dictionar de expresii romanesti online
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                Un <strong>dictionar de expresii romanesti</strong> online poate fi util pentru acces rapid, insa calitatea informatiei variaza mult. Multe site-uri nu sunt verificate, asa ca o carte fizica de la o editura serioasa, precum Litera, ofera o garantie mai mare a corectitudinii si profunzimii.
+              </div>
+            </div>
+
+            <div class="faq-item" id="faq-5">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                cum invat expresii si locutiuni romanesti
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                Cel mai bine inveti expresii si locutiuni romanesti folosind un <strong>dictionar de expresii si locutiuni romanesti</strong> bun, citind exemplele oferite si, cel mai important, incercand sa le folosesti in conversatii. Repetitia si aplicarea practica sunt cheia.
+              </div>
+            </div>
+
+            <div class="faq-item" id="faq-6">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                ce sa verific la un dictionar de expresii si locutiuni
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                La un <strong>dictionar de expresii si locutiuni</strong>, verifica numarul de intrari, claritatea explicatiilor, prezenta exemplelor de utilizare si, daca se poate, informatii despre originea expresiilor. Autoritatea editurii si a autorilor este, de asemenea, importanta.
+              </div>
+            </div>
+
+            <div class="faq-item" id="faq-7">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                pot folosi un dictionar de expresii romanesti pentru bacalaureat
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                Da, un <strong>dictionar de expresii romanesti</strong> este extrem de util pentru bacalaureat, mai ales la compunere si la analiza textelor. Te ajuta sa intelegi vocabularul specific, sa iti imbogatesti exprimarea si sa argumentezi mai bine.
+              </div>
+            </div>
+      </section>
+    </div>
+
+    <div class="author-box">
+      <div class="author-avatar">{author.charAt(0)}</div>
+      <div class="author-info">
+        <h4>{author}</h4>
+        <p class="author-role">{authorRole}</p>
+        <p class="author-bio">{authorBio}</p>
+      </div>
+    </div>
+
+    <SimilarArticles
+      articles={allArticles}
+      currentSlug={slug}
+      currentCategory={category}
+    />
+  </article>
+
+  <Footer />
+  <CookieBanner />
+</Layout>

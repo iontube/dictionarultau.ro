@@ -1,0 +1,263 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import SimilarArticles from '../components/SimilarArticles.astro';
+import CookieBanner from '../components/CookieBanner.astro';
+import keywordsData from '../../keywords.json';
+
+const title = "Cele mai bune dictionare francez roman";
+const excerpt = "Am tot vorbit despre cum limbile straine deschid usi, dar uneori simti ca esti blocat. Un dictionar bun te scoate din impas. Astazi, ne uitam la cele mai bune dictionare francez roman, ca sa intelegem ce face o carte de referinta sa fie cu adevarat valoroasa.";
+const image = "/images/articles/cele-mai-bune-dictionare-francez-roman.webp";
+const category = "Carti si Dictionare";
+const categorySlug = "carti-si-dictionare";
+const date = "2026-01-13T12:34:02.153Z";
+const modifiedDate = "2026-01-29T12:34:02.846Z";
+const author = "Maria Popescu";
+const authorRole = "Specialist in Lingvistica";
+const authorBio = "Cu peste 10 ani de experienta in domeniul lingvisticii si al editarii de dictionare, Maria te ajuta sa alegi cele mai bune resurse pentru invatare.";
+const slug = "cele-mai-bune-dictionare-francez-roman";
+
+const faq = [
+  { question: "Cat de des trebuie sa imi actualizez dictionarul?", answer: "Daca folosesti un dictionar fizic, cauta editii publicate in ultimii 5-10 ani. Pentru aplicatii si site-uri, acestea sunt de obicei actualizate constant, deci nu e o problema majora." },
+  { question: "Dictionarele online gratuite sunt la fel de bune ca cele platite?", answer: "Unele, precum Linguee sau Reverso Context, sunt extraordinare si gratuite. Dictionarele online de la edituri mari (Larousse, Robert) pot oferi o experienta mai completa, dar cele gratuite sunt un punct de plecare excelent." },
+  { question: "Ce fac daca gasesc un cuvant si are mai multe traduceri?", answer: "Citeste cu atentie exemplele oferite pentru fiecare traducere. Contextul frazei in care ai gasit cuvantul te va ajuta sa alegi sensul corect." },
+  { question: "Merita sa cumpar un dictionar fizic in era digitala?", answer: "Absolut. Dictionarele fizice nu necesita internet sau baterie, sunt usor de rasfoit si pot oferi o experienta de invatare diferita, mai concentrata, fara notificari." },
+  { question: "Ce inseamna \"intrare\" la dictionar?", answer: "O \"intrare\" este un cuvant sau o expresie pe care o gasesti in dictionar, cu definitia si exemplele sale. Cu cat sunt mai multe intrari, cu atat dictionarul e mai complet." },
+  { question: "Cum pot invata mai eficient cu dictionarul?", answer: "Nu te limita la a cauta traducerea. Noteaza cuvintele noi, citeste exemplele, cauta sinonime, incearca sa le folosesti in propriile fraze. Transforma dictionarul intr-un instrument activ de invatare." }
+];
+
+const toc = [
+  { title: "De ce e un dictionar francez roman atat de important in ziua de azi", id: "de-ce-e-un-dictionar-francez-roman-atat-de-important-in-ziua-de-azi" },
+  { title: "Variante pe care le poti alege - Dictionare francez roman pe care le-am incercat", id: "variante-pe-care-le-poti-alege---dictionare-francez-roman-pe-care-le-am-incercat" },
+  { title: "La ce sa te uiti cand alegi un dictionar francez roman", id: "la-ce-sa-te-uiti-cand-alegi-un-dictionar-francez-roman" },
+  { title: "Ce functioneaza si ce nu - Analiza sincera a dictionarelor", id: "ce-functioneaza-si-ce-nu---analiza-sincera-a-dictionarelor" },
+  { title: "Trucuri utile si greseli comune de evitat", id: "trucuri-utile-si-greseli-comune-de-evitat" },
+  { title: "Ce as alege eu - Recomandarea mea personala", id: "ce-as-alege-eu---recomandarea-mea-personala" }
+];
+
+// Get all articles for similar articles component
+const allArticles = (keywordsData.completed || []).map(item => ({
+  title: item.title,
+  slug: item.slug,
+  excerpt: item.excerpt || '',
+  image: item.image,
+  category: item.category,
+  categorySlug: item.categorySlug,
+  date: item.date || new Date().toISOString()
+}));
+---
+
+<Layout
+  title={title}
+  description={excerpt}
+  image={image}
+  article={true}
+  publishedTime={date}
+  modifiedTime={modifiedDate}
+  author={author}
+  faq={faq}
+>
+  <Header />
+
+  <header class="article-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Acasa</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href={`/${categorySlug}/`}>{category}</a>
+        <span class="breadcrumb-separator">/</span>
+        <span class="breadcrumb-current">{title}</span>
+      </nav>
+
+      <h1>{title}</h1>
+
+      <div class="article-header-meta">
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
+          {new Date(date).toLocaleDateString('ro-RO', { year: 'numeric', month: 'long', day: 'numeric' })}
+        </span>
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          {author}
+        </span>
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+          </svg>
+          {category}
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <article class="article-body">
+    <div class="article-featured-image">
+      <img src={image} alt={title} width="800" height="600" loading="eager" />
+    </div>
+
+    <nav class="toc">
+      <h2 class="toc-title">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="8" y1="6" x2="21" y2="6"></line>
+          <line x1="8" y1="12" x2="21" y2="12"></line>
+          <line x1="8" y1="18" x2="21" y2="18"></line>
+          <line x1="3" y1="6" x2="3.01" y2="6"></line>
+          <line x1="3" y1="12" x2="3.01" y2="12"></line>
+          <line x1="3" y1="18" x2="3.01" y2="18"></line>
+        </svg>
+        Cuprins
+      </h2>
+      <ol class="toc-list">
+        {toc.map(item => (
+          <li class="toc-item"><a href={`#${item.id}`}>{item.title}</a></li>
+        ))}
+        <li class="toc-item"><a href="#faq">Intrebari Frecvente</a></li>
+      </ol>
+    </nav>
+
+    <div class="article-content-body">
+      
+      <section id="de-ce-e-un-dictionar-francez-roman-atat-de-important-in-ziua-de-azi">
+        <h2>De ce e un dictionar francez roman atat de important in ziua de azi</h2>
+        <p>Sincer, cand incepi sa inveti franceza, primul impuls e sa deschizi Google Translate. Si da, e util, nu zic nu. Dar cand vine vorba de nuante, de expresii idiomatice, de a intelege exact ce vrea sa spuna cineva, acolo intervine magia unui dictionar fizic sau chiar a unuia digital bine gandit.</p><p>Gandeste-te asa: ai o conversatie mai serioasa, fie la munca, fie cu prieteni, si apare un cuvant sau o expresie care te lasa masca. Google iti da o traducere rapida, uneori corecta, alteori nu. Un dictionar bun, in schimb, iti ofera definitii, exemple, sinonime, uneori chiar si etimologie. Te ajuta sa intelegi contextul.</p><p>Pentru mine, un dictionar a fost mereu mai mult decat o simpla lista de cuvinte. E o fereastra spre cultura, spre modul de gandire al vorbitorilor nativi. Invatand o limba, nu inveti doar cuvinte, inveti si cum sa le folosesti, cum sa le combini ca sa suni natural. Si aici, dictionarele bune sunt aur curat.</p><p>Daca esti student la franceza, daca lucrezi cu parteneri francezi, daca te pregatesti pentru un examen DELF/DALF, sau pur si simplu iubesti limba franceza si vrei sa o stapanesti la un nivel mai inalt, un dictionar de calitate devine un aliat de nadejde. Nu te lasa pe mana traducerilor automate cand vrei sa fii sigur.</p><p>Chiar si pentru cei care locuiesc in Franta sau lucreaza acolo, un dictionar solid e esential. Te ajuta sa navighezi prin acte, sa intelegi glume, sa te exprimi corect in situatii mai delicate. E un instrument care te face mai independent si mai increzator in comunicare. Nu mai depinzi de fiecare data de cineva care sa-ti explice.</p><p>Pe langa asta, e si o placere sa rasfoiesti paginile unui dictionar. Gasesti cuvinte pe care nu le cautai initial, descoperi sensuri ascunse, te minunezi de bogatia limbii. E o forma de explorare, pe care aplicatiile moderne, oricat de avansate ar fi, nu o pot replica complet. Sentimentul paginilor, mirosul hartiei, e altceva.</p><p>Deci, daca te-ai gandit vreodata ca un dictionar e o carte invechita, gandeste-te din nou. Pentru comunicare eficienta, pentru intelegere profunda si pentru o stapanire reala a limbii franceze, un dictionar bun este, si va ramane, o resursa de nepretuit. E investitie in tine, in abilitatile tale.</p>
+      </section>
+
+      <section id="variante-pe-care-le-poti-alege---dictionare-francez-roman-pe-care-le-am-incercat">
+        <h2>Variante pe care le poti alege - Dictionare francez roman pe care le-am incercat</h2>
+        <p>Am trecut prin multe dictionare de-a lungul timpului, atat fizice, cat si digitale. Fiecare are farmecul lui, dar si limitari. Hai sa vedem cateva optiuni concrete, cu avantaje si dezavantaje.</p><p><strong>1. Dictionarul francez-roman Larousse (varianta tiparita)</strong></p><p>Asta e un clasic. Larousse e un nume greu in lumea dictionarelor, si pe buna dreptate. Varianta tiparita e robusta, bine structurata. Gasesti explicatii clare, exemple de utilizare, uneori chiar si sinonime sau antonime. E ideal pentru studentii seriosi sau pentru oricine vrea o referinta de incredere, pe care sa o aiba la indemana pe birou.</p><p><em>Avantaje:</em> Fiabilitate, completitudine, nu depinde de internet sau baterie, ușor de răsfoit rapid.</p><p><em>Dezavantaje:</em> Poate fi greu de transportat, nu e mereu la zi cu cele mai noi expresii aparute pe internet, pretul poate fi mai ridicat. Un exemplar nou, de dimensiuni medii, poate ajunge undeva la 100-150 RON, in functie de librarie si promotii.</p><p><strong>2. Dictionarul francez-roman Pocket (editii variate)</strong></p><p>Daca portabilitatea e cheia, atunci un dictionar de buzunar e solutia. Sunt mai compacte, mai usoare, perfecte de luat in geanta sau chiar in buzunar. Sunt excelente pentru calatorii sau pentru situatiile in care ai nevoie de o traducere rapida, fara sa cari un volum mare.</p><p><em>Avantaje:</em> Foarte portabil, pret accesibil (adesea sub 50 RON), bun pentru nevoi uzuale.</p><p><em>Dezavantaje:</em> Mai putine intrari, explicatii mai scurte, mai puține exemple. Nu e pentru studii aprofundate.</p><p><strong>3. Dictionare online si aplicatii (ex: Linguee, Reverso Context, Google Translate cu atentie)</strong></p><p>Aici vorbim de viteza si accesibilitate. Linguee si Reverso Context sunt excelente pentru ca iti arata cum se folosesc cuvintele in context, oferind traduceri din texte reale. Google Translate e rapid, dar trebuie sa fii sceptic la traducerile automate.</p><p><em>Avantaje:</em> Gratis sau ieftine, accesibile oriunde ai internet, adesea cu functii suplimentare (traducere vocala, recunoastere text). Linguee si Reverso ofera context valoros.</p><p><em>Dezavantaje:</em> Necesita conexiune la internet (unele aplicatii ofera si mod offline, dar cu functionalitati limitate), pot fi incomplete sau mai putin precise decat un dictionar dedicat pentru nuante.</p><p><strong>4. Dictionare specializate (ex: dictionare de termeni tehnici, medicali, juridici)</strong></p><p>Daca lucrezi intr-un domeniu specific, un dictionar general nu va fi suficient. Exista dictionare specializate care contin terminologia exacta a domeniului tau. Acestea sunt esentiale pentru profesionisti.</p><p><em>Avantaje:</em> Precizie maxima in domenii specifice, economisesc mult timp si evita confuziile.</p><p><em>Dezavantaje:</em> Pot fi scumpe, greu de gasit, utile doar pentru un public restrans. Un dictionar tehnic bun poate costa si peste 200 RON.</p><p>Fiecare optiune are locul ei. Depinde mult de ce ai nevoie, de bugetul tau si de cat de des folosești limba franceză.</p>
+      </section>
+
+      <section id="la-ce-sa-te-uiti-cand-alegi-un-dictionar-francez-roman">
+        <h2>La ce sa te uiti cand alegi un dictionar francez roman</h2>
+        <p>Alegerea unui dictionar bun nu e chiar asa de simpla cum pare. Sunt cateva aspecte pe care eu le consider esentiale si care fac diferenta intre o unealta utila si una care te lasa balta.</p><p><strong>1. Numarul de intrari (verbe, substantive, adjective etc.)</strong></p><p>Un dictionar bun trebuie sa aiba o acoperire cat mai larga. Gandeste-te la cate cuvinte folosesti zilnic in romana, apoi inmulteste cu doi, ca sa ai o idee despre cat de multe ar trebui sa gaseasca si in franceza. Un dictionar cu 50.000 de intrari e ok pentru inceput, dar unul cu 100.000-200.000 e mult mai bun pentru un nivel intermediar sau avansat.</p><p><strong>2. Calitatea definitiilor si exemplele de utilizare</strong></p><p>Nu e suficient sa ai cuvantul. Ai nevoie sa intelegi ce inseamna in context. Dictionarul ar trebui sa iti ofere definitii clare, concise, si, cel mai important, exemple de fraze. Cum se foloseste cuvantul in propozitii, ce prepozitii il insotesc, ce sensuri poate lua. Asta te ajuta enorm sa nu faci greseli cand vorbesti sau scrii.</p><p><strong>3. Prezenta sinonimelor si antonimelor</strong></p><p>Asta e o chestie care ma scoate din sarite la multe dictionare. Daca vreau sa evit sa repet acelasi cuvant de zece ori, am nevoie sa stiu alternative. Un dictionar care iti ofera si sinonime (cuvinte cu sens asemanator) si antonime (cuvinte cu sens opus) e mult mai valoros. Te ajuta sa iti imbogatesti vocabularul si sa variezi exprimarea.</p><p><strong>4. Informatii gramaticale (gen, numar, conjugare, clasificare)</strong></p><p>Mai ales pentru limba franceza, unde genul substantivelor si acordurile sunt atat de importante, e crucial ca dictionarul sa specifice aceste detalii. Pentru verbe, e bine sa ai informatii despre conjugare (mai ales cele neregulate). Pentru adjective, despre acordul in gen si numar. Asta te scapa de multe batai de cap.</p><p><strong>5. Actualitatea si relevanta</strong></p><p>Limba evolueaza. Apar cuvinte noi, expresii noi. Un dictionar tiparit, mai ales, poate ramane in urma. Inainte sa cumperi unul, verifica daca e o editie recenta. Daca e un dictionar online sau o aplicatie, vezi cat de des e actualizat. E important sa gasesti si termeni moderni, nu doar pe cei clasici.</p><p><strong>6. Formatul si usurinta in utilizare</strong></p><p>Daca e un dictionar fizic, gandeste-te la dimensiune, la greutate, la calitatea hartiei si a legaturii. E usor de manevrat? Daca e digital, cat de repede cauta? Interfata e intuitiva? Tastatura virtuala e ok? Raspunde rapid la cautari?</p><p>Tinand cont de aceste criterii, poti filtra mult mai usor optiunile si sa alegi ce ti se potriveste cel mai bine nevoilor tale, fara sa arunci banii pe ceva ce nu te va ajuta cu adevarat.</p>
+      </section>
+
+      <section id="ce-functioneaza-si-ce-nu---analiza-sincera-a-dictionarelor">
+        <h2>Ce functioneaza si ce nu - Analiza sincera a dictionarelor</h2>
+        <p>Am trecut prin multe etape cu dictionarele. Am avut perioade in care ma bazam exclusiv pe cele online, si perioade in care cautam cartea perfecta. Si am invatat multe din aceste experiente, bune si mai putin bune.</p><p><strong>Ce functioneaza de minune:</strong></p><p><em>1. Dictionarele care ofera contexte multiple.</em> Asta e cel mai mare plus. Cand un cuvant are mai multe sensuri, un dictionar bun iti arata cateva exemple concrete pentru fiecare sens.</p>
+        <p>De exemplu, cuvantul "coup" in franceza. Poate fi "lovitura", "lovitura de stat", "lovitura de noroc", "un pahar de..." etc. Daca dictionarul iti da doar "lovitura", nu ai prins toata povestea.</p>
+        <p>Dictionarele bune iti arata "un coup de poing" (o lovitura cu pumnul), "un coup d'état" (o lovitura de stat), "un coup de chance" (o lovitura de noroc).</p><p><em>2. Cele care pun accent pe expresii idiomatice si colocviale.</em> Limba vorbita e plina de "trucuri" pe care nu le gasesti in fraze formale. "Avoir la pêche" nu inseamna sa ai un piersic, ci sa fii plin de energie. Dictionarele care includ astfel de expresii, cu explicatia lor, sunt aur curat. Te ajuta sa suni mult mai natural.</p><p><em>3. Varianta electronica a dictionarelor de renume.</em> Multe edituri mari, ca Larousse sau Robert, au si versiuni digitale sau aplicatii. Acestea imbina avantajul unei baze de date extinse cu viteza si usurinta in utilizare ale tehnologiei. Le poti accesa rapid, cautarea e instantanee, si adesea au functii extra.</p><p><em>4. Dictionarele bilingve cu un volum decent pentru nivelul tau.</em> Pentru un incepator, un dictionar prea complex poate fi descurajant. Un dictionar echilibrat, care nu te copleseste cu prea multe informatii, dar nici nu e prea sumar, este ideal.</p><p><strong>Ce nu functioneaza prea bine (sau deloc):</strong></p><p><em>1. Traducerea automata 100% fara verificare.</em> Google Translate si alte unelte similare sunt grozave pentru a intelege ideea generala a unui text. Dar cand vine vorba de precizie, de nuante, de contexte specifice, pot da rateuri monumentale. Am vazut traduceri care au facut un text sa sune ridicol sau chiar sa fie gresit inteles.</p><p><em>2. Dictionarele foarte vechi, neactualizate.</em> Daca un dictionar e din anii '80-'90 si nu a fost revizuit, vei rata o gramada de cuvinte noi, termeni tehnologici, sau chiar schimbari in uzul limbii. Va fi ca si cum ai incerca sa folosesti un telefon cu disc in 2024.</p><p><em>3. Dictionarele cu definatii vagi sau prea scurte.</em> Cand cauti un cuvant si primesti o singura traducere, fara niciun context sau exemplu, e ca si cum ai primi o jumatate de informatie. Nu stii cum sa o folosesti corect.</p><p><em>4. Dictionarele care nu specifica genul substantivelor sau conjugarea verbelor neregulate.</em> Pentru franceza, asta e o problema majora. Sa nu stii daca un substantiv e masculin sau feminin te poate duce la greseli de acord. Sa nu stii cum se conjuga "aller" sau "être" e o problema serioasa.</p><p>Deci, pe scurt, functioneaza ce e complet, actual, cu exemple clare si adaptat nivelului tau. Nu functioneaza ce e sumar, vechi, sau bazat exclusiv pe traduceri automate.</p>
+      </section>
+
+      <section id="trucuri-utile-si-greseli-comune-de-evitat">
+        <h2>Trucuri utile si greseli comune de evitat</h2>
+        <p>Am invatat din greseli, ca tot omul. Si cred ca cel mai mult am invatat cand am crezut ca am gasit "solutia magica" si apoi mi-am dat seama ca nu era chiar asa.</p><p><strong>Trucuri care chiar ajuta:</strong></p><p><em>1. Nu te baza pe un singur dictionar.</em> Daca poti, ai la indemana si o carte, si o aplicatie, si poate chiar un site bun. Fiecare sursa are punctele ei forte. Daca ai o indoiala, verifica in doua-trei locuri.</p><p><em>2. Invata "in context".</em> Cand cauti un cuvant, nu te opri la traducerea lui. Citeste toate exemplele date. Incearca sa iti imaginezi propozitii similare. Asta te ajuta sa retii mai bine si sa folosesti cuvantul corect.</p><p><em>3. Noteaza-ti cuvintele noi "cu tot pachetul".</em> Nu doar cuvantul si traducerea. Noteaza si genul, si cateva exemple de utilizare, si sinonimele daca le gasesti. Poti folosi un carnețel sau o aplicatie de notite.</p><p><em>4. Foloseste dictionarele pentru a intelege texte, nu doar pentru a traduce cuvinte izolate.</em> Daca citesti ceva si te blochezi, cauta cuvintele necunoscute, dar apoi incearca sa citesti toata fraza sau paragraful din nou. Vezi daca sensul capata logica.</p><p><em>5. Acorda atentie "cuvintelor false".</em> ("faux amis" in franceza). Sunt cuvinte care arata similar in romana si franceza, dar au sensuri complet diferite. De exemplu, "sensible" in franceza inseamna "sensibil", dar si "simtitor" in sensul de "care poate fi detectat". "Actuellement" in franceza inseamna "in prezent", nu "actualmente" in sensul de "realmente". Dictionarul te ajuta sa le deosebesti.</p><p><strong>Greseli comune pe care sa le eviti:</strong></p><p><em>1. A crede ca Google Translate e suficient.</em> Am mai zis-o, dar e o greseala mare. E bun ca punct de plecare, dar nu ca destinatie finala.</p><p><em>2. A cumpara cel mai ieftin dictionar pe care il gasesti.</em> De multe ori, pretul mic vine cu o calitate scazuta. Mai bine investesti putin mai mult intr-un dictionar bun, pe care il vei folosi ani de zile.</p><p><em>3. A nu verifica editia dictionarului.</em> Daca e o carte, uita-te la anul publicarii. Daca e digital, cauta informatii despre cat de des e actualizat.</p><p><em>4. A te bloca pe un singur sens al cuvantului.</em> Multe cuvinte au multiple acceptiuni. Nu te limita la prima traducere pe care o gasesti.</p><p><em>5. A nu acorda atentie gramaticii.</em> Daca dictionarul iti da "le" sau "la" in fata unui substantiv, noteaza-l! E crucial pentru a vorbi corect.</p><p>Folosind dictionarul inteligent, ca pe un partener de invatare, si evitand capcanele astea, vei progresa mult mai repede si mai eficient.</p>
+      </section>
+
+      <section id="ce-as-alege-eu---recomandarea-mea-personala">
+        <h2>Ce as alege eu - Recomandarea mea personala</h2>
+        <p>Dupa atatea cautari, testari si utilizari, am ajuns la cateva preferinte clare. Si cred ca asta e cel mai util sfat pe care ti-l pot da: ce aleg eu si de ce.</p><p><strong>Recomandarea mea principala: O combinatie.</strong></p><p>Daca ar trebui sa aleg o singura resursa, as merge pe o aplicatie sau un site de dictionar digital de la o editura recunoscuta, *plus* un dictionar fizic de buzunar pentru situatii de "urgență" sau cand sunt pe drum.</p><p><strong>1. Pentru uz zilnic, studiu aprofundat: Linguee sau Reverso Context (ca site-uri/aplicatii)</strong></p><p>Acestea sunt "jucariile" mele preferate cand vine vorba de context real. Linguee e fantastic pentru ca iti arata cum se folosesc cuvintele si expresiile in texte din diverse domenii (juridic, medical, tehnic, literar). Nu e un dictionar clasic, ci mai mult o baza de date de traduceri paralele. Dar e incredibil de util pentru a intelege nuancele.</p><p>Reverso Context functioneaza similar, oferind traduceri din filme, carti, site-uri. Ambele te ajuta sa vezi cum vorbesc nativii, cum se structureaza frazele. Sunt gratuite si accesibile, deci nu ai nimic de pierdut incercandu-le.</p><p><strong>2. Pentru referinta rapida, "de urgență": Dictionar francez-roman de buzunar (ex: cele de la Pocket sau de la edituri ca Teora, Niculescu, daca gasesti editii recente).</strong></p><p>Am mentionat deja dictionarele de buzunar. Ele sunt salvatoare cand esti intr-o librarie in Franta, cand esti la o conferinta si nu ai net, sau pur si simplu cand vrei sa verifici rapid un cuvant fara sa deschizi telefonul.</p><p>Cautati editii cat mai noi. Un dictionar bun de buzunar nu costa mai mult de 40-60 RON. E o investitie mica pentru o unealta atat de utila.</p><p><strong>3. Pentru rigoare si completitudine (ca "bibliografie"): Un dictionar Larousse sau Robert, editie recenta, format mediu.</strong></p><p>Daca bugetul permite si ai spatiu, un dictionar fizic de la Larousse sau Robert este o investiție pe termen lung. Nu pentru ca as vrea sa il rasfoiesc zilnic, ci pentru ca e o referinta pe care stiu ca ma pot baza. E ca o enciclopedie a vocabularului.</p><p>Acestea pot costa intre 100 si 200 RON, in functie de dimensiune si complexitate. E o suma, dar pentru un student la limbi straine, sau pentru cineva care lucreaza activ cu franceza, merita fiecare banut.</p><p><strong>Pentru cine sunt aceste alegeri?</strong></p><p>Asta recomand pentru cineva care invata franceza la un nivel mediu spre avansat, pentru cineva care lucreaza cu limba franceza, sau pentru cineva pasionat care vrea sa inteleaga limba in profunzime. Pentru un incepator absolut, poate fi suficient sa inceapa cu Linguee si un dictionar de buzunar.</p><p>Important e sa nu te blochezi, sa folosești resursele pe care le ai la indemana si sa alegi ce te ajuta pe tine sa progresezi.</p>
+      </section>
+
+      <section class="faq-section" id="faq">
+        <h2 class="faq-title">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+          </svg>
+          Intrebari Frecvente
+        </h2>
+        
+            <div class="faq-item" id="faq-0">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                Cat de des trebuie sa imi actualizez dictionarul?
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                Daca folosesti un dictionar fizic, cauta editii publicate in ultimii 5-10 ani. Pentru aplicatii si site-uri, acestea sunt de obicei actualizate constant, deci nu e o problema majora.
+              </div>
+            </div>
+
+            <div class="faq-item" id="faq-1">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                Dictionarele online gratuite sunt la fel de bune ca cele platite?
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                Unele, precum Linguee sau Reverso Context, sunt extraordinare si gratuite. Dictionarele online de la edituri mari (Larousse, Robert) pot oferi o experienta mai completa, dar cele gratuite sunt un punct de plecare excelent.
+              </div>
+            </div>
+
+            <div class="faq-item" id="faq-2">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                Ce fac daca gasesc un cuvant si are mai multe traduceri?
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                Citeste cu atentie exemplele oferite pentru fiecare traducere. Contextul frazei in care ai gasit cuvantul te va ajuta sa alegi sensul corect.
+              </div>
+            </div>
+
+            <div class="faq-item" id="faq-3">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                Merita sa cumpar un dictionar fizic in era digitala?
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                Absolut. Dictionarele fizice nu necesita internet sau baterie, sunt usor de rasfoit si pot oferi o experienta de invatare diferita, mai concentrata, fara notificari.
+              </div>
+            </div>
+
+            <div class="faq-item" id="faq-4">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                Ce inseamna "intrare" la dictionar?
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                O "intrare" este un cuvant sau o expresie pe care o gasesti in dictionar, cu definitia si exemplele sale. Cu cat sunt mai multe intrari, cu atat dictionarul e mai complet.
+              </div>
+            </div>
+
+            <div class="faq-item" id="faq-5">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                Cum pot invata mai eficient cu dictionarul?
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                Nu te limita la a cauta traducerea. Noteaza cuvintele noi, citeste exemplele, cauta sinonime, incearca sa le folosesti in propriile fraze. Transforma dictionarul intr-un instrument activ de invatare.
+              </div>
+            </div>
+      </section>
+    </div>
+
+    <div class="author-box">
+      <div class="author-avatar">{author.charAt(0)}</div>
+      <div class="author-info">
+        <h4>{author}</h4>
+        <p class="author-role">{authorRole}</p>
+        <p class="author-bio">{authorBio}</p>
+      </div>
+    </div>
+
+    <SimilarArticles
+      articles={allArticles}
+      currentSlug={slug}
+      currentCategory={category}
+    />
+  </article>
+
+  <Footer />
+  <CookieBanner />
+</Layout>

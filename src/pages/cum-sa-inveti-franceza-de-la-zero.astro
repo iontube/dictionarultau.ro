@@ -1,0 +1,295 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import SimilarArticles from '../components/SimilarArticles.astro';
+import CookieBanner from '../components/CookieBanner.astro';
+import keywordsData from '../../keywords.json';
+
+const title = "Cum sa inveti franceza de la zero";
+const excerpt = "Daca vrei sa inveti franceza de la zero, cel mai bine e sa incepi cu o combinatie de cursuri online structurate si aplicatii mobile interactive, completate de expunere zilnica la limba prin muzica sau filme. Nu te complica de la inceput cu gramatica prea multa; concentreaza-te pe cuvinte uzuale si fraze simple.";
+const image = "/images/articles/cum-sa-inveti-franceza-de-la-zero.webp";
+const category = "Invatare Limbi Straine";
+const categorySlug = "invatare-limbi-straine";
+const date = "2026-02-22T14:40:32.666Z";
+const modifiedDate = "2026-02-22T14:40:32.666Z";
+const author = "Alexandru Ionescu";
+const authorRole = "Profesor de Limbi Straine";
+const authorBio = "Alex preda engleza si franceza de peste 8 ani si a ajutat mii de studenti sa-si atinga obiectivele lingvistice prin metode moderne de invatare.";
+const slug = "cum-sa-inveti-franceza-de-la-zero";
+
+const faq = [
+  { question: "cat costa sa inveti franceza de la zero", answer: "Poti incepe gratuit cu aplicatii precum Duolingo si resurse YouTube. Un abonament la Babbel costa in jur de 30-50 lei/luna, iar cursuri online pe Udemy pot fi gasite la 30-50 lei (o singura plata). Cursurile traditionale pot ajunge la 300-600 lei/luna." },
+  { question: "care e diferenta intre duolingo si babbel pentru franceza", answer: "Duolingo e gratuit si gamificat, bun pentru vocabular si fraze simple, dar mai putin detaliat gramatical. Babbel costa (abonament lunar), e mai structurat, pune accent pe conversatii reale si ofera explicatii mai clare de gramatica, fiind mai potrivit pentru o baza solida." },
+  { question: "merita sa iau un curs de franceza online pe udemy", answer: "Absolut, mai ales daca prinzi o oferta. Cursurile pe Udemy sunt foarte accesibile (30-50 lei) si le ai pe viata. Calitatea variaza, deci citeste parerile altor cursanti. Sunt bune pentru a invata gramatica si structuri, dar iti trebuie si alte resurse pentru practica." },
+  { question: "ce aplicatie e mai buna pentru a invata franceza de la zero", answer: "Pentru inceput, Duolingo e excelent pentru motivatie si vocabular de baza, fiind gratuit. Daca vrei o abordare mai serioasa si explicatii gramaticale, Babbel este o optiune mai buna, desi costa. Multi recomanda o combinatie a ambelor." },
+  { question: "de ce e greu sa inveti franceza?", answer: "Franceza are o pronuntie diferita de romana, multe reguli gramaticale complexe (conjugari, genuri, acorduri) si o structura a frazei uneori neintuitiva. Asta, combinat cu multe exceptii, o face provocatoare la inceput." },
+  { question: "cum sa inveti franceza rapid fara meditator", answer: "Combinand aplicatii interactive (Duolingo, Babbel), cursuri online structurate (Udemy), expunere zilnica la limba prin muzica si filme, si practica constanta prin vorbire (chiar si cu tine insuti sau pe platforme de schimb lingvistic)." },
+  { question: "unde gasesc cursuri gratuite de franceza online", answer: "Poti gasi cursuri gratuite pe Duolingo, pe YouTube (canale precum FrenchPod101, Learn French with Alexa), pe site-uri ca MOOC-uri (daca sunt disponibile) sau prin podcasturi dedicate. Calitatea si structura pot varia." },
+  { question: "cat timp dureaza sa inveti franceza de la zero la un nivel conversational", answer: "Daca studiezi constant (1-2 ore pe zi), poti ajunge la un nivel conversational de baza in 6-12 luni. Un nivel avansat sau fluent necesita 2-3 ani de studiu si practica sustinuta, plus imersiune in limba." }
+];
+
+const toc = [
+  { title: "Primii pasi concreti: Cum sa inveti franceza de la zero si sa nu te blochezi", id: "primii-pasi-concreti-cum-sa-inveti-franceza-de-la-zero-si-sa-nu-te-blochezi" },
+  { title: "Top resurse pentru a invata franceza de la zero: Ce sa alegi si de ce", id: "top-resurse-pentru-a-invata-franceza-de-la-zero-ce-sa-alegi-si-de-ce" },
+  { title: "Ce sa cauti cand alegi resurse pentru franceza de la zero", id: "ce-sa-cauti-cand-alegi-resurse-pentru-franceza-de-la-zero" },
+  { title: "Aplicatii vs Cursuri Traditonale: Ce e mai eficient pentru franceza de la zero?", id: "aplicatii-vs-cursuri-traditonale-ce-e-mai-eficient-pentru-franceza-de-la-zero" },
+  { title: "Capcane la invatarea francezei de la zero si sfaturi de om pe bune", id: "capcane-la-invatarea-francezei-de-la-zero-si-sfaturi-de-om-pe-bune" },
+  { title: "Bugete pentru franceza: Cat costa sa inveti de la zero?", id: "bugete-pentru-franceza-cat-costa-sa-inveti-de-la-zero" }
+];
+
+// Get all articles for similar articles component
+const allArticles = (keywordsData.completed || []).map(item => ({
+  title: item.title,
+  slug: item.slug,
+  excerpt: item.excerpt || '',
+  image: item.image,
+  category: item.category,
+  categorySlug: item.categorySlug,
+  date: item.date || new Date().toISOString()
+}));
+---
+
+<Layout
+  title={title}
+  description={excerpt}
+  image={image}
+  article={true}
+  publishedTime={date}
+  modifiedTime={modifiedDate}
+  author={author}
+  faq={faq}
+>
+  <Header />
+
+  <header class="article-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Acasa</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href={`/${categorySlug}/`}>{category}</a>
+        <span class="breadcrumb-separator">/</span>
+        <span class="breadcrumb-current">{title}</span>
+      </nav>
+
+      <h1>{title}</h1>
+
+      <div class="article-header-meta">
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
+          {new Date(date).toLocaleDateString('ro-RO', { year: 'numeric', month: 'long', day: 'numeric' })}
+        </span>
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          {author}
+        </span>
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+          </svg>
+          {category}
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <article class="article-body">
+    <div class="article-featured-image">
+      <img src={image} alt={title} width="800" height="600" loading="eager" />
+    </div>
+
+    <nav class="toc">
+      <h2 class="toc-title">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="8" y1="6" x2="21" y2="6"></line>
+          <line x1="8" y1="12" x2="21" y2="12"></line>
+          <line x1="8" y1="18" x2="21" y2="18"></line>
+          <line x1="3" y1="6" x2="3.01" y2="6"></line>
+          <line x1="3" y1="12" x2="3.01" y2="12"></line>
+          <line x1="3" y1="18" x2="3.01" y2="18"></line>
+        </svg>
+        Cuprins
+      </h2>
+      <ol class="toc-list">
+        {toc.map(item => (
+          <li class="toc-item"><a href={`#${item.id}`}>{item.title}</a></li>
+        ))}
+        <li class="toc-item"><a href="#faq">Intrebari Frecvente</a></li>
+      </ol>
+    </nav>
+
+    <div class="article-content-body">
+      
+      <section id="primii-pasi-concreti-cum-sa-inveti-franceza-de-la-zero-si-sa-nu-te-blochezi">
+        <h2>Primii pasi concreti: Cum sa inveti franceza de la zero si sa nu te blochezi</h2>
+        <p>Uite care-i treaba: sa inveti franceza de la zero nu e rocket science, dar nici nu se face peste noapte. Cel mai eficient mod, daca ma intrebi pe mine, e sa combini mai multe resurse. Nu te baza pe o singura chestie. Am vazut multi care iau un curs si zic ca gata, au terminat. Nu merge asa.</p><p>Incepe cu o aplicatie gen Duolingo sau Babbel. Sunt gratuite sau au abonamente decente. Te invata cuvinte, fraze simple, pronuntie.</p>
+        <p>E ca un joc, te tine motivat. Dar sa stii, nu te invata tot. E doar inceputul.</p>
+        <p>Dupa ce te familiarizezi un pic, cauta un curs online mai serios. Sunt multe platforme gen Coursera, Udemy, sau chiar cursuri dedicate pentru franceza. Astea iti dau o structura, te invata gramatica pe bune, conjugari, timpurile alea complicate.</p>
+        <p>Asta te ajuta sa intelegi cum functioneaza limba, nu doar sa memorezi fraze.</p><p>Apoi, si asta e super important, baga franceza in viata ta. Asculta muzica frantuzeasca, chiar daca nu intelegi tot. Uita-te la filme sau seriale cu subtitrare in franceza, sau chiar in romana la inceput. La un moment dat, cand te simti mai sigur, baga subtitrarea in franceza. Te obisnuiesti cu ritmul limbii, cu accentul. Si nu te stresa daca nu prinzi tot. E normal. Important e sa fii expus constant.</p><p>Pentru <strong>cum sa inveti franceza de la zero</strong>, cheia e consistenta. Mai bine 15 minute in fiecare zi decat 3 ore o data pe saptamana. Si nu te tine doar de citit sau ascultat. Fa exercitii, vorbeste cu tine in oglinda, incearca sa compui propozitii simple. Daca gasesti pe cineva sa vorbiti impreuna, si mai bine. Chiar si un partener de schimb lingvistic online, pe platforme gen HelloTalk sau Tandem, te poate ajuta enorm. Zic si eu, astea sunt cele mai bune metode la inceput.</p>
+      </section>
+
+      <section id="top-resurse-pentru-a-invata-franceza-de-la-zero-ce-sa-alegi-si-de-ce">
+        <h2>Top resurse pentru a invata franceza de la zero: Ce sa alegi si de ce</h2>
+        <p>Bun, hai sa vorbim despre ce gasesti pe piata. Nu toate merita aceiasi bani sau acelasi timp. Am testat eu si am vorbit cu prieteni, deci uite o parere onesta.</p><h3>Aplicatii mobile: Duolingo vs Babbel</h3><p><strong>Duolingo</strong>: E gratis, are o gramada de nivele, te invata vocabular si gramatica de baza. E distractiv, te tine agatat. <strong>Avantaje</strong>: gratis, gamificat, bun pentru inceput. <strong>Dezavantaje</strong>: uneori repetitiv, nu aprofundeaza gramatica, poate fi prea simplist pe termen lung. E ca un joc, bun sa prinzi primele cuvinte.</p><p><strong>Babbel</strong>: E cu abonament, vreo 30-50 lei pe luna, depinde de oferta. E mai structurat, se concentreaza pe conversatii reale, gramatica e explicata mai clar. <strong>Avantaje</strong>: lectii mai practice, explicatii bune de gramatica, focus pe dialoguri. <strong>Dezavantaje</strong>: costa, poate fi totusi limitat pentru un nivel avansat. E mai serios decat Duolingo.</p><h3>Cursuri online: Udemy vs Cursuri dedicate</h3><p>Pe <strong>Udemy</strong> gasesti cursuri de franceza pentru toate nivelurile, de la zero la avansat, la preturi super. Multe sunt la reducere, cu 30-50 lei. Vezi parerile altor cursanti! <strong>Avantaje</strong>: varietate mare, pret accesibil, poti invata in ritmul tau. <strong>Dezavantaje</strong>: calitatea variaza enorm, nu ai interactiune directa cu profesorul, trebuie sa te motivezi singur.</p><p>Cursurile dedicate, gen cele de la Alliance Francaise sau alte scoli de limbi straine online, sunt mai scumpe, pot ajunge la 300-600 lei pe luna, dar ofera structura, profesori calificați, si uneori chiar interactiune live. <strong>Avantaje</strong>: predare de calitate, feedback personalizat, structura clara. <strong>Dezavantaje</strong>: cost ridicat, program fix.</p><h3>Materiale gratuite: YouTube si Podcasturi</h3><p>Sunt canale pe YouTube dedicate invatarii francezei, gen FrenchPod101, Learn French with Alexa. Si podcasturi pentru incepatori. <strong>Avantaje</strong>: gratis, expunere la limba vorbita. <strong>Dezavantaje</strong>: nu ofera o structura completa, trebuie sa cauti activ.</p><p>Daca ma intrebi pe mine, pentru <strong>cum sa inveti franceza de la zero</strong>, incepe cu Duolingo/Babbel pentru baza, apoi ia un curs pe Udemy la reducere. Completeaza cu YouTube si podcasturi. Asta e o combinatie echilibrata, nici prea scumpa, nici prea superficiala.</p>
+      </section>
+
+      <section id="ce-sa-cauti-cand-alegi-resurse-pentru-franceza-de-la-zero">
+        <h2>Ce sa cauti cand alegi resurse pentru franceza de la zero</h2>
+        <p>Cand te apuci sa inveti franceza de la zero, primul impuls e sa iei ce gasesti. Dar stai putin, nu e chiar asa. Trebuie sa te gandesti la cateva chestii ca sa nu arunci banii sau timpul pe fereastra.</p><p><strong>Structura cursului</strong>. E important sa fie logic. Sa inceapa cu sunete, apoi cuvinte, fraze simple, gramatica de baza, conjugari. Daca te baga direct in timpurile trecute, nu e bine. Uita-te la programa cursului, vezi daca acopera pas cu pas. Nu vreau sa ma trezesc ca invat cuvinte random fara sa stiu cum sa le leg.</p><p><strong>Metoda de predare</strong>. Preferi sa fie mai mult pe jocuri, ca la Duolingo? Sau vrei explicatii clare de gramatica, ca la Babbel sau cursurile mai serioase? Si pronuntia e cruciala. Asigura-te ca aplicatia sau cursul are audio de calitate, cu vorbitori nativi. Unii profesori de pe Udemy au accentul lor, nu e rau, dar ideal e sa auzi cum vorbeste un francez adevarat.</p><p><strong>Interactivitatea</strong>. Un curs bun te pune sa faci exercitii, sa scrii, sa vorbesti. Nu doar sa citesti sau sa asculti. Daca e doar o carte electronica sau o serie de clipuri video, e greu sa progresezi. Cauta cursuri cu chestionare, teme, sau chiar posibilitatea de a trimite exercitii pentru corectare.</p><p><strong>Costul</strong>. Acum, sincer, nimeni nu vrea sa dea o avere. Dar nici ce e gratis nu e intotdeauna cel mai bun. Gaseste un echilibru. Un abonament la Babbel e cam 40 lei/luna. Un curs pe Udemy, luat la reducere, e 50 lei, si il ai pe viata. Cursurile de la scoli de limbi straine sunt scumpe, dar au si alta calitate. Decide-ti bugetul dinainte. Pentru <strong>cum sa inveti franceza de la zero</strong>, nu trebuie sa spargi banca.</p><p><strong>Parerile altora</strong>. Pe Udemy, inainte sa cumperi un curs, citeste comentariile. Pe forumuri, pe grupuri de Facebook, intreaba. Oamenii iti pot spune ce a functionat pentru ei si ce nu.</p><p><strong>Consistenta</strong>. Asta nu tine de resurse, ci de tine. Dar resursele te pot ajuta sa fii consistent. Daca un curs e plictisitor, nu o sa-l termini. Daca e prea greu, te lasi. Alege ceva care te tine motivat.</p>
+      </section>
+
+      <section id="aplicatii-vs-cursuri-traditonale-ce-e-mai-eficient-pentru-franceza-de-la-zero">
+        <h2>Aplicatii vs Cursuri Traditonale: Ce e mai eficient pentru franceza de la zero?</h2>
+        <p>Asta e o intrebare pe care si-o pun multi. Sa ma apuc de o aplicatie sau sa caut un curs mai clasic? Hai sa le luam pe rand.</p><p><strong>Aplicatiile (Duolingo, Babbel, Memrise)</strong>. Sunt grozave pentru inceput. Te ajuta sa prinzi cuvinte, fraze uzuale, sa te familiarizezi cu sunetele limbii.</p>
+        <p>Sunt interactive, gamificate, deci te tin motivat. Pretul e, in general, mult mai mic. Duolingo e gratis, Babbel are abonamente decente.</p>
+        <p>Sunt perfecte pentru a face primii pasi, pentru <strong>cum sa inveti franceza de la zero</strong> fara prea multa presiune. Dar, si aici e marele "dar", ele nu iti dau o intelegere profunda a gramaticii. Sunt mai mult pentru "cum zici asta?" decat pentru "de ce zici asa?".</p><p><strong>Cursurile traditionale (online sau fizice)</strong>. Aici vorbim de cursuri cu profesori, structura clara, explicatii detaliate de gramatica, conjugari, sintaxa. Fie ca sunt cursuri fizice la o scoala de limbi straine (Alliance Francaise, British Council, etc.) sau cursuri online mai complexe (Coursera, Udemy, platforme dedicate), ele ofera o baza solida. Te invata "de ce". Sunt mai costisitoare, poate si mai solicitante ca timp, dar iti dau o imagine completa a limbii.</p><p><strong>Comparatie directa</strong>:</p><ul><li><strong>Cost</strong>: Aplicatiile castiga la acest capitol, mai ales cele gratuite. Cursurile traditionale pot fi scumpe.</li><li><strong>Motivatie</strong>: Aplicatiile sunt mai distractive la inceput. Cursurile traditionale pot fi mai plictisitoare, dar recompensa pe termen lung e mai mare.</li><li><strong>Profunditate</strong>: Cursurile traditionale ofera, fara discutie, o intelegere mai profunda a limbii. Aplicatiile sunt mai mult pentru suprafata, pentru comunicare de baza.</li><li><strong>Flexibilitate</strong>: Aplicatiile sunt super flexibile, le folosesti cand vrei, unde vrei. Cursurile traditionale pot avea program fix.</li></ul><p><strong>Verdictul meu</strong>: Nu trebuie sa alegi una singura. Cel mai bine e sa le combini. Foloseste o aplicatie pentru vocabular si pentru a te mentine in contact zilnic cu limba. Apoi, ia un curs online mai serios (gen pe Udemy, la o reducere) care sa-ti explice gramatica. Daca bugetul permite si ai timp, un curs cu profesor e ideal. Dar daca te apuci de <strong>cum sa inveti franceza de la zero</strong>, incepe cu o aplicatie + un curs online accesibil. E o combinatie castigatoare.</p>
+      </section>
+
+      <section id="capcane-la-invatarea-francezei-de-la-zero-si-sfaturi-de-om-pe-bune">
+        <h2>Capcane la invatarea francezei de la zero si sfaturi de om pe bune</h2>
+        <p>Multi se lovesc de aceleasi probleme cand vor sa invete franceza. Stai sa-ti zic din experienta, ca sa nu faci si tu aceleasi greseli.</p><p><strong>Gresala #1: Prea multa gramatica de la inceput</strong>. Vrei sa stii toate regulile, toate timpurile verbelor. Si te blochezi. Nu mai poti sa zici nici "Bonjour". Franceza e o limba melodioasa, sexy. Incearca sa prinzi ritmul, sa inveti fraze uzuale. Gen "Je voudrais un café, s'il vous plaît." Asta te ajuta sa comunici. Gramatica vine pe parcurs, cand incepi sa intelegi unde "greseau" regulile.</p><p><strong>Gresala #2: Necomunicare</strong>. Invata franceza in cap, dar nu o scoate pe gura. Te temi sa nu gresesti. Pff, cine nu greseste la inceput? Eu am avut un cursant care a tinut 6 luni de zile sa zica prima fraza in franceza in fata mea. Na, asta e. Gaseste pe cineva cu cine sa vorbesti. Un prieten, un partener de schimb lingvistic online. Chiar si sa vorbesti singur, sa-ti povestesti ziua in franceza. E mai bine decat nimic.</p><p><strong>Gresala #3: Neexpunere la limba reala</strong>. Te bazezi doar pe manuale. Manualele sunt bune, dar limba vorbita e alta. Asculta muzica, filme, seriale. Chiar si desene animate la inceput. Vei auzi cum vorbesc oamenii pe bune, cu expresii, cu intonatii. Nu te stresa daca nu intelegi tot. Creierul tau absoarbe informatia oricum.</p><p><strong>Gresala #4: Lipsa de consistenta</strong>. Ai inceput cu elan, ai facut 3 zile la rand, apoi ai zis "las, ca am timp weekendul asta". Si vine weekendul si "nope". Nu merge asa. E mai bine 10 minute in fiecare zi. Pune-ti alarma pe telefon. O mica sesiune de franceza dimineata, una seara. Asta te tine conectat.</p><p><strong>Sfaturi de insider pentru <strong>cum sa inveti franceza de la zero</strong></strong>:</p><ul><li><strong>Noteaza cuvintele noi pe hartie</strong>. Da, stiu, suntem in era digitala, dar scrisul de mana ajuta la memorare.</li><li><strong>Foloseste flashcards</strong>. Sunt aplicatii gen Anki, sau poti sa ti le faci singur.</li><li><strong>Nu te teme sa gresesti</strong>. E parte din proces. Mai bine gresit si auzit, decat perfect si nerostit.</li><li><strong>Gaseste-ti o motivatie puternica</strong>. Vrei sa calatoresti in Franta? Sa te uiti la filme frantuzesti fara subtitrare? Sa lucrezi acolo? Tine motivatia asta in fata.</li><li><strong>Fii rabdator</strong>. Invatatul unei limbi dureaza. Nu te astepta la minuni peste o luna. Bucura-te de proces.</li><li><strong>Nu uita de cultura</strong>. Franta e mai mult decat limba. Invata despre mancare, despre istorie, despre arta. Te va ajuta sa intelegi si limba mai bine.</li></ul><p>Pe scurt, fii activ, fii curios si nu te lasa batut de primele dificultati. E un drum, nu o cursa.</p>
+      </section>
+
+      <section id="bugete-pentru-franceza-cat-costa-sa-inveti-de-la-zero">
+        <h2>Bugete pentru franceza: Cat costa sa inveti de la zero?</h2>
+        <p>Hai sa fim sinceri, fiecare are un buget. Si e bine sa stii la ce sa te astepti financiar cand vrei sa inveti franceza de la zero. Nu trebuie sa vinzi rinichiul, dar nici nu te astepta sa fie gratis totul.</p><h3>Buget mic (sub 100 lei/luna)</h3><p>Aici vorbim de resurse gratuite sau foarte ieftine. <strong>Ce cumperi</strong>: probabil o aplicatie cu abonament ieftin (Babbel, uneori la oferta), sau un curs pe Udemy luat la o mega-reducere (30-50 lei, il ai pe viata). <strong>Ce folosesti gratis</strong>: Duolingo, canale de YouTube (FrenchPod101, Learn French with Alexa), podcasturi pentru incepatori, biblioteci online cu carti.</p>
+        <p><strong>Avantaje</strong>: Extrem de accesibil. <strong>Dezavantaje</strong>: Necesita mult auto-disciplina, selectarea resurselor potrivite poate fi o munca in sine, nu ai feedback personalizat.</p><p><strong>Recomandare</strong>: Duolingo + curs Udemy la oferta + mult YouTube. Daca te tii de treaba, poti invata multe.</p><h3>Buget mediu (100-300 lei/luna)</h3><p>Aici deja iti permiti mai multe. <strong>Ce cumperi</strong>: abonament la Babbel plus, poate un alt curs pe Udemy, sau chiar un pachet de lectii online de la o scoala de limbi straine (gen 4-8 lectii pe luna). <strong>Ce folosesti</strong>: Tot ce e la buget mic, plus resurse platite mai bune.</p>
+        <p>Poate un abonament la o platforma de filme cu continut frantuzesc. <strong>Avantaje</strong>: Combinatie buna de structura, interactiune (daca alegi lectii live), motivatie. <strong>Dezavantaje</strong>: Totusi, nu e la nivelul unui curs intensiv cu profesor dedicat.</p><p><strong>Recomandare</strong>: Babbel + cursuri online cu profesori (2-4 pe luna) + materiale gratuite. Sau un curs online mai complet pe o platforma dedicata.</p><h3>Buget mare (peste 300 lei/luna)</h3><p>Aici deja vorbim de seriozitate. <strong>Ce cumperi</strong>: Cursuri intensive la scoli de limbi straine (fizic sau online live), meditatii private cu profesori nativi, abonamente la platforme premium de invatare. <strong>Ce folosesti</strong>: Tot ce ai la bugete inferioare, dar la un nivel mult mai calitativ.</p>
+        <p>Poate chiar excursii de studiu in strainatate. <strong>Avantaje</strong>: Progres rapid, feedback constant, imersiune in limba, cea mai buna baza posibila. <strong>Dezavantaje</strong>: Cost ridicat, necesita timp dedicat.</p><p><strong>Recomandare</strong>: Cursuri la Alliance Francaise sau similar, meditatii private. Daca ai banii si timpul, asta e calea cea mai sigura pentru a invata <strong>cum sa inveti franceza de la zero</strong> si a ajunge la performanta.</p><p>Deci, pana la urma, depinde de tine cat vrei sa investesti si cat timp poti aloca. Poti invata si cu un buget mic, daca esti dedicat. Dar, evident, cu cat investesti mai mult, cu atat progresul poate fi mai rapid si mai solid.</p>
+      </section>
+
+      <section class="faq-section" id="faq">
+        <h2 class="faq-title">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+          </svg>
+          Intrebari Frecvente
+        </h2>
+        
+            <div class="faq-item" id="faq-0">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                cat costa sa inveti franceza de la zero
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                Poti incepe gratuit cu aplicatii precum Duolingo si resurse YouTube. Un abonament la Babbel costa in jur de 30-50 lei/luna, iar cursuri online pe Udemy pot fi gasite la 30-50 lei (o singura plata). Cursurile traditionale pot ajunge la 300-600 lei/luna.
+              </div>
+            </div>
+
+            <div class="faq-item" id="faq-1">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                care e diferenta intre duolingo si babbel pentru franceza
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                Duolingo e gratuit si gamificat, bun pentru vocabular si fraze simple, dar mai putin detaliat gramatical. Babbel costa (abonament lunar), e mai structurat, pune accent pe conversatii reale si ofera explicatii mai clare de gramatica, fiind mai potrivit pentru o baza solida.
+              </div>
+            </div>
+
+            <div class="faq-item" id="faq-2">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                merita sa iau un curs de franceza online pe udemy
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                Absolut, mai ales daca prinzi o oferta. Cursurile pe Udemy sunt foarte accesibile (30-50 lei) si le ai pe viata. Calitatea variaza, deci citeste parerile altor cursanti. Sunt bune pentru a invata gramatica si structuri, dar iti trebuie si alte resurse pentru practica.
+              </div>
+            </div>
+
+            <div class="faq-item" id="faq-3">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                ce aplicatie e mai buna pentru a invata franceza de la zero
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                Pentru inceput, Duolingo e excelent pentru motivatie si vocabular de baza, fiind gratuit. Daca vrei o abordare mai serioasa si explicatii gramaticale, Babbel este o optiune mai buna, desi costa. Multi recomanda o combinatie a ambelor.
+              </div>
+            </div>
+
+            <div class="faq-item" id="faq-4">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                de ce e greu sa inveti franceza?
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                Franceza are o pronuntie diferita de romana, multe reguli gramaticale complexe (conjugari, genuri, acorduri) si o structura a frazei uneori neintuitiva. Asta, combinat cu multe exceptii, o face provocatoare la inceput.
+              </div>
+            </div>
+
+            <div class="faq-item" id="faq-5">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                cum sa inveti franceza rapid fara meditator
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                Combinand aplicatii interactive (Duolingo, Babbel), cursuri online structurate (Udemy), expunere zilnica la limba prin muzica si filme, si practica constanta prin vorbire (chiar si cu tine insuti sau pe platforme de schimb lingvistic).
+              </div>
+            </div>
+
+            <div class="faq-item" id="faq-6">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                unde gasesc cursuri gratuite de franceza online
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                Poti gasi cursuri gratuite pe Duolingo, pe YouTube (canale precum FrenchPod101, Learn French with Alexa), pe site-uri ca MOOC-uri (daca sunt disponibile) sau prin podcasturi dedicate. Calitatea si structura pot varia.
+              </div>
+            </div>
+
+            <div class="faq-item" id="faq-7">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                cat timp dureaza sa inveti franceza de la zero la un nivel conversational
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                Daca studiezi constant (1-2 ore pe zi), poti ajunge la un nivel conversational de baza in 6-12 luni. Un nivel avansat sau fluent necesita 2-3 ani de studiu si practica sustinuta, plus imersiune in limba.
+              </div>
+            </div>
+      </section>
+    </div>
+
+    <div class="author-box">
+      <div class="author-avatar">{author.charAt(0)}</div>
+      <div class="author-info">
+        <h4>{author}</h4>
+        <p class="author-role">{authorRole}</p>
+        <p class="author-bio">{authorBio}</p>
+      </div>
+    </div>
+
+    <SimilarArticles
+      articles={allArticles}
+      currentSlug={slug}
+      currentCategory={category}
+    />
+  </article>
+
+  <Footer />
+  <CookieBanner />
+</Layout>
