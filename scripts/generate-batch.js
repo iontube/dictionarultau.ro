@@ -108,6 +108,16 @@ async function translateToEnglish(text) {
 }
 
 // Generate image using Cloudflare Workers AI
+
+// Strip brand names from image prompt to avoid Cloudflare AI content filter
+function stripBrands(text) {
+  return text
+    .replace(/\b[A-Z][a-z]+[A-Z]\w*/g, '')  // camelCase brands: HyperX, PlayStation
+    .replace(/\b[A-Z]{2,}\b/g, '')            // ALL CAPS: ASUS, RGB, LED
+    .replace(/\s{2,}/g, ' ')                   // collapse double spaces
+    .trim();
+}
+
 async function generateImage(titleRo, slug, categorySlug) {
   const categoryPrompts = {
     'carti-si-dictionare': 'on a wooden desk with warm ambient lighting, cozy study room, books and reading atmosphere',
@@ -119,6 +129,7 @@ async function generateImage(titleRo, slug, categorySlug) {
   console.log(`  Generating image for: ${titleRo}`);
 
   const MAX_IMAGE_RETRIES = 3;
+  let promptFlagged = false;
 
   for (let attempt = 1; attempt <= MAX_IMAGE_RETRIES; attempt++) {
 
@@ -136,7 +147,7 @@ async function generateImage(titleRo, slug, categorySlug) {
     console.log(`  Translated title: ${titleEn}`);
 
     const setting = categoryPrompts[categorySlug] || 'in a modern home setting, soft natural lighting, clean contemporary background';
-    const prompt = `Realistic photograph of ${titleEn} ${setting}, no text, no brand name, no writing, no words, no letters, no numbers. Photorealistic, high quality, professional product photography.`;
+    const prompt = `Realistic photograph of ${promptFlagged ? stripBrands(titleEn) : titleEn} ${setting}, no text, no brand name, no writing, no words, no letters, no numbers. Photorealistic, high quality, professional product photography.`;
 
     const formData = new FormData();
     formData.append('prompt', prompt);
@@ -158,6 +169,7 @@ async function generateImage(titleRo, slug, categorySlug) {
     if (!response.ok) {
       const errorText = await response.text();
       console.error(`  Image API error: ${response.status} - ${errorText.slice(0, 200)}`);
+      if (errorText.includes('flagged')) promptFlagged = true;
       continue;
     }
 
