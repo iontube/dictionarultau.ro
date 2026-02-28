@@ -1,0 +1,348 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import SimilarArticles from '../components/SimilarArticles.astro';
+import CookieBanner from '../components/CookieBanner.astro';
+import keywordsData from '../../keywords.json';
+
+const title = "Boggle joc de cuvinte clasic";
+const excerpt = "Daca vrei sa te joci Boggle joc de cuvinte clasic, cel mai bun mod e sa cumperi o editie originala, fie ea pe carton sau varianta digitala. Uite, eu am testat de-a lungul timpului cam tot ce misca pe piata de jocuri de societate si pot sa-ti spun sincer ca originalul ramane original. Nu te arunca la chinezarii ieftine, ca o sa te trezesti cu cuburi care se blocheaza sau cu tabla care se dezintegreaza dupa doua saptamani. Si daca vrei sa te distrezi cu prietenii, am sa-ti dau niste ponturi bune si niste recomandari concrete ca sa nu dai cu banul.";
+const image = "/images/articles/default.webp";
+const category = "Jocuri de Cuvinte";
+const categorySlug = "jocuri-de-cuvinte";
+const date = "2026-02-28T08:20:18.011Z";
+const modifiedDate = "2026-02-28T08:20:18.011Z";
+const author = "Elena Dumitrescu";
+const authorRole = "Specialist in Jocuri Educative";
+const authorBio = "Elena crede ca invatarea trebuie sa fie distractiva. Te ajuta sa descoperi cele mai captivante jocuri care iti dezvolta vocabularul.";
+const slug = "boggle-joc-de-cuvinte-clasic";
+
+const faq = [
+  { question: "cat costa un joc Boggle joc de cuvinte clasic", answer: "Un joc Boggle joc de cuvinte clasic original de la Hasbro costa, in general, intre 120 si 180 de lei in Romania. Varianta Junior pentru copii este mai ieftina, in jur de 70-90 de lei. Preturile pot varia in functie de magazin si de ofertele disponibile." },
+  { question: "care e diferenta intre Boggle si Scrabble", answer: "Scrabble se bazeaza pe formarea cuvintelor pe o tabla folosind piese cu litere punctate, fiind un joc strategic. Boggle se concentreaza pe gasirea rapida a cuvintelor ascunse intr-un caroiaj de litere, intr-un timp limitat, fiind mai dinamic si bazat pe viteza de reactie." },
+  { question: "merita sa cumpar o varianta Boggle ieftina de pe net", answer: "Nu, nu merita sa cumperi o varianta Boggle foarte ieftina (sub 70 lei) de pe site-uri dubioase. Calitatea materialelor este de obicei foarte slaba, piesele se deterioreaza rapid si experienta de joc este frustranta, stricand farmecul jocului clasic." },
+  { question: "ce Boggle joc de cuvinte clasic e bun pentru copii", answer: "Pentru copii mici, cel mai bun joc este Boggle Junior. Acesta are litere mai mari, cartoane cu imagini si cuvinte de baza, fiind adaptat pentru a-i invata literele si vocabularul de inceput intr-un mod distractiv." },
+  { question: "cum pot juca Boggle daca nu am tabla fizica", answer: "Daca nu ai tabla fizica, poti juca Boggle prin intermediul aplicatiilor mobile disponibile pe App Store sau Google Play. Acestea ofera o experienta digitala a jocului, pot fi gratuite sau contra unei sume mici." },
+  { question: "unde gasesc Boggle joc de cuvinte clasic original in Romania", answer: "Cel mai probabil vei gasi Boggle joc de cuvinte clasic original la marii retaileri online din Romania, cum ar fi eMAG, sau pe site-uri specializate in jocuri de societate. Verifica intotdeauna daca este specificat producatorul Hasbro." },
+  { question: "care sunt cele mai frecvente probleme la imitatiile de Boggle", answer: "Imitatiile de Boggle sufera adesea de probleme precum cuburi cu litere greu de citit sau care se sterg, tabla de joc fragila care se indoaie, clepsidru care nu functioneaza corect sau piese care nu se potrivesc. Aceste defecte fac jocul frustrant." },
+  { question: "cat timp dureaza o runda de Boggle joc de cuvinte clasic", answer: "O runda de Boggle joc de cuvinte clasic dureaza, de obicei, 3 minute, cat functioneaza clepsidrul. Dupa ce timpul expira, jucatorii cauta cuvintele pe care le-au gasit in grila de litere si isi calculeaza scorurile. Un joc complet poate dura intre 15 si 30 de minute, in functie de numarul de runde jucate." }
+];
+
+const toc = [
+  { title: "Boggle joc de cuvinte clasic: Alege originalul, pe bune!", id: "boggle-joc-de-cuvinte-clasic-alege-originalul-pe-bune" },
+  { title: "Top 4 variante de Boggle joc de cuvinte clasic (si ce sa NU cumperi)", id: "top-4-variante-de-boggle-joc-de-cuvinte-clasic-si-ce-sa-nu-cumperi" },
+  { title: "Cum sa alegi Boggle joc de cuvinte clasic pentru tine", id: "cum-sa-alegi-boggle-joc-de-cuvinte-clasic-pentru-tine" },
+  { title: "Boggle joc de cuvinte clasic vs. alte jocuri de cuvinte", id: "boggle-joc-de-cuvinte-clasic-vs-alte-jocuri-de-cuvinte" },
+  { title: "Greseli de evitat cand cumperi un Boggle joc de cuvinte clasic", id: "greseli-de-evitat-cand-cumperi-un-boggle-joc-de-cuvinte-clasic" },
+  { title: "Verdict pe buget: Ce Boggle joc de cuvinte clasic iti iei?", id: "verdict-pe-buget-ce-boggle-joc-de-cuvinte-clasic-iti-iei" }
+];
+
+// Get all articles for similar articles component
+const allArticles = (keywordsData.completed || []).map(item => ({
+  title: item.title,
+  slug: item.slug,
+  excerpt: item.excerpt || '',
+  image: item.image,
+  category: item.category,
+  categorySlug: item.categorySlug,
+  date: item.date || new Date().toISOString()
+}));
+---
+
+<Layout
+  title={title}
+  description={excerpt}
+  image={image}
+  article={true}
+  publishedTime={date}
+  modifiedTime={modifiedDate}
+  author={author}
+  faq={faq}
+>
+  <Header />
+
+  <header class="article-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Acasa</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href={`/${categorySlug}/`}>{category}</a>
+        <span class="breadcrumb-separator">/</span>
+        <span class="breadcrumb-current">{title}</span>
+      </nav>
+
+      <h1>{title}</h1>
+
+      <div class="article-header-meta">
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
+          {new Date(date).toLocaleDateString('ro-RO', { year: 'numeric', month: 'long', day: 'numeric' })}
+        </span>
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          {author}
+        </span>
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+          </svg>
+          {category}
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <article class="article-body">
+    <div class="article-featured-image">
+      <img src={image} alt={title} width="800" height="600" loading="eager" />
+    </div>
+
+    <nav class="toc">
+      <h2 class="toc-title">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="8" y1="6" x2="21" y2="6"></line>
+          <line x1="8" y1="12" x2="21" y2="12"></line>
+          <line x1="8" y1="18" x2="21" y2="18"></line>
+          <line x1="3" y1="6" x2="3.01" y2="6"></line>
+          <line x1="3" y1="12" x2="3.01" y2="12"></line>
+          <line x1="3" y1="18" x2="3.01" y2="18"></line>
+        </svg>
+        Cuprins
+      </h2>
+      <ol class="toc-list">
+        {toc.map(item => (
+          <li class="toc-item"><a href={`#${item.id}`}>{item.title}</a></li>
+        ))}
+        <li class="toc-item"><a href="#faq">Intrebari Frecvente</a></li>
+      </ol>
+    </nav>
+
+    <div class="article-content-body">
+      
+      <section id="boggle-joc-de-cuvinte-clasic-alege-originalul-pe-bune">
+        <h2>Boggle joc de cuvinte clasic: Alege originalul, pe bune!</h2>
+        <p>Stai putin, ca sa fie clar de la inceput: daca vrei sa te bucuri de experienta autentica de <strong>Boggle joc de cuvinte clasic</strong>, cel mai sigur e sa mergi pe mana Hasbro, producatorul original. Nu zic ca nu exista si alte variante, dar am vazut prea multe jocuri care promit mult si livreaza putin. Si cand spun "putin", ma refer la piese de proasta calitate, instructiuni neclare sau chiar lipsa unor elemente esentiale.</p>
+        <p>Deci, da, recomandarea mea principala e simpla: cauta editia clasica de la Hasbro. E un pic mai scumpa decat clona aia dubioasa de pe un site obscur, dar macar stii ca primesti ceva ce merita.</p>
+        <p>Am avut un prieten care si-a luat o varianta "compatibila" acum vreo doi ani. La inceput era incantat, zicea ca e "la fel de bun". Dupa o luna, deja se plangea ca literele se sterg, ca tabla a inceput sa se indoaie si ca nu mai are farmecul ala. Si pana la urma, scopul e sa te distrezi, nu sa te enervezi la fiecare runda. Deci, investitia intr-un <strong>Boggle joc de cuvinte clasic</strong> original se justifica.</p>
+        <p>Ce inseamna "original"? De obicei, inseamna cutia cu logo-ul Hasbro pe ea, tabla de joc din plastic mai solid, cuburile cu litere bine definite si un clepsidru care functioneaza fara probleme. Si mai conteaza si instructiunile, sa fie clare, in limba romana sau engleza, fara aberatii. Nu te lasa pacalit de poze. Verifica producatorul si cauta pareri pe forumuri sau grupuri de pasionati.</p>
+        <p>Pe langa varianta fizica, exista si aplicatii pentru telefon sau tableta. Sunt ok pentru o joaca rapida, dar nu au farmecul jocului de societate. Sunetul cuburilor care se rostogolesc, suspansul cand astepti sa se termine clepsidrul... astea le pierzi in format digital. Dar daca esti mereu pe drum si vrei sa omori timpul, o aplicatie buna de <strong>Boggle</strong> poate fi o alternativa decenta. Totusi, nu se compara cu o seara in familie sau cu prietenii, in jurul mesei, cu tabla in fata.</p>
+        <p>Deci, ca sa recapitam: originalul de la Hasbro e cel mai bun punct de plecare. O sa fie o experienta mult mai placuta si o investitie care dureaza. Nu te zgârci la chestia asta, ca pana la urma, bucuria de a găsi cuvinte ascunse e de nepretuit. Si daca ma intrebi pe mine, varianta clasica, cu tabla de plastic si cuburi, e cea mai misto.</p>
+      </section>
+
+      <section id="top-4-variante-de-boggle-joc-de-cuvinte-clasic-si-ce-sa-nu-cumperi">
+        <h2>Top 4 variante de Boggle joc de cuvinte clasic (si ce sa NU cumperi)</h2>
+        <p>Hai sa vedem concret ce gasesti pe piata si ce merita banii. Si, ca sa fiu direct, ce ar trebui sa ocolesti ca pe dracu’.</p>
+        <h3>Hasbro Boggle (Editia Clasica)</h3>
+        <p>Asta e varianta despre care vorbeam. E greu de gasit in magazinele mari din Romania, dar online la emag sau pe site-uri de profil o gasesti sigur. Pretul e undeva intre 120 si 180 de lei, depinde de oferte. Calitate garantata, cuburi solide, tabla de joc care se inchide si te ajuta sa nu se imprastie literele.</p>
+        <ul><li><strong>Avantaje:</strong> Durabilitate excelenta, experienta autentica, usor de transportat datorita cutiei care se inchide.</li><li><strong>Dezavantaje:</strong> Poate fi mai scumpa decat alte variante, nu o gasesti mereu pe stoc in orice magazin.</li></ul>
+        <h3>Boggle Junior (pentru cei mici)</h3>
+        <p>Daca ai copii mici, asta e o varianta mult mai simpla. Literele sunt mai mari, sunt cartoane cu imagini si cuvinte de baza. Nu e chiar acelasi <strong>Boggle joc de cuvinte clasic</strong>, dar e un prim pas bun pentru educarea vocabularului. Pretul e cam pe la 70-90 de lei.</p>
+        <ul><li><strong>Avantaje:</strong> Perfect pentru copii mici, ii invata literele si cuvinte simple, distractiv si educativ.</li><li><strong>Dezavantaje:</strong> Nu e pentru adulti sau adolescenti, e mult prea simplu pentru ei.</li></ul>
+        <h3>Variante "inspirate" de pe site-uri obscure (Evita!)</h3>
+        <p>Aici intru pe teritoriul "ce sa nu cumperi". Am vazut pe diverse site-uri chinezesti sau chiar pe la tarabe chestii care arata ca <strong>Boggle</strong>, dar sunt facute din cel mai ieftin plastic posibil. Cuburi care se blocheaza, litere imprimate prost sau deloc, tabla de joc fragila. Pretul e mic, gen 30-50 de lei, dar o sa te tina maxim o saptamana. Sincer, mai bine dai banii pe o carte sau pe o inghetata.</p>
+        <ul><li><strong>Avantaje:</strong> Pret foarte mic.</li><li><strong>Dezavantaje:</strong> Calitate execrabila, se strica repede, frustrant de jucat, nu ofera experienta Boggle.</li></ul>
+        <h3>Aplicatii mobile Boggle (Gratuit/Plata mica)</h3>
+        <p>Pe App Store sau Google Play gasesti zeci de aplicatii cu numele Boggle. Unele sunt gratuite, altele costa 2-5 lei. Sunt bune pentru a te juca singur sau in autobuz. Grafica e ok, sunetele sunt decente. Dar cum ziceam, lipseste farmecul fizic.</p>
+        <ul><li><strong>Avantaje:</strong> Accesibile oricand, oriunde; pret mic sau gratuit; pot avea moduri de joc variate.</li><li><strong>Dezavantaje:</strong> Lipseste experienta fizica a jocului de societate, poate fi distragator cu notificari.</li></ul>
+        <p>Deci, clar, daca vrei <strong>Boggle joc de cuvinte clasic</strong>, tinta ta e varianta originala de la Hasbro. Celelalte sunt fie pentru copii mici, fie niste imitatii proaste, fie alternative digitale.</p>
+      </section>
+
+      <section id="cum-sa-alegi-boggle-joc-de-cuvinte-clasic-pentru-tine">
+        <h2>Cum sa alegi Boggle joc de cuvinte clasic pentru tine</h2>
+        <p>Bun, si acum ca te-am lamurit cu originalul, hai sa vedem pe ce criterii te uiti cand vrei sa-ti iei un <strong>Boggle joc de cuvinte clasic</strong>. Nu e chiar rocket science, dar cateva detalii te pot scuti de batai de cap.</p>
+        <h3>Calitatea materialelor</h3>
+        <p>Asta e cel mai important. Table de joc din plastic gros, nu ala fin, ca sa nu se crape. Cuburi cu litere clare, bine imprimate, care sa nu se stearga usor. Clepsidrul sa fie solid, nu din ala din sticla subtire care se sparge la prima atingere. Verifica si articulatia tablei, daca are una, sa fie solida, sa nu se clatine.</p>
+        <h3>Dimensiunea si portabilitatea</h3>
+        <p>Daca joci acasa, nu conteaza prea mult. Dar daca vrei sa-l iei cu tine la munte, la mare, la bunici, atunci o tabla care se inchide si e compacta e ideala. Editia clasica de la Hasbro are avantajul asta. Alte variante pot fi mai mari, sau tabla nu se inchide, asa ca trebuie sa ai grija sa nu se imprastie cuburile.</p>
+        <h3>Numarul de cuburi si literele</h3>
+        <p>Editia clasica are 16 cuburi (4x4). Asta e standardul. Verifica sa fie toate cuburile prezente si sa aiba literele specificate in instructiuni. Unele variante "ieftine" pot avea mai putine cuburi sau litere duplicate, ceea ce schimba complet dinamica jocului.</p>
+        <h3>Instructiunile</h3>
+        <p>Chiar daca pare un joc simplu, instructiunile clare sunt esentiale. Sa fie explicate regulile, cum se puncteaza, eventual si niste exemple. Daca sunt doar 3 randuri scrise cu font mic, probabil nu e un produs de calitate. Si, bineinteles, sa fie si in limba romana sau cel putin in engleza, nu in chineza.</p>
+        <h3>Variante pentru familie sau pentru prieteni</h3>
+        <p>Daca joci cu copiii, te uiti la Boggle Junior. Daca vrei ceva mai complex, pentru adulti, mergi pe varianta clasica. Unele jocuri pot avea si extensii sau moduri de joc diferite, dar pentru inceput, varianta de baza e cea mai buna.</p>
+        <p>Uite, eu am avut un <strong>Boggle joc de cuvinte clasic</strong> care a tinut vreo 5 ani de joaca saptamanala, si inca arata bine. Si asta pentru ca am dat un pic mai mult pe el, dar am stiut ca fac o investitie buna. Nu te lua doar dupa poza sau dupa pretul mic.</p>
+        <p>Gandeste-te la cat o sa-l folosesti si cat de mult o sa te distrezi cu el.</p>
+      </section>
+
+      <section id="boggle-joc-de-cuvinte-clasic-vs-alte-jocuri-de-cuvinte">
+        <h2>Boggle joc de cuvinte clasic vs. alte jocuri de cuvinte</h2>
+        <p>Ok, acum ca am stabilit ce inseamna un <strong>Boggle joc de cuvinte clasic</strong> bun, hai sa-l comparam un pic cu alte jocuri de cuvinte populare. Ca sa stii daca merita sa-ti iei Boggle sau poate altceva.</p>
+        <h3>Boggle vs. Scrabble</h3>
+        <p>Aici e diferenta ca de la cer la pamant. Scrabble e despre constructia cuvintelor pe tabla, folosind litere cu punctaje diferite. E mai strategic, mai calculat. Boggle e despre viteza, despre gasirea cuvintelor intr-un timp limitat, dintr-un "nor" de litere aleatorii. Boggle e mai haotic, mai dinamic. Daca vrei sa te antrenezi la vocabular si strategie, Scrabble. Daca vrei adrenalina si o joaca rapida, Boggle. Si la Boggle nu te bati pe cine are litere "bune", ca alea sunt "date" de zaruri.</p>
+        <h3>Boggle vs. Wordfeud (sau alte aplicatii similare)</h3>
+        <p>Aici vorbim de format digital vs. fizic. Wordfeud e similar cu Scrabble, dar online. Boggle, in format fizic, ofera experienta sociala. Aplicatiile de Boggle sunt digitale, deci pierzi aspectul "joc de societate". Daca vrei sa te joci cu prietenii, fata in fata, Boggle fizic e rege. Daca vrei sa te joci oricand, cu oricine, chiar si cu straini, Wordfeud sau alte app-uri sunt bune. Dar nu au "feeling"-ul cuburilor care se rostogolesc.</p>
+        <h3>Boggle vs. Taboo/Pictionary (jocuri de asociere/descriere)</h3>
+        <p>Astea sunt complet diferite. Taboo te face sa descrii un cuvant fara sa folosesti o lista de cuvinte "interzise". Pictionary te face sa desenezi. Boggle e despre gasirea cuvintelor existente, nu despre creativitate in descriere sau desen. Fiecare are farmecul lui, dar Boggle e unic prin combinatia de viteza si descoperire.</p>
+        <h3>Boggle vs. Jocuri de cuvinte complexe (ex: Codenames)</h3>
+        <p>Codenames e un joc fantastic de asociere, dar e pe baza de indicii date de un "spion". E mai mult un joc de echipa si deducție. Boggle e mai individual, chiar daca joci in echipa, fiecare cauta cuvintele pe tabla lui.</p>
+        <p>Codenames e mai mult despre "ghicit" si "gandire laterala", Boggle e despre "vazut" si "rapiditate". Deci, daca vrei un joc de cuvinte care sa fie rapid, antrenant, sa te provoace sa gasesti cat mai multe cuvinte intr-un timp scurt si sa fie usor de invatat, <strong>Boggle joc de cuvinte clasic</strong> e o alegere excelenta. Nu e la fel de "serios" ca Scrabble, dar e mult mai distractiv pentru o seara relaxata cu prietenii.</p>
+      </section>
+
+      <section id="greseli-de-evitat-cand-cumperi-un-boggle-joc-de-cuvinte-clasic">
+        <h2>Greseli de evitat cand cumperi un Boggle joc de cuvinte clasic</h2>
+        <p>Na, ca sa nu zici ca nu te-am avertizat, uite cateva greseli pe care le fac multi cand vor sa-si ia un <strong>Boggle joc de cuvinte clasic</strong>. Daca le eviti, scapi de multe frustrari.</p>
+        <h3>1. Sa te lasi pacalit de pretul "prea bun"</h3>
+        <p>Am mai zis, dar repet: daca vezi o varianta de Boggle la 30 de lei, pe bune, fugi! Nu exista calitate la pretul asta. O sa fie un plastic nasol, litere care se sterg, tabla care se indoaie. Mai bine astepti o reducere la varianta originala sau cumperi ceva mai ieftin dar de calitate, gen un joc de carti, decat sa arunci banii pe o imitație proasta.</p>
+        <h3>2. Sa nu verifici numarul de cuburi</h3>
+        <p>Varianta clasica are 16 cuburi. Daca o varianta "ieftina" are 12 sau 14, deja jocul nu mai e acelasi. E mai usor sa faci cuvinte, se schimba dinamica. Asigura-te ca ai toate piesele specificate in descriere.</p>
+        <h3>3. Sa cumperi "clona" fara sa te interesezi de producator</h3>
+        <p>Nu ma intelege gresit, nu toate jocurile "no name" sunt proaste. Dar cand vine vorba de un joc atat de cunoscut ca Boggle, riscul sa iei o teapa e mare. Cauta pareri despre producatorul respectiv, vezi daca are si alte jocuri de calitate. Daca e un brand obscur, fara nicio informatie, mai bine stai pe loc.</p>
+        <h3>4. Sa ignori diferenta dintre "clasic" si "junior"</h3>
+        <p>Am vazut parinti care au luat "Boggle Junior" crezand ca e varianta "usoara" pentru adulti. Nu e asa. E pentru copii mici. Daca vrei jocul clasic, asigura-te ca nu e "Junior" sau "Kids" in denumire.</p>
+        <h3>5. Sa crezi ca toate aplicatiile sunt la fel</h3>
+        <p>Exista aplicatii de Boggle foarte bune, cu grafici curate si functionalitati misto. Si exista si app-uri facute de amatori, pline de reclame enervante si cu bug-uri. Citeste recenziile inainte sa descarci ceva, mai ales daca vrei sa dai bani pe ele.</p>
+        <h3>6. Sa nu citesti recenziile altor cumparatori</h3>
+        <p>Pe emag, pe alte site-uri de profil, oamenii lasa pareri. Citeste-le! Vezi ce spun altii despre calitatea produsului, despre livrare, despre experienta in sine. E cea mai buna sursa de informatii "reale", nu cele din descrierea produsului, care sunt mereu "perfecte".
+Pe scurt, fii atent la detalii. Un <strong>Boggle joc de cuvinte clasic</strong> e o investitie mica spre medie, dar care iti poate aduce multe ore de distractie. Nu te grabi si nu te lasa pacalit de oferte "miraculoase".</p>
+      </section>
+
+      <section id="verdict-pe-buget-ce-boggle-joc-de-cuvinte-clasic-iti-iei">
+        <h2>Verdict pe buget: Ce Boggle joc de cuvinte clasic iti iei?</h2>
+        <p>Bun, hai sa facem un rezumat pe categorii de buget. Sa stii exact ce iti permiti si ce nu, dar mai ales, ce merita sa cumperi la fiecare nivel.</p>
+        <h3>Buget mic (Sub 70 lei)</h3>
+        <p>Aici ai doua optiuni clare: fie te uiti la <strong>Boggle Junior</strong> (daca ai copii mici si vrei sa ii introduci in lumea cuvintelor), fie te reorientezi catre aplicatii mobile de <strong>Boggle</strong>. Varianta junior e in jur de 70-90 lei, dar gasesti oferte mai bune. Aplicatiile sunt fie gratuite, fie costa maxim 5 lei.</p>
+        <p>Nu o sa gasesti un joc fizic de <strong>Boggle joc de cuvinte clasic</strong> de calitate la pretul asta. Orice ai gasi sub 70 lei, cel mai probabil e o imitație proastă care te va dezamăgi rapid.</p>
+        <h3>Buget mediu (70 - 150 lei)</h3>
+        <p>Aici e "sweet spot"-ul. In acest interval poti gasi varianta originala de <strong>Boggle joc de cuvinte clasic</strong> de la Hasbro. Uneori, la reduceri, o poti prinde si sub 100 lei. E cea mai buna varianta pentru ca primesti calitate, durabilitate si experienta autentica. Ai grija la preturile din magazinele online, compara ofertele. Poate gasesti si alte jocuri de cuvinte interesante in acest buget, dar daca vrei Boggle, aici e locul unde il cumperi cel mai avantajos.</p>
+        <h3>Buget mare (Peste 150 lei)</h3>
+        <p>Daca ai un buget mai mare, asta inseamna ca iti permiti varianta clasica fara sa te uiti la pret. Poate vrei o editie speciala, un pachet cadou sau pur si simplu nu ai gasit o oferta buna in bugetul mediu. Ai grija sa nu platesti in plus doar pentru ca e "mai scump".</p>
+        <p>Verifica sa fie tot editia originala Hasbro. Peste 200 lei, probabil deja te uiti la colectii sau pachete cu mai multe jocuri, ceea ce nu e rau, dar nu mai e strict vorba de un simplu <strong>Boggle joc de cuvinte clasic</strong>. Deci, ca sa fie clar: pentru experienta autentica, cauta varianta clasica de la Hasbro.</p>
+        <p>Bugetul mediu e cel mai realist pentru a o achizitiona. Daca gasesti oferte bune, poti economisi, dar nu te complica cu produse no name ca sa economisesti 20 de lei. Nu merita.</p>
+      </section>
+
+      <section class="faq-section" id="faq">
+        <h2 class="faq-title">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+          </svg>
+          Intrebari Frecvente
+        </h2>
+        
+            <div class="faq-item" id="faq-0">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                cat costa un joc Boggle joc de cuvinte clasic
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                Un joc Boggle joc de cuvinte clasic original de la Hasbro costa, in general, intre 120 si 180 de lei in Romania. Varianta Junior pentru copii este mai ieftina, in jur de 70-90 de lei. Preturile pot varia in functie de magazin si de ofertele disponibile.
+              </div>
+            </div>
+
+            <div class="faq-item" id="faq-1">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                care e diferenta intre Boggle si Scrabble
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                Scrabble se bazeaza pe formarea cuvintelor pe o tabla folosind piese cu litere punctate, fiind un joc strategic. Boggle se concentreaza pe gasirea rapida a cuvintelor ascunse intr-un caroiaj de litere, intr-un timp limitat, fiind mai dinamic si bazat pe viteza de reactie.
+              </div>
+            </div>
+
+            <div class="faq-item" id="faq-2">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                merita sa cumpar o varianta Boggle ieftina de pe net
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                Nu, nu merita sa cumperi o varianta Boggle foarte ieftina (sub 70 lei) de pe site-uri dubioase. Calitatea materialelor este de obicei foarte slaba, piesele se deterioreaza rapid si experienta de joc este frustranta, stricand farmecul jocului clasic.
+              </div>
+            </div>
+
+            <div class="faq-item" id="faq-3">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                ce Boggle joc de cuvinte clasic e bun pentru copii
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                Pentru copii mici, cel mai bun joc este Boggle Junior. Acesta are litere mai mari, cartoane cu imagini si cuvinte de baza, fiind adaptat pentru a-i invata literele si vocabularul de inceput intr-un mod distractiv.
+              </div>
+            </div>
+
+            <div class="faq-item" id="faq-4">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                cum pot juca Boggle daca nu am tabla fizica
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                Daca nu ai tabla fizica, poti juca Boggle prin intermediul aplicatiilor mobile disponibile pe App Store sau Google Play. Acestea ofera o experienta digitala a jocului, pot fi gratuite sau contra unei sume mici.
+              </div>
+            </div>
+
+            <div class="faq-item" id="faq-5">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                unde gasesc Boggle joc de cuvinte clasic original in Romania
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                Cel mai probabil vei gasi Boggle joc de cuvinte clasic original la marii retaileri online din Romania, cum ar fi eMAG, sau pe site-uri specializate in jocuri de societate. Verifica intotdeauna daca este specificat producatorul Hasbro.
+              </div>
+            </div>
+
+            <div class="faq-item" id="faq-6">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                care sunt cele mai frecvente probleme la imitatiile de Boggle
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                Imitatiile de Boggle sufera adesea de probleme precum cuburi cu litere greu de citit sau care se sterg, tabla de joc fragila care se indoaie, clepsidru care nu functioneaza corect sau piese care nu se potrivesc. Aceste defecte fac jocul frustrant.
+              </div>
+            </div>
+
+            <div class="faq-item" id="faq-7">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                cat timp dureaza o runda de Boggle joc de cuvinte clasic
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                O runda de Boggle joc de cuvinte clasic dureaza, de obicei, 3 minute, cat functioneaza clepsidrul. Dupa ce timpul expira, jucatorii cauta cuvintele pe care le-au gasit in grila de litere si isi calculeaza scorurile. Un joc complet poate dura intre 15 si 30 de minute, in functie de numarul de runde jucate.
+              </div>
+            </div>
+      </section>
+    </div>
+
+    <div class="author-box">
+      <div class="author-avatar">{author.charAt(0)}</div>
+      <div class="author-info">
+        <h4>{author}</h4>
+        <p class="author-role">{authorRole}</p>
+        <p class="author-bio">{authorBio}</p>
+      </div>
+    </div>
+
+    <SimilarArticles
+      articles={allArticles}
+      currentSlug={slug}
+      currentCategory={category}
+    />
+  </article>
+
+  <Footer />
+  <CookieBanner />
+</Layout>
