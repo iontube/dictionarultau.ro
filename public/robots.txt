@@ -2,4 +2,3 @@ User-agent: *
 Allow: /
 
 Sitemap: https://dictionarultau.ro/sitemap-index.xml
-Sitemap: https://dictionarultau.ro/sitemap-images.xml
