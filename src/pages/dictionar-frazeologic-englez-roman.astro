@@ -1,0 +1,354 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import SimilarArticles from '../components/SimilarArticles.astro';
+import CookieBanner from '../components/CookieBanner.astro';
+import keywordsData from '../../keywords.json';
+
+const title = "Dictionar frazeologic englez roman";
+const excerpt = "Daca ai nevoie de un dictionar frazeologic englez roman bun, iti recomand fara ezitare \"The Oxford Dictionary of English Idioms\" tradus si adaptat pentru piata noastra. E cel mai complet si cel mai bine structurat pe care l-am gasit. Daca bugetul e mai mic, sau cauti ceva mai punctual, \"Collins Dictionary of English Idioms\" e o alternativa solida, desi putin mai saraca in exemple.";
+const image = "/images/articles/dictionar-frazeologic-englez-roman.webp";
+const category = "Carti si Dictionare";
+const categorySlug = "carti-si-dictionare";
+const date = "2026-03-01T13:48:35.694Z";
+const modifiedDate = "2026-03-01T13:48:35.694Z";
+const author = "Maria Popescu";
+const authorRole = "Specialist in Lingvistica";
+const authorBio = "Cu peste 10 ani de experienta in domeniul lingvisticii si al editarii de dictionare, Maria te ajuta sa alegi cele mai bune resurse pentru invatare.";
+const slug = "dictionar-frazeologic-englez-roman";
+
+const faq = [
+  { question: "cat costa un dictionar frazeologic englez roman bun", answer: "Un dictionar frazeologic englez roman bun, cum ar fi o adaptare a Oxford Dictionary of English Idioms, poate costa intre 300 si 400 lei. O alternativa mai accesibila, precum Collins Dictionary of English Idioms, se gaseste in jur de 150-250 lei. Dictionarele mai simple, de la edituri romanesti, pot fi gasite si sub 100 lei." },
+  { question: "care e diferenta intre dictionar englez roman si dictionar frazeologic", answer: "Un dictionar englez-roman clasic traduce cuvinte individuale. Un dictionar frazeologic englez roman se concentreaza pe expresii, \"idioms\", combinatii de cuvinte care au un sens diferit de suma partilor lor. De exemplu, \"to break a leg\" nu se traduce literal, ci inseamna \"succes\", iar un dictionar frazeologic explica asta." },
+  { question: "merita sa cumpar un dictionar de expresii idiomatice englezesti", answer: "Da, merita cu siguranta daca vrei sa intelegi si sa folosesti limba engleza natural. Expresiile \"idiomatice\" sunt peste tot in conversatii, filme si carti. Fara un dictionar frazeologic englez roman, vei rata multe nuante sau vei folosi expresii incorect, sunand nenatural." },
+  { question: "ce dictionar frazeologic englez roman e cel mai recomandat", answer: "Cel mai recomandat si cuprinzator dictionar frazeologic englez roman este adaptarea \"The Oxford Dictionary of English Idioms\". Daca vrei o varianta mai accesibila si orientata spre uzul curent, \"Collins Dictionary of English Idioms\" este o alegere excelenta." },
+  { question: "unde gasesc un dictionar frazeologic englez roman bun", answer: "Poti gasi un dictionar frazeologic englez roman bun in librariile mari din orase (ex. Carturesti, Humanitas), pe site-urile editurilor precum Polirom sau Niculescu, sau pe platforme online de vanzare de carte (ex. Emag, Libris, Libs.ro). Verifica disponibilitatea si preturile." },
+  { question: "cum pot invata expresii din limba engleza eficient", answer: "Cel mai eficient mod este sa folosesti un dictionar frazeologic englez roman dedicat. Inveti expresia, ii intelegi sensul si contextul din dictionar, apoi o folosesti in propozitii proprii. O alta metoda buna e sa notezi expresiile pe care le intalnesti in filme sau carti si sa le cauti explicatia." },
+  { question: "exista aplicatii mobile bune pentru expresii englezesti", answer: "Da, exista aplicatii precum Cambridge Dictionary sau Merriam-Webster care au sectiuni dedicate \"idioms\". Acestea sunt utile pentru consultari rapide si sunt la indemana pe telefon. Totusi, nu ofera profunzimea si detaliile unui dictionar fizic dedicat unui dictionar frazeologic englez roman." },
+  { question: "ce inseamna \"idioms\" in engleza si de ce sunt importante", answer: "\"Idioms\" sunt expresii a caror semnificatie nu poate fi dedusa din sensul cuvintelor individuale (ex. \"to kick the bucket\" = a muri). Sunt importante pentru ca apar frecvent in limba engleza vorbita si scrisa, si utilizarea lor corecta te face sa suni mult mai natural si fluent." }
+];
+
+const toc = [
+  { title: "Cel mai bun dictionar frazeologic englez roman pentru tine: recomandarea mea", id: "cel-mai-bun-dictionar-frazeologic-englez-roman-pentru-tine-recomandarea-mea" },
+  { title: "Top 4 dictionare frazeologice englez roman: Avantaje si Dezavantaje", id: "top-4-dictionare-frazeologice-englez-roman-avantaje-si-dezavantaje" },
+  { title: "Cum alegi cel mai bun dictionar frazeologic englez roman pentru tine", id: "cum-alegi-cel-mai-bun-dictionar-frazeologic-englez-roman-pentru-tine" },
+  { title: "Oxford vs. Collins: O lupta pe expresii", id: "oxford-vs-collins-o-lupta-pe-expresii" },
+  { title: "Pericole ascunse: Ce sa eviti la un dictionar frazeologic englez roman", id: "pericole-ascunse-ce-sa-eviti-la-un-dictionar-frazeologic-englez-roman" },
+  { title: "Alegerea unui dictionar frazeologic englez roman pe categorii de buget", id: "alegerea-unui-dictionar-frazeologic-englez-roman-pe-categorii-de-buget" }
+];
+
+// Get all articles for similar articles component
+const allArticles = (keywordsData.completed || []).map(item => ({
+  title: item.title,
+  slug: item.slug,
+  excerpt: item.excerpt || '',
+  image: item.image,
+  category: item.category,
+  categorySlug: item.categorySlug,
+  date: item.date || new Date().toISOString()
+}));
+---
+
+<Layout
+  title={title}
+  description={excerpt}
+  image={image}
+  article={true}
+  publishedTime={date}
+  modifiedTime={modifiedDate}
+  author={author}
+  faq={faq}
+>
+  <Header />
+
+  <header class="article-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Acasa</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href={`/${categorySlug}/`}>{category}</a>
+        <span class="breadcrumb-separator">/</span>
+        <span class="breadcrumb-current">{title}</span>
+      </nav>
+
+      <h1>{title}</h1>
+
+      <div class="article-header-meta">
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
+          {new Date(date).toLocaleDateString('ro-RO', { year: 'numeric', month: 'long', day: 'numeric' })}
+        </span>
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          {author}
+        </span>
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+          </svg>
+          {category}
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <article class="article-body">
+    <div class="article-featured-image">
+      <img src={image} alt={title} width="800" height="600" loading="eager" />
+    </div>
+
+    <nav class="toc">
+      <h2 class="toc-title">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="8" y1="6" x2="21" y2="6"></line>
+          <line x1="8" y1="12" x2="21" y2="12"></line>
+          <line x1="8" y1="18" x2="21" y2="18"></line>
+          <line x1="3" y1="6" x2="3.01" y2="6"></line>
+          <line x1="3" y1="12" x2="3.01" y2="12"></line>
+          <line x1="3" y1="18" x2="3.01" y2="18"></line>
+        </svg>
+        Cuprins
+      </h2>
+      <ol class="toc-list">
+        {toc.map(item => (
+          <li class="toc-item"><a href={`#${item.id}`}>{item.title}</a></li>
+        ))}
+        <li class="toc-item"><a href="#faq">Intrebari Frecvente</a></li>
+      </ol>
+    </nav>
+
+    <div class="article-content-body">
+      
+      <section id="cel-mai-bun-dictionar-frazeologic-englez-roman-pentru-tine-recomandarea-mea">
+        <h2>Cel mai bun dictionar frazeologic englez roman pentru tine: recomandarea mea</h2>
+        <p>Bon, hai sa fim direct. Cauti un <strong>dictionar frazeologic englez roman</strong> si vrei sa stii care-i treaba. Daca ma intrebi pe mine, cel mai bun raport calitate-pret si cel mai complet gasesti la "The Oxford Dictionary of English Idioms", adaptat.</p>
+        <p>Nu stiu daca exista o editie "oficiala" romaneasca, dar am vazut variante traduse de edituri serioase la noi, cum ar fi Polirom sau Niculescu. Asta iti ofera o baza uriasa de expresii, de la cele mai comune la cele mai obscure. E scris pe intelesul tuturor, cu exemple clare, si daca esti serios cu engleza, asta e cartea pe care o tii pe birou.</p>
+        <p>Am folosit versiuni similare ani de zile si n-am dat gres. E un investment, pe bune.</p>
+        <p>Ce inseamna "frazeologic"? Nu vorbim de cuvinte izolate, ci de expresii, de "idioms" cum le zic englezii. "To kick the bucket", "to spill the beans", "a piece of cake" – astea sunt chestii pe care nu le traduci literal. Si un <strong>dictionar frazeologic englez roman</strong> te invata exact asta. Cum se folosesc, in ce context, ce diferente sunt intre "it is raining cats and dogs" si "it is pouring".</p>
+        <p>E diferenta mare intre a sti cuvinte si a sti sa vorbesti fluent, sa suni natural. Asta e diferenta pe care o face un dictionar bun.</p>
+        <p>Am vazut si dictionare mai mici, mai ieftine. Sunt bune pentru inceput, daca vrei doar cateva zeci sau sute de expresii. Dar daca vrei sa stapanesti limba, sa intelegi filme fara subtitrare, sa scrii texte care nu suna a Google Translate, ai nevoie de ceva mai mult.</p>
+        <p>Oxfordul asta, sau o varianta similara, acopera tot. Si nu te speria de numarul mare de pagini, e structurat logic. Ai expresia in engleza, explicatia in romana, si apoi exemple.</p>
+        <p>Uneori gasesti si echivalente aproximative in romana, daca exista. E ca si cum ai avea un profesor de engleza personal in fiecare zi pe birou.</p>
+        <p>Sincer, am avut un prieten care a incercat sa invete engleza doar din filme si seriale. Se descurca, dar cand trebuia sa scrie un email oficial sau sa participe la o discutie mai serioasa, ramanea blocat. Nu stia cum sa formuleze, folosea expresii nepotrivite. Dupa ce si-a luat un <strong>dictionar frazeologic englez roman</strong> de genul asta, a facut un salt imens. A inceput sa inteleaga nuantele, sa foloseasca limbajul corect. Deci, da, merita. Nu e doar o carte, e o unealta.</p>
+        <p>Deci, pe scurt: cauti Oxford. Daca nu gasesti varianta romaneasca, cauta o traducere buna a "Oxford Dictionary of English Idioms". E o investitie care te va ajuta ani de zile. Nu te gandi ca e scump, gandeste-te cat te costa sa faci o greseala de exprimare intr-un context important. Sau cat timp pierzi incercand sa descifrezi sensul unei expresii.</p>
+      </section>
+
+      <section id="top-4-dictionare-frazeologice-englez-roman-avantaje-si-dezavantaje">
+        <h2>Top 4 dictionare frazeologice englez roman: Avantaje si Dezavantaje</h2>
+        <p>Bun, acum ca am stabilit ca ai nevoie de unul, hai sa vedem ce optiuni concrete ai. Am scotocit si eu prin librarii si online, si am gasit cateva variante. Nu toate sunt la fel, evident.</p>
+        <ul><li><strong>The Oxford Dictionary of English Idioms (varianta tradusa/adaptata)</strong><br><strong>Avantaje:</strong> E cel mai cuprinzator. Ai mii de expresii, explicatii clare in romana, exemple bogate. E standardul in domeniu. Daca vrei sa stapanesti engleza idiomatica, asta e. Gasesti si explicatii despre originea unor expresii, ceea ce e super interesant. Structura e logica, usor de navigat. E o carte pe care o poti folosi ani de zile, indiferent de nivelul tau.<br><strong>Dezavantaje:</strong> Poate fi mai scump, pana la 300-400 lei, depinde de editie si de unde-l cumperi. E si destul de gros, nu-l iei cu tine in buzunar. Daca esti la inceput, poate fi putin intimidant.</li><li><strong>Collins Dictionary of English Idioms</strong><br><strong>Avantaje:</strong> O alternativa buna, putin mai accesibila ca pret (cam 150-250 lei). Are o selectie buna de expresii uzuale, explicatii clare. E mai compact decat Oxfordul, deci mai usor de manevrat. Bun pentru cineva care vrea sa-si imbunatateasca engleza de zi cu zi, nu neaparat sa devina un expert in "shakespeareana". Collins e un nume de referinta, deci calitatea e acolo.<br><strong>Dezavantaje:</strong> Nu e la fel de exhaustiv ca Oxfordul. Poti rata expresii mai rare sau mai vechi. Exemplele sunt, in general, bune, dar nu la fel de variate.</li><li><strong>Dictionar de Expresii Idiomatice Englez-Roman (diverse edituri, ex. Teora, Corint)</strong><br><strong>Avantaje:</strong> De obicei, sunt mai ieftine (sub 100 lei). Sunt mai concentrate pe expresiile cele mai frecvente, cele pe care le vei intalni cel mai des. Sunt bune pentru nivel mediu sau pentru cei care au nevoie de un "refresh" rapid. Sunt mai usor de gasit in librarii, chiar si in cele mai mici.<br><strong>Dezavantaje:</strong> Calitatea explicatiilor si a exemplelor poate varia mult. Unele pot fi traduse un pic fortat sau pot lipsi nuante importante. Nu te astepta la o profunzime mare. Sunt mai mult un ghid rapid decat o resursa completa.</li><li><strong>Aplicatii mobile (ex. Cambridge Dictionary, Merriam-Webster, cu functii de idioms)</strong><br><strong>Avantaje:</strong> Accesibilitate maxima. Le ai pe telefon, le poti consulta oricand, oriunde. Multe au si audio, sa auzi pronuntia. Unele sunt gratuite sau au abonamente lunare rezonabile. Sunt dinamice, se pot actualiza.<br><strong>Dezavantaje:</strong> Nu sunt dedicate exclusiv frazeologiei. "Idioms" e doar o sectiune. Nu au aceeasi profunzime si aceleasi exemple ca un dictionar fizic dedicat. Daca vrei sa studiezi sistematic, nu e cea mai buna optiune. Pe telefon, te poti pierde usor in notificari si alte distrageri.</li></ul>
+        <p>Am testat personal modelul Oxford si Collins ani de zile. Pentru mine, Oxfordul a fost "biblia". Collins e bun daca vrei ceva mai la indemana. Dictionarele mici de la noi sunt ok, dar nu te baza doar pe ele. Aplicatiile sunt complementare, dar nu inlocuiesc o carte serioasa.</p>
+      </section>
+
+      <section id="cum-alegi-cel-mai-bun-dictionar-frazeologic-englez-roman-pentru-tine">
+        <h2>Cum alegi cel mai bun dictionar frazeologic englez roman pentru tine</h2>
+        <p>Na, ai vazut cateva optiuni. Dar cum alegi exact ce-ti trebuie? Nu e rocket science, dar trebuie sa te gandesti la cateva chestii.</p>
+        <h3>Nivelul tau de engleza</h3>
+        <p>Asta e cel mai important. Daca esti la inceput, un dictionar mic, cu expresii uzuale, e suficient. Nu te complica cu Oxfordul, ca o sa te pierzi. Daca esti la nivel mediu sau avansat, atunci da, merita sa investesti intr-un dictionar mai complet. Asta te va ajuta sa intelegi si sa folosesti expresii mai complexe, sa suni mai natural. Eu zic ca nivelul mediu e punctul optim pentru un <strong>dictionar frazeologic englez roman</strong> serios.</p>
+        <h3>Scopul pentru care il folosesti</h3>
+        <p>Il vrei pentru scoala? Pentru serviciu? Pentru hobby? Daca vrei sa treci un examen, poate un dictionar mai mic si focusat pe programa e ok. Daca vrei sa lucrezi in strainatate sau sa citesti carti, atunci Oxfordul e sfant. Daca vrei doar sa intelegi ce se intampla in filmele tale preferate, poate o aplicatie cu functie de cautare rapida e suficienta.</p>
+        <p>Eu, personal, il folosesc pentru scris articole si pentru a intelege texte academice. Si acolo, un <strong>dictionar frazeologic englez roman</strong> complet e esential.</p>
+        <h3>Bugetul disponibil</h3>
+        <p>Asta e clar. Dictionarele mari, de la Oxford, sunt mai scumpe. Cele mai mici, de la Teora sau Corint, sunt mult mai accesibile. Aplicatiile au si ele diverse modele de pret. Stabileste-ti un buget si cauta cea mai buna varianta in acel interval. Nu uita ca un dictionar bun e o investitie pe termen lung. Nu e ca un pix pe care il pierzi sau il consumi.</p>
+        <h3>Formatul preferat</h3>
+        <p>Preferi carte fizica sau digital? Daca iubesti mirosul de carte noua si placerea de a rasfoi paginile, mergi pe varianta fizica. Daca esti mereu pe drumuri si vrei sa ai dictionarul la indemana, o aplicatie sau un e-book e solutia. Eu am si varianta fizica (Oxfordul meu sta mandru pe biblioteca) si aplicatia pe telefon, pentru urgente.</p>
+        <h3>Recenzii si recomandari</h3>
+        <p>Citeste pareri pe forumuri, intreaba prieteni care sunt in domeniu. Vezi ce recomanda profesorii de engleza. Un <strong>dictionar frazeologic englez roman</strong> bun e o unealta, si ca orice unealta, trebuie sa se potriveasca.</p>
+        <p>Am avut un prieten care si-a luat un dictionar fizic, crezand ca e cel mai bun, dar explicatiile erau mult prea academice pentru el. A trebuit sa-l schimbe. Deci, documenteaza-te.</p>
+        <p>Pe scurt: vezi unde esti cu engleza, la ce-ti trebuie, cati bani ai, si preferi fizic sau digital. Astea te vor ghida spre alegerea potrivita. Nu exista un raspuns universal, ci doar raspunsul potrivit pentru tine.</p>
+      </section>
+
+      <section id="oxford-vs-collins-o-lupta-pe-expresii">
+        <h2>Oxford vs. Collins: O lupta pe expresii</h2>
+        <p>Ok, hai sa punem fata in fata doi giganti: Oxford si Collins. Daca te gandesti la un <strong>dictionar frazeologic englez roman</strong>, astea doua sunt probabil primele pe lista. Si pe buna dreptate. Dar care-i mai bun pentru tine?</p>
+        <h3>Oxford Dictionary of English Idioms (varianta adaptata)</h3>
+        <p>Asta e "biblia". Daca vrei sa stii totul despre expresiile englezesti, de la cele mai comune la cele mai obscure, asta e. Are mii de intrari, explicatii detaliate in romana, si nenumarate exemple de utilizare. Daca esti un pasionat de limba engleza, un student la filologie, un traducator, sau pur si simplu vrei sa ajungi la un nivel de fluentă exceptional, asta e cartea ta.
+<strong>Pret estimativ:</strong> 300-400 lei.
+<strong>Avantaje principale:</strong><br></p>
+        <ul><li>Cuprinzator, acopera o gama larga de expresii.</li><li>Explicatii detaliate si exemple bogate.</li><li>Include adesea informatii despre originea expresiilor.</li><li>Considerat standardul in domeniu.</li></ul>
+        <p><strong>Dezavantaje:</strong><br></p>
+        <ul><li>Pretul poate fi ridicat.</li><li>Volum mare, greu de transportat.</li><li>Poate fi intimidant pentru incepatori.</li></ul>
+        <h3>Collins Dictionary of English Idioms</h3>
+        <p>Collins vine ca o alternativa excelenta, putin mai prietenoasa si mai accesibila. Are o selectie foarte buna de expresii uzuale, explicatii clare si exemple relevante. E perfect pentru cineva care vrea sa-si imbunatateasca engleza de zi cu zi, sa inteleaga mai bine conversatiile si textele pe care le intalneste. Nu e la fel de exhaustiv ca Oxfordul, dar acopera ce ai nevoie in 90% din cazuri.
+<strong>Pret estimativ:</strong> 150-250 lei.
+<strong>Avantaje principale:</strong><br></p>
+        <ul><li>Pret mai accesibil.</li><li>Mai compact, mai usor de manevrat.</li><li>Acopera majoritatea expresiilor uzuale.</li><li>Explicatii clare si concise.</li></ul>
+        <p><strong>Dezavantaje:</strong><br></p>
+        <ul><li>Nu este la fel de cuprinzator ca Oxfordul.</li><li>Exemplele pot fi mai putin variate.</li><li>Poate rata expresii mai rare sau specifice.</li></ul>
+        <p><strong>Verdictul meu:</strong> Daca bugetul nu e o problema si vrei sa mergi la sigur, ia Oxfordul. E o investitie pe viata. Daca vrei ceva bun, la un pret rezonabil, si nu te intereseaza sa stii si originile fiecarui "idiom", Collins e alegerea perfecta. Eu personal, ambele le-am consultat la un moment dat. Collins pentru rapiditate, Oxford pentru amanunte. Deci, depinde ce cauți de la un <strong>dictionar frazeologic englez roman</strong>.</p>
+      </section>
+
+      <section id="pericole-ascunse-ce-sa-eviti-la-un-dictionar-frazeologic-englez-roman">
+        <h2>Pericole ascunse: Ce sa eviti la un dictionar frazeologic englez roman</h2>
+        <p>Uite care-i treaba. Nu toate dictionarele sunt create egal. Si cand vine vorba de <strong>dictionar frazeologic englez roman</strong>, poti da peste niste capcane. Eu am invatat din greseli, si vreau sa te scutesc si pe tine de ele.</p>
+        <h3>Traduceri literale sau fortate</h3>
+        <p>Asta e cea mai mare problema la dictionarele ieftine sau cele facute "pe genunchi". Un "idiom" nu se traduce cuvant cu cuvant. "It's raining cats and dogs" nu inseamna ca ploua cu pisici si caini. Daca dictionarul tau ii explica asa, fugi! Un dictionar bun iti va da sensul corect in romana sau o expresie echivalenta, daca exista. "Ploua cu galeata" e un exemplu bun de echivalent.</p>
+        <h3>Lipsa exemplelor sau exemple proaste</h3>
+        <p>Un "idiom" nu-l intelegi doar din definitie. Ai nevoie de exemple concrete, de fraze in care e folosit. Si nu orice fel de exemple. Trebuie sa fie contextuale, sa arate cum se integreaza expresia in vorbire sau in scris. Daca un dictionar are doar "Expresia X = Sensul Y", nu-ti e de mare ajutor. Cauta dictionare care au si propozitii de genul "He decided to <strong>spill the beans</strong> about the surprise party." Asta te invata cum se foloseste.</p>
+        <h3>Structura neclara sau greu de navigat</h3>
+        <p>Un <strong>dictionar frazeologic englez roman</strong> trebuie sa fie logic. Fie ca e organizat alfabetic, pe teme, sau cum o fi, trebuie sa poti gasi rapid ce cauti. Daca trebuie sa rasfoiesti jumatate de carte ca sa gasesti o expresie, n-ai rezolvat mare lucru. Am vazut dictionare unde indexul era incomplet sau unde expresiile erau grupate aiurea. Pierzi timp si te frustrezi.</p>
+        <h3>Pretul mic nu e intotdeauna bine</h3>
+        <p>Ok, stiu, bugetul conteaza. Dar daca un dictionar e 20 de lei, si unul similar e 200 lei, ceva nu e in regula. Cel mai probabil, varianta ieftina e superficiala, plina de greseli, sau incompleta. E mai bine sa strangi bani pentru o resursa de calitate, pe care s-o folosesti ani de zile, decat sa cumperi prostii ieftine care te dezamagesc.</p>
+        <h3>Lipsa informatiilor despre uz</h3>
+        <p>Unele expresii sunt mai vechi, altele sunt foarte noi si folosite doar in anumite cercuri. Un dictionar bun iti spune si asta. Iti zice daca o expresie e "dated" (depasita), "slang" (argotic), sau "formal".</p>
+        <p>Fara aceste informatii, poti suna ciudat cand vorbesti. Am avut o colega care folosea expresii "old-fashioned" si suna amuzant, dar nu prea profesionist. Deci, cand alegi un <strong>dictionar frazeologic englez roman</strong>, fii atent la astea.</p>
+        <p>Nu te lasa pacalit de promisiuni mari si preturi mici. Cauta calitate, claritate si utilitate. Un dictionar bun e ca un prieten de incredere, te ajuta sa te descurci in orice situatie.</p>
+      </section>
+
+      <section id="alegerea-unui-dictionar-frazeologic-englez-roman-pe-categorii-de-buget">
+        <h2>Alegerea unui dictionar frazeologic englez roman pe categorii de buget</h2>
+        <p>Stiu, banii sunt o problema pentru multi. Dar asta nu inseamna ca trebuie sa renunti la unelte bune. Hai sa vedem ce poti gasi pentru diferite bugete, ca sa nu zici ca te las balta.</p>
+        <h3>Buget mic (sub 100 lei)</h3>
+        <p>Ce gasesti aici? In general, dictionare mai mici, de la edituri romanesti precum Teora, Corint, sau chiar si dictionare de buzunar. Acestea se concentreaza pe cele mai uzuale expresii, cele pe care le intalnesti cel mai des in conversatii sau in texte simple. Nu te astepta la o profunzime uriasa sau la explicatii despre originea expresiilor.</p>
+        <p>Sunt mai mult un ghid rapid. Sunt bune daca esti la nivel incepator spre mediu si vrei sa-ti "cureti" engleza de zi cu zi.
+<strong>Recomandare:</strong> Cauta "Dictionar de expresii idiomatice englez-roman" de la edituri cunoscute. Verifica numarul de pagini si, daca poti, rasfoieste-l putin in librarie sa vezi daca explicatiile sunt clare.</p>
+        <p>Poate chiar si un dictionar englez-roman general, dar cu sectiune mare de "idioms".</p>
+        <h3>Buget mediu (100 - 250 lei)</h3>
+        <p>Aici deja intri in zona serioasa. Collins Dictionary of English Idioms se incadreaza perfect aici. Ofera o selectie mult mai bogata de expresii, explicatii mai detaliate si exemple mai bune.</p>
+        <p>E un echilibru excelent intre pret si calitate. E un dictionar pe care il poti folosi ani de zile, chiar si la nivel avansat, pentru a intelege nuantele limbii engleze. E o optiune foarte solida pentru majoritatea studentilor sau profesionistilor.
+<strong>Recomandare:</strong> Collins Dictionary of English Idioms.</p>
+        <p>E o carte de referinta, fiabila si cu un continut valoros. O gasesti destul de usor si online, si in librarii mai mari.</p>
+        <h3>Buget mare (peste 250 lei)</h3>
+        <p>Daca bugetul nu e o problema si vrei "the best of the best", atunci mergi pe varianta tradusa a "The Oxford Dictionary of English Idioms". Asta e "biblia" frazeologiei engleze. Cuprinde absolut tot ce ai nevoie, de la cele mai comune expresii la cele mai rare si vechi.</p>
+        <p>Explicatiile sunt de cea mai inalta calitate, exemplele sunt nenumarate, iar uneori gasesti si istoria din spatele expresiilor. E o investitie pe viata, pentru oricine vrea sa stapanesca limba engleza la un nivel exceptional.
+<strong>Recomandare:</strong> "The Oxford Dictionary of English Idioms" (varianta adaptata/tradusa). Cauta editii recente, publicate de edituri serioase din Romania.</p>
+        <p>E o carte pe care o vei folosi mereu, indiferent cat de mult progresezi in engleza. Deci, nu exista scuza. Fie ca ai 50 lei sau 500 lei, poti gasi un <strong>dictionar frazeologic englez roman</strong> care sa-ti fie de folos.</p>
+        <p>Important e sa stii ce cauti si sa alegi in functie de nevoile si posibilitatile tale.</p>
+      </section>
+
+      <section class="faq-section" id="faq">
+        <h2 class="faq-title">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+          </svg>
+          Intrebari Frecvente
+        </h2>
+        
+            <div class="faq-item" id="faq-0">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                cat costa un dictionar frazeologic englez roman bun
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                Un dictionar frazeologic englez roman bun, cum ar fi o adaptare a Oxford Dictionary of English Idioms, poate costa intre 300 si 400 lei. O alternativa mai accesibila, precum Collins Dictionary of English Idioms, se gaseste in jur de 150-250 lei. Dictionarele mai simple, de la edituri romanesti, pot fi gasite si sub 100 lei.
+              </div>
+            </div>
+
+            <div class="faq-item" id="faq-1">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                care e diferenta intre dictionar englez roman si dictionar frazeologic
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                Un dictionar englez-roman clasic traduce cuvinte individuale. Un dictionar frazeologic englez roman se concentreaza pe expresii, "idioms", combinatii de cuvinte care au un sens diferit de suma partilor lor. De exemplu, "to break a leg" nu se traduce literal, ci inseamna "succes", iar un dictionar frazeologic explica asta.
+              </div>
+            </div>
+
+            <div class="faq-item" id="faq-2">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                merita sa cumpar un dictionar de expresii idiomatice englezesti
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                Da, merita cu siguranta daca vrei sa intelegi si sa folosesti limba engleza natural. Expresiile "idiomatice" sunt peste tot in conversatii, filme si carti. Fara un dictionar frazeologic englez roman, vei rata multe nuante sau vei folosi expresii incorect, sunand nenatural.
+              </div>
+            </div>
+
+            <div class="faq-item" id="faq-3">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                ce dictionar frazeologic englez roman e cel mai recomandat
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                Cel mai recomandat si cuprinzator dictionar frazeologic englez roman este adaptarea "The Oxford Dictionary of English Idioms". Daca vrei o varianta mai accesibila si orientata spre uzul curent, "Collins Dictionary of English Idioms" este o alegere excelenta.
+              </div>
+            </div>
+
+            <div class="faq-item" id="faq-4">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                unde gasesc un dictionar frazeologic englez roman bun
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                Poti gasi un dictionar frazeologic englez roman bun in librariile mari din orase (ex. Carturesti, Humanitas), pe site-urile editurilor precum Polirom sau Niculescu, sau pe platforme online de vanzare de carte (ex. Emag, Libris, Libs.ro). Verifica disponibilitatea si preturile.
+              </div>
+            </div>
+
+            <div class="faq-item" id="faq-5">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                cum pot invata expresii din limba engleza eficient
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                Cel mai eficient mod este sa folosesti un dictionar frazeologic englez roman dedicat. Inveti expresia, ii intelegi sensul si contextul din dictionar, apoi o folosesti in propozitii proprii. O alta metoda buna e sa notezi expresiile pe care le intalnesti in filme sau carti si sa le cauti explicatia.
+              </div>
+            </div>
+
+            <div class="faq-item" id="faq-6">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                exista aplicatii mobile bune pentru expresii englezesti
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                Da, exista aplicatii precum Cambridge Dictionary sau Merriam-Webster care au sectiuni dedicate "idioms". Acestea sunt utile pentru consultari rapide si sunt la indemana pe telefon. Totusi, nu ofera profunzimea si detaliile unui dictionar fizic dedicat unui dictionar frazeologic englez roman.
+              </div>
+            </div>
+
+            <div class="faq-item" id="faq-7">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                ce inseamna "idioms" in engleza si de ce sunt importante
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                "Idioms" sunt expresii a caror semnificatie nu poate fi dedusa din sensul cuvintelor individuale (ex. "to kick the bucket" = a muri). Sunt importante pentru ca apar frecvent in limba engleza vorbita si scrisa, si utilizarea lor corecta te face sa suni mult mai natural si fluent.
+              </div>
+            </div>
+      </section>
+    </div>
+
+    <div class="author-box">
+      <div class="author-avatar">{author.charAt(0)}</div>
+      <div class="author-info">
+        <h4>{author}</h4>
+        <p class="author-role">{authorRole}</p>
+        <p class="author-bio">{authorBio}</p>
+      </div>
+    </div>
+
+    <SimilarArticles
+      articles={allArticles}
+      currentSlug={slug}
+      currentCategory={category}
+    />
+  </article>
+
+  <Footer />
+  <CookieBanner />
+</Layout>

@@ -342,14 +342,20 @@
       "categorySlug": "jocuri-de-cuvinte",
       "date": "2026-02-28T08:20:18.011Z",
       "author": "Elena Dumitrescu"
+    },
+    {
+      "keyword": "Dictionar frazeologic englez roman",
+      "title": "Dictionar frazeologic englez roman",
+      "slug": "dictionar-frazeologic-englez-roman",
+      "excerpt": "Daca ai nevoie de un dictionar frazeologic englez roman bun, iti recomand fara ezitare \"The Oxford Dictionary of English Idioms\" tradus si adaptat pentru piata noastra. E cel mai complet si cel mai bine structurat pe care l-am gasit. Daca bugetul e mai mic, sau cauti ceva mai punctual, \"Collins Dictionary of English Idioms\" e o alternativa solida, desi putin mai saraca in exemple.",
+      "image": "/images/articles/dictionar-frazeologic-englez-roman.webp",
+      "category": "Carti si Dictionare",
+      "categorySlug": "carti-si-dictionare",
+      "date": "2026-03-01T13:48:35.694Z",
+      "author": "Maria Popescu"
     }
   ],
   "pending": [
-    {
-      "keyword": "Dictionar frazeologic englez roman",
-      "category": "Carti si Dictionare",
-      "categorySlug": "carti-si-dictionare"
-    },
     {
       "keyword": "Dictionar tehnic englez roman pentru ingineri",
       "category": "Carti si Dictionare",
