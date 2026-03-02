@@ -353,6 +353,17 @@
       "categorySlug": "carti-si-dictionare",
       "date": "2026-03-01T13:48:35.694Z",
       "author": "Maria Popescu"
+    },
+    {
+      "keyword": "Cum sa inveti spaniola rapid",
+      "title": "Cum sa inveti spaniola rapid",
+      "slug": "cum-sa-inveti-spaniola-rapid",
+      "excerpt": "Vrei sa inveti spaniola rapid? Cel mai eficient e sa combini un curs intensiv online cu imersiune zilnica. Cauta cursuri cu profesori nativi sau cu experienta mare, care folosesc metode interactive. Ai nevoie de cel putin 2-3 ore dedicate zilnic, plus expunere constanta la limba.",
+      "image": "/images/articles/cum-sa-inveti-spaniola-rapid.webp",
+      "category": "Invatare Limbi Straine",
+      "categorySlug": "invatare-limbi-straine",
+      "date": "2026-03-02T14:18:52.069Z",
+      "author": "Alexandru Ionescu"
     }
   ],
   "pending": [
@@ -440,11 +451,6 @@
       "keyword": "Dictionar de rime pentru poezie",
       "category": "Carti si Dictionare",
       "categorySlug": "carti-si-dictionare"
-    },
-    {
-      "keyword": "Cum sa inveti spaniola rapid",
-      "category": "Invatare Limbi Straine",
-      "categorySlug": "invatare-limbi-straine"
     },
     {
       "keyword": "Cum sa inveti italiana pentru vacanta",
