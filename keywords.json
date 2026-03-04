@@ -364,6 +364,17 @@
       "categorySlug": "invatare-limbi-straine",
       "date": "2026-03-02T14:18:52.069Z",
       "author": "Alexandru Ionescu"
+    },
+    {
+      "keyword": "Codenames joc de societate pareri",
+      "title": "Codenames joc de societate pareri",
+      "slug": "codenames-joc-de-societate-pareri",
+      "excerpt": "Daca ma intrebi pe mine, Codenames joc de societate pareri sunt in marea lor majoritate pozitive. E un joc genial, simplu de invatat, dar care te pune pe ganduri si te face sa razi cu prietenii. Merita sa-l ai in colectie.",
+      "image": "/images/articles/default.webp",
+      "category": "Jocuri de Cuvinte",
+      "categorySlug": "jocuri-de-cuvinte",
+      "date": "2026-03-04T14:11:59.303Z",
+      "author": "Elena Dumitrescu"
     }
   ],
   "pending": [
@@ -621,11 +632,6 @@
       "keyword": "Dispozitive pentru invatare limbi straine",
       "category": "Electronice Educative",
       "categorySlug": "electronice-educative"
-    },
-    {
-      "keyword": "Codenames joc de societate pareri",
-      "category": "Jocuri de Cuvinte",
-      "categorySlug": "jocuri-de-cuvinte"
     },
     {
       "keyword": "Dixit joc creativ cu cuvinte",
