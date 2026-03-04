@@ -5,6 +5,7 @@ import Footer from '../components/Footer.astro';
 import SimilarArticles from '../components/SimilarArticles.astro';
 import CookieBanner from '../components/CookieBanner.astro';
 import keywordsData from '../../keywords.json';
+import PrevNextNav from '../components/PrevNextNav.astro';
 
 const title = "Cum sa inveti spaniola rapid";
 const excerpt = "Vrei sa inveti spaniola rapid? Cel mai eficient e sa combini un curs intensiv online cu imersiune zilnica. Cauta cursuri cu profesori nativi sau cu experienta mare, care folosesc metode interactive. Ai nevoie de cel putin 2-3 ore dedicate zilnic, plus expunere constanta la limba.";
@@ -143,14 +144,14 @@ const allArticles = (keywordsData.completed || []).map(item => ({
         <p>Ca sa inveti spaniola rapid, ai nevoie de instrumente bune. Nu toate cursurile sunt create egal, si nici aplicatiile. Am scotocit si am vazut ce e pe piata, si uite ce am gasit ca merita atentia.</p>
         <p><strong>Cursuri Online Interactive (Buget Mediu: 300-600 lei/luna)</strong></p>
         <p>Aici ma gandesc la platforme gen Italki, Preply sau Verbling. Nu sunt cursuri structurate in sensul clasic, ci mai degraba piata unde gasesti profesori particulari, multi nativi. Poti lua lectii de 30, 45 sau 60 de minute.</p>
-        <p>Pentru invatare rapida, iti recomand sa iei minim 2-3 lectii pe saptamana, cate 45-60 de minute fiecare. Pretul per ora variaza mult, de la 30 lei la 100+ lei, depinde de experienta profesorului. Un pret mediu ar fi 50-60 lei/ora.</p>
+        <p><a href="/casti-pentru-invatare-limbi-straine/" class="interlink">Pentru invatare</a> rapida, iti recomand sa iei minim 2-3 lectii pe saptamana, cate 45-60 de minute fiecare. Pretul per ora variaza mult, de la 30 lei la 100+ lei, depinde de experienta profesorului. Un pret mediu ar fi 50-60 lei/ora.</p>
         <p>Deci, 3 lectii/saptamana = aprox. 600-720 lei/luna.</p>
         <p>Avantaje: Flexibilitate maxima, poti alege profesorul, te concentrezi pe ce ai tu nevoie (conversatie, gramatica etc.). Profesorii nativi iti dau pronuntia corecta. Dezavantaje: Necesita disciplina sa iti programezi singur orele, poti da peste profesori mai putin inspirati daca nu alegi cu grija. Nu e un curs structurat de la A la Z, trebuie sa iti construiesti tu parcursul.</p>
         <p><strong>Aplicatii de Limbaj (Buget Mic: 50-150 lei/an abonament premium)</strong></p>
-        <p>Duolingo, Babbel, Memrise sunt bune pentru inceput si pentru vocabular. Babbel e mai serios, cu lectii mai structurate pe gramatica si conversatie. Duolingo e gratuit la baza, dar cu reclame si limitari. Memrise e bun pentru memorat cuvinte prin spaced repetition. Pentru invatare rapida, ele singure nu sunt suficiente.</p>
+        <p><a href="/duolingo-pareri-si-experienta-personala/">Duolingo</a>, Babbel, Memrise sunt bune pentru inceput si pentru vocabular. Babbel e mai serios, cu lectii mai structurate pe gramatica si conversatie. Duolingo e gratuit la baza, dar cu reclame si limitari. Memrise e bun pentru memorat cuvinte prin spaced repetition. Pentru invatare rapida, ele singure nu sunt suficiente.</p>
         <p>Avantaje: Accesibile, poti invata oricand, oriunde. Bun pentru consolidare si vocabular. Dezavantaje: Nu te invata sa vorbesti fluent, nu ofera feedback pe pronuntie sau pe constructia frazei ca un profesor real. Sunt mai mult un companion.</p>
         <p><strong>Cursuri Intensive Fizice (Buget Mare: 800-1500 lei/luna)</strong></p>
-        <p>Daca ai posibilitatea sa mergi la un centru de limbi straine care ofera cursuri intensive, cu 4-5 ore pe zi, 5 zile pe saptamana, asta e ideal pentru viteza. Multe scoli organizeaza astfel de programe, mai ales vara. Cauta scoli cu profesori buni si grupuri mici.</p>
+        <p>Daca ai posibilitatea sa mergi la un centru de <a href="/mondly-aplicatie-pentru-invatat-limbi-straine/">limbi straine</a> care ofera cursuri intensive, cu 4-5 ore pe zi, 5 zile pe saptamana, asta e ideal pentru viteza. Multe scoli organizeaza astfel de programe, mai ales vara. Cauta scoli cu profesori buni si grupuri mici.</p>
         <p>Avantaje: Imersiune completa, structura rigida care te tine in priza, interactivitate mare cu colegii. Dezavantaje: Costisitor, necesita prezenta fizica zilnica, mai putina flexibilitate.</p>
         <p><strong>Resurse Gratuite (Buget Zero, dar necesita timp)</strong></p>
         <p>YouTube e plin de canale gen "SpanishDict", "Butterfly Spanish", "Why Not Spanish?". Podcasturi ca "Coffee Break Spanish" sau "Notes in Spanish". Radio-uri spaniole online. Ziare online (El Pais, El Mundo). Toate astea sunt resurse excelente, dar trebuie sa stii ce sa cauti si cum sa le integrezi in rutina ta. Fara un cadru, te poti pierde in ele.</p>
@@ -180,7 +181,7 @@ const allArticles = (keywordsData.completed || []).map(item => ({
 <strong>Cursuri Online (Ex: Italki, Preply, Babbel)</strong>
 <em>Pret:</em> 300 - 800 lei/luna (pentru lectii regulate cu profesori buni)
 <em>Avantaje:</em></p>
-        <ul><li>Flexibilitate imensa: inveti cand si de unde vrei.</li><li>Acces la vorbitori nativi din toata lumea.</li><li>Poti alege specific ce vrei sa studiezi (conversatie, gramatica, pregatire examen).</li><li>Costuri adesea mai mici decat cursurile fizice, mai ales daca alegi profesori din tari mai ieftine.</li><li>Poti testa mai multi profesori pana il gasesti pe cel potrivit.</li></ul>
+        <ul><li>Flexibilitate imensa: inveti cand si de unde vrei.</li><li>Acces la vorbitori nativi din toata lumea.</li><li>Poti alege specific ce vrei sa studiezi (conversatie, gramatica, <a href="/carti-pentru-pregatire-examen-cambridge/" class="interlink">pregatire examen</a>).</li><li>Costuri adesea mai mici decat cursurile fizice, mai ales daca alegi profesori din tari mai ieftine.</li><li>Poti testa mai multi profesori pana il gasesti pe cel potrivit.</li></ul>
         <p><em>Dezavantaje:</em></p>
         <ul><li>Necesita auto-disciplina sporita. Nu te impinge nimeni fizic sa te conectezi.</li><li>Interactivitatea poate fi limitata de tehnologie (conexiune slaba, probleme audio).</li><li>Mai greu sa creezi legaturi puternice cu colegii de curs, ceea ce poate reduce motivatia.</li><li>Nu ai imersiunea fizica intr-un mediu vorbitor de limba.</li></ul>
         <p><strong>Cursuri Fizice Intensive (Ex: Centre de limbi straine)</strong>
@@ -226,12 +227,12 @@ Pe langa materialele didactice, cauta sa te expui la spaniola reala: muzica, fil
         <p>Hai sa fim realisti, bugetul conteaza. Dar asta nu inseamna ca nu poti invata spaniola rapid daca ai un buget mic. Totul e sa stii unde sa aloci resursele si efortul.
 <strong>Buget Mic (Sub 150 lei/luna):</strong>
 Aici vorbim de resurse gratuite sau abonamente foarte ieftine. Cheia este autodisciplina si creativitatea ta. Foloseste la maxim:</p>
-        <ul><li><strong>Aplicatii gratuite:</strong> Duolingo (cu rabdare), Memrise (pentru vocabular).</li><li><strong>YouTube:</strong> Canale dedicate invatarii spaniolei (SpanishDict, Butterfly Spanish, Why Not Spanish?). Cauta "aprende español rápido".</li><li><strong>Podcasturi:</strong> "Coffee Break Spanish", "Notes in Spanish" (versurile pentru incepatori).</li><li><strong>Biblioteci online si site-uri de stiri:</strong> El Pais, El Mundo (pentru a citi).</li><li><strong>Schimba limba telefonului/calculatorului in spaniola.</strong></li><li><strong>Gaseste un partener de conversatie gratuit</strong> pe platforme gen Tandem sau HelloTalk.</li></ul>
+        <ul><li><strong>Aplicatii gratuite:</strong> Duolingo (cu rabdare), Memrise (pentru vocabular).</li><li><strong>YouTube:</strong> Canale dedicate invatarii spaniolei (SpanishDict, Butterfly Spanish, Why Not Spanish?). Cauta "aprende español rápido".</li><li><strong>Podcasturi:</strong> "Coffee Break Spanish", "Notes in Spanish" (versurile <a href="/dictionar-german-roman-pentru-incepatori/" class="interlink">pentru incepatori</a>).</li><li><strong>Biblioteci online si site-uri de stiri:</strong> El Pais, El Mundo (pentru a citi).</li><li><strong>Schimba limba telefonului/calculatorului in spaniola.</strong></li><li><strong>Gaseste un partener de conversatie gratuit</strong> pe platforme gen Tandem sau HelloTalk.</li></ul>
         <p><strong>Ce sa eviti/faci:</strong> Nu te baza doar pe o singura sursa. Combina 3-4 resurse. Dedica minim 1-2 ore zilnic. Fii pregatit sa exersezi mult singur si sa cauti activ interactiunea.
 <strong>Buget Mediu (150 - 500 lei/luna):</strong>
 Aici iti permiti deja sa investesti in profesori si cursuri mai structurate. Opteaza pentru:</p>
         <ul><li><strong>Abonament premium la o aplicatie mai serioasa:</strong> Babbel (aprox. 100-150 lei/luna).</li><li><strong>Lectii online cu profesori particulari:</strong> Pe platforme ca Italki sau Preply, poti gasi profesori la 40-60 lei/ora. Doua lectii pe saptamana te duc pe la 320-480 lei/luna. Concentreaza-te pe conversatie.</li><li><strong>Cursuri online de grup cu preturi accesibile.</strong></li></ul>
-        <p><strong>Ce sa faci:</strong> Prioritizeaza lectiile cu profesori care te pot corecta si ghida. Integreaza si resurse gratuite pentru vocabular si ascultare. Mentine o rutina zilnica de studiu.
+        <p><strong>Ce sa faci:</strong> Prioritizeaza lectiile cu profesori care te pot corecta si ghida. Integreaza si resurse <a href="/unde-gasesti-carti-gratuite-pentru-kindle/" class="interlink">gratuite pentru</a> vocabular si ascultare. Mentine o rutina zilnica de studiu.
 <strong>Buget Mare (Peste 500 lei/luna):</strong>
 Aici ai acces la cele mai bune resurse si la cea mai intensiva imersiune.</p>
         <ul><li><strong>Lectii private intensive cu profesori nativi de top:</strong> Pe Italki/Preply, poti lua lectii zilnice cu profesori experimentati (60-100+ lei/ora). 3-4 ore pe saptamana te duc peste 600-1000 lei/luna.</li><li><strong>Cursuri intensive fizice:</strong> Daca exista in orasul tau, acestea pot fi o optiune excelenta (800-1500 lei/luna).</li><li><strong>Tabere de limba straina:</strong> Daca ai posibilitatea, o saptamana sau doua intr-o tabara de limba spaniola e cea mai rapida metoda, dar si cea mai scumpa.</li></ul>
@@ -293,7 +294,7 @@ Aici ai acces la cele mai bune resurse si la cea mai intensiva imersiune.</p>
                 </svg>
               </button>
               <div class="faq-answer">
-                Pentru incepatori, Babbel este o optiune foarte buna datorita lectiilor structurate care acopera gramatica si conversatia. Duolingo este excelent pentru a incepe gratuit si pentru a invata vocabular de baza, insa poate fi mai putin eficient pentru structuri complexe. Memrise e util pentru memorarea cuvintelor.
+                Pentru incepatori, Babbel este o optiune foarte buna datorita lectiilor structurate care acopera gramatica si conversatia. <a href="/babbel-versus-duolingo-care-e-mai-bun/">Duolingo</a> este excelent pentru a incepe gratuit si pentru a invata vocabular de baza, insa poate fi mai putin eficient pentru structuri complexe. Memrise e util pentru memorarea cuvintelor.
               </div>
             </div>
 
@@ -360,6 +361,12 @@ Aici ai acces la cele mai bune resurse si la cea mai intensiva imersiune.</p>
       articles={allArticles}
       currentSlug={slug}
       currentCategory={category}
+    />
+
+    <PrevNextNav
+      currentSlug={slug}
+      currentCategory={categorySlug}
+      articles={allArticles}
     />
   </article>
 
