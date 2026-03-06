@@ -464,11 +464,6 @@
       "categorySlug": "carti-si-dictionare"
     },
     {
-      "keyword": "Cum sa inveti italiana pentru vacanta",
-      "category": "Invatare Limbi Straine",
-      "categorySlug": "invatare-limbi-straine"
-    },
-    {
       "keyword": "Metoda de invatare prin repetitie spatiata",
       "category": "Invatare Limbi Straine",
       "categorySlug": "invatare-limbi-straine"
@@ -732,6 +727,11 @@
       "keyword": "Dictionar italian roman pentru calatorii",
       "category": "Carti si Dictionare",
       "categorySlug": "carti-si-dictionare"
+    },
+    {
+      "keyword": "Cum sa inveti italiana pentru vacanta",
+      "category": "Invatare Limbi Straine",
+      "categorySlug": "invatare-limbi-straine"
     }
   ]
 }
