@@ -702,8 +702,9 @@ function createArticlePage(keyword, content, imagePath, category, categorySlug, 
     (function(){
       const outer = document.getElementById('comparison-outer');
       if(outer){
-        const wrap = outer.querySelector('.comparison-wrap');
+        const wrap = /** @type {HTMLElement|null} */ (outer.querySelector('.comparison-wrap'));
         function checkScroll(){
+          if(!wrap) return;
           if(wrap.scrollWidth > wrap.clientWidth + 2) outer.classList.add('can-scroll');
           else outer.classList.remove('can-scroll');
         }
@@ -715,7 +716,7 @@ function createArticlePage(keyword, content, imagePath, category, categorySlug, 
     (function(){
       const tocLinks = document.querySelectorAll('.toc-item a');
       if(!tocLinks.length) return;
-      const ids = Array.from(tocLinks).map(a => a.getAttribute('href').replace('#',''));
+      const ids = Array.from(tocLinks).map(a => (a.getAttribute('href') || '').replace('#',''));
       const observer = new IntersectionObserver(entries => {
         entries.forEach(e => {
           if(e.isIntersecting){
