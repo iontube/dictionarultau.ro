@@ -725,9 +725,9 @@ function createArticlePage(keyword, content, imagePath, category, categorySlug, 
       const observer = new IntersectionObserver(entries => {
         entries.forEach(e => {
           if(e.isIntersecting){
-            tocLinks.forEach(a => a.parentElement.classList.remove('active'));
+            tocLinks.forEach(a => a.parentElement?.classList.remove('active'));
             const match = Array.from(tocLinks).find(a => a.getAttribute('href') === '#' + e.target.id);
-            if(match) match.parentElement.classList.add('active');
+            if(match) match.parentElement?.classList.add('active');
           }
         });
       }, {rootMargin: '-20% 0px -60% 0px'});
