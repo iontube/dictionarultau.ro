@@ -735,7 +735,7 @@ function createArticlePage(keyword, content, imagePath, category, categorySlug, 
     })();
   </script>`;
 
-  const pageContent = `---
+  let pageContent = `---
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
