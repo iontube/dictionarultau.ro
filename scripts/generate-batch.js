@@ -448,7 +448,9 @@ ${interlinkList}` : ''}`;
           await sleep(2000);
         }
       } else {
-        console.error('  No content in response');
+        const blockReason = data.candidates?.[0]?.finishReason || data.promptFeedback?.blockReason || 'unknown';
+        console.error(`  No content in response (reason: ${blockReason})`);
+        if (data.error) console.error(`  API error detail: ${JSON.stringify(data.error)}`);
         retries--;
         await sleep(2000);
       }
