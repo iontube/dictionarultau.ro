@@ -705,8 +705,8 @@ function createArticlePage(keyword, content, imagePath, category, categorySlug, 
         const wrap = /** @type {HTMLElement|null} */ (outer.querySelector('.comparison-wrap'));
         function checkScroll(){
           if(!wrap) return;
-          if(wrap.scrollWidth > wrap.clientWidth + 2) outer.classList.add('can-scroll');
-          else outer.classList.remove('can-scroll');
+          if(wrap.scrollWidth > wrap.clientWidth + 2) outer?.classList.add('can-scroll');
+          else outer?.classList.remove('can-scroll');
         }
         checkScroll();
         window.addEventListener('resize', checkScroll);
