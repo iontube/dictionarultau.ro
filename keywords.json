@@ -544,11 +544,6 @@
       "categorySlug": "invatare-limbi-straine"
     },
     {
-      "keyword": "Tableta pentru copii recomandata",
-      "category": "Electronice Educative",
-      "categorySlug": "electronice-educative"
-    },
-    {
       "keyword": "Amazon Fire Kids tableta pareri",
       "category": "Electronice Educative",
       "categorySlug": "electronice-educative"
@@ -732,6 +727,11 @@
       "keyword": "Cum sa inveti italiana pentru vacanta",
       "category": "Invatare Limbi Straine",
       "categorySlug": "invatare-limbi-straine"
+    },
+    {
+      "keyword": "Tableta pentru copii recomandata",
+      "category": "Electronice Educative",
+      "categorySlug": "electronice-educative"
     }
   ]
 }
